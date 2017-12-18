@@ -1,8 +1,8 @@
 # Site settings 配置站点
-title: '廖柯宇的独立博客'
-description: '昵称悟空，千禧一代，前端开发者/伪极客/灵魂摄影师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。'
-keyword: '廖柯宇, 廖柯宇的独立博客, 廖柯宇的博客, 前端, 前端开发, 前端博客, javascript, vuejs, nodejs, 设计'
-url: 'http://liaokeyu.com' # your host
+title: '李东辉的个人博客'
+description: '昵称飘零叶，前端开发者/爱运动/梦想当一名厨师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。'
+keyword: '李东辉, 李东辉的个人博客, 李东辉的博客, 前端, 前端开发, 前端博客, javascript, vuejs, html5, css3, 设计'
+url: 'http://lidonghui22.com' # your host
 
 # if you don't need baseurl, you should leave this value blank.
 baseurl: ''
@@ -13,11 +13,11 @@ nav:
   tags: '/tags.html'
 
 # Author 配置博主信息
-author: '廖柯宇'
-nickname: '悟空'
+author: '李东辉'
+nickname: '飘零叶'
 bio: '前端开发者，热爱技术&设计，简单乐观爱创造'
-avatar: '/assets/img/profile.png'
-
+avatar: 'https://timgsa.baidu.com/timg?image&quality=80%20&size=b10000_10000&sec=1513596989070&di=f55ab7aca232c7d7f767ab135d4c5022&imgtype=jpg&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0bd162d9f2d3572c113fb52c8113632763d0c364.jpg'
+         
 # Search
 search: true
 
