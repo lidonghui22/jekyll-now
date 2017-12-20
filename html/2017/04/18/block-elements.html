@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test - 李东辉的个人博客</title>
+    <title>分组元素 - 李东辉的个人博客</title>
     <meta name="author"  content="李东辉">
-    <meta name="description" content="test">
-    <meta name="keywords"  content="aaa">
+    <meta name="description" content="分组元素">
+    <meta name="keywords"  content="html">
     <!-- Open Graph -->
-    <meta property="og:title" content="test - 李东辉的个人博客">
+    <meta property="og:title" content="分组元素 - 李东辉的个人博客">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://localhost:4000/html/2017/04/18/test.html">
+    <meta property="og:url" content="http://localhost:4000/html/2017/04/18/block-elements.html">
     <meta property="og:description" content="昵称飘零叶，前端开发者/爱运动/梦想当一名厨师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。">
     <meta property="og:site_name" content="李东辉的个人博客">
     <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
@@ -43,50 +43,112 @@
 </header>
 
 
-<header class="g-banner post-header post-pattern-circuitBoard bgcolor-default " data-theme="default">
+<header class="g-banner post-header post-pattern-circuitBoard bgcolor-default post-no-cover" data-theme="default">
     <div class="post-wrapper">
         <div class="post-tags">
             
             
-            <a href="http://localhost:4000/tags#aaa" class="post-tag">aaa</a>
+            <a href="http://localhost:4000/tags#html" class="post-tag">html</a>
             
             
         </div>
-        <h1>test</h1>
+        <h1>分组元素</h1>
         <div class="post-meta">
-            <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">Jekyll</a></></span>
+            <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">lidonghui</a></></span>
             <time class="post-meta-item" datetime="17-04-18"><i class="iconfont icon-date"></i>18 Apr 2017</time>
         </div>
     </div>
-    
-    <div class="filter"></div>
-    <div class="post-cover" style="background: url('http://on2171g4d.bkt.clouddn.com/jekyll-banner.png') center no-repeat; background-size: cover;">
     
 </header>
 
 <div class="post-content">
     
     <article class="markdown-body">
-        <blockquote>
-  <p>Transform your plain text into static websites and blogs.</p>
-</blockquote>
+        <h2 id="分组元素汇总">分组元素汇总</h2>
 
-<h3 id="welcome">Welcome</h3>
+<table>
+  <thead>
+    <tr>
+      <th>元素名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>p</td>
+      <td>表示段落</td>
+    </tr>
+    <tr>
+      <td>div</td>
+      <td>一个没有任何语义的通用元素，和 span 是对应元素</td>
+    </tr>
+    <tr>
+      <td>blockquote</td>
+      <td>表示引自他出的大段内容</td>
+    </tr>
+    <tr>
+      <td>pre</td>
+      <td>表示其格式应被保留的内容</td>
+    </tr>
+    <tr>
+      <td>hr</td>
+      <td>表示段落级别的主题转换，即水平线</td>
+    </tr>
+    <tr>
+      <td>ul,ol</td>
+      <td>表示无序列表，有序列表</td>
+    </tr>
+    <tr>
+      <td>li</td>
+      <td>用于 ul,ol 元素中的列表项</td>
+    </tr>
+    <tr>
+      <td>dl,dt,dd</td>
+      <td>表示包含一系列术语和定义说明的列表。dt 在 dl 内部表示术语，一般充当标题；dd 在 dl 内部表示定义，一般是内容。</td>
+    </tr>
+    <tr>
+      <td>figure</td>
+      <td>表示图片</td>
+    </tr>
+    <tr>
+      <td>figcaption</td>
+      <td>表示 figure 元素的标题</td>
+    </tr>
+  </tbody>
+</table>
 
-<p><img src="/images/banner.jpg" alt="" />
-This site aims to be a comprehensive guide to Jekyll. We’ll cover topics such as getting your site up and running, creating and managing your content, customizing the way your site works and looks, deploying to various environments, and give you some advice on participating in the future development of Jekyll itself.</p>
+<h2 id="分组元素解析">分组元素解析</h2>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>					  段落
+<span class="nt">&lt;div&gt;</span>				  通用分组
+<span class="nt">&lt;blockquote&gt;</span>   		  引用大段的他出内容，实际作用除了和<span class="nt">&lt;p&gt;</span>元素一样，但有首尾缩进的功能
+<span class="nt">&lt;pre&gt;</span>				  展示格式化内容，实际作用就是编辑器怎么排版，原封不动的展现出来
+<span class="nt">&lt;hr&gt;</span>				  分割线
+<span class="nt">&lt;ul&gt;&lt;li&gt;</span>              无序列表
+<span class="nt">&lt;ol&gt;&lt;li&gt;</span>              有序列表，start属性可以决定起始值
+//例
+<span class="nt">&lt;ol</span> <span class="na">start=</span><span class="s">"5"</span><span class="nt">&gt;</span>                   显示结果
+    <span class="nt">&lt;li&gt;</span>张三<span class="nt">&lt;/li&gt;</span>                 5.张三
+    <span class="nt">&lt;li&gt;</span>李四<span class="nt">&lt;/li&gt;</span>                 6.李四
+    <span class="nt">&lt;li&gt;</span>王五<span class="nt">&lt;/li&gt;</span>                 7.王五
+    <span class="nt">&lt;li&gt;</span>马六<span class="nt">&lt;/li&gt;</span>                 8.马六
+<span class="nt">&lt;/ol&gt;</span>
 
-<h3 id="so-what-is-jekyll-exactlypermalink">So what is Jekyll, exactly?Permalink</h3>
+<span class="nt">&lt;dl&gt;&lt;dt&gt;&lt;dd&gt;</span>		  生成说明列表，这三个元素是一个整体
+//例
+<span class="nt">&lt;dl&gt;</span>
+    <span class="nt">&lt;dt&gt;</span>这是第一份文件<span class="nt">&lt;/dt&gt;</span>
+    <span class="nt">&lt;dd&gt;</span>这是第一份文件的详细内容1<span class="nt">&lt;/dd&gt;</span>
+    <span class="nt">&lt;dd&gt;</span>这是第一份文件的详细内容2<span class="nt">&lt;/dd&gt;</span>
+<span class="nt">&lt;/dl&gt;</span>
 
-<p>Jekyll is a simple, blog-aware, static site generator. It takes a template directory containing raw text files in various formats, runs it through a converter (like <a href="https://daringfireball.net/projects/markdown/">Markdown</a>) and our <a href="https://github.com/Shopify/liquid/wiki">Liquid</a> renderer, and spits out a complete, ready-to-publish static website suitable for serving with your favorite web server. Jekyll also happens to be the engine behind GitHub Pages, which means you can use Jekyll to host your project’s page, blog, or website from GitHub’s servers for free.</p>
+<span class="nt">&lt;figure&gt;&lt;figcaption&gt;</span>  使用插图  这两个元素一般用于图片布局
+//例
+<span class="nt">&lt;figure&gt;</span>
+    <span class="nt">&lt;figcaption&gt;</span>这是一张图片<span class="nt">&lt;/figcaption&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img.png"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/figure&gt;</span>
+</code></pre></div></div>
 
-<h3 id="helpful-hintspermalink">Helpful HintsPermalink</h3>
-
-<p>Throughout this guide there are a number of small-but-handy pieces of information that can make using Jekyll easier, more interesting, and less hazardous. Here’s what to look out for.</p>
-
-<h3 id="video-test">Video Test</h3>
-
-<iframe type="text/html" width="100%" height="385" src="http://www.youtube.com/embed/gfmjMWjn-Xg" frameborder="0"></iframe>
 
     </article>
     
@@ -99,7 +161,7 @@ This site aims to be a comprehensive guide to Jekyll. We’ll cover topics such 
 <section class="author-detail">
     <section class="post-footer-item author-card">
         <div class="avatar">
-            <img src="https://timgsa.baidu.com/timg?image&quality=80%20&size=b10000_10000&sec=1513596989070&di=f55ab7aca232c7d7f767ab135d4c5022&imgtype=jpg&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0bd162d9f2d3572c113fb52c8113632763d0c364.jpg" alt="">
+            <img src="http://localhost:4000/assets/img/user/head.jpg" alt="">
         </div>
         <div class="author-name" rel="author">李东辉</div>
         <div class="bio">
@@ -137,12 +199,21 @@ This site aims to be a comprehensive guide to Jekyll. We’ll cover topics such 
     </section>
     <section class="post-footer-item read-next">
         
+        <div class="read-next-item">
+            <a href="/html/2017/04/18/doc-elements.html" class="read-next-link"></a>
+            <section>
+                <span>文档元素</span>
+                <p>文档元素汇总文档元素没有什么实际作用效果，主要目的是在页面布局是区分各个主题和概念。</p>
+            </section>
+            
+        </div>
+        
         
         <div class="read-next-item">
-            <a href="/2017/04/18/new-theme-h2o.html" class="read-next-link"></a>
+            <a href="/html/2017/04/18/a-elements.html" class="read-next-link"></a>
             <section>
-                <span>H2O theme for Jekyll</span>
-                <p>正如我在微博上所说的，使用Jekyll半年以来一直没有令我满意的主题模板，所以开始计划自己写一套好看又好用的主题模...</p>
+                <span>超链接和路径</span>
+                <p>超链接的属性</p>
             </section>
             
         </div>
@@ -177,7 +248,7 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
 (function() { // DON'T EDIT BELOW THIS LINE
 var d = document, s = d.createElement('script');
 /*写入自己的disqus信息*/
-s.src = 'https://lidonghui.disqus.com/embed.js';
+s.src = '';
 s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();

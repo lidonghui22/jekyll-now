@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cookie基本用法 - 李东辉的个人博客</title>
+    <meta name="author"  content="李东辉">
+    <meta name="description" content="cookie基本用法">
+    <meta name="keywords"  content="js">
+    <!-- Open Graph -->
+    <meta property="og:title" content="cookie基本用法 - 李东辉的个人博客">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:4000/js/2014/08/19/cookie.html">
+    <meta property="og:description" content="昵称飘零叶，前端开发者/爱运动/梦想当一名厨师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。">
+    <meta property="og:site_name" content="李东辉的个人博客">
+    <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_roc50gemkxpw4s4i.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    <link rel="stylesheet" href="/assets/css/share.min.css">
+    <link rel="stylesheet" href="/assets/css/app.min.css">
+</head>
+<body>
+    <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+<input id="nm-switch" type="hidden" value="true">
+
+<header class="g-header">
+    <!-- <div class="g-logo">
+      <a href="/"></a>
+    </div>
+    <i id="menu-toggle" class="iconfont icon-menu"></i> -->
+    <nav class="g-nav">
+        <ul>
+            
+            <li><a href="/">home</a></li>
+            
+            <li><a href="/tags.html">tags</a></li>
+            
+        </ul>
+    </nav>
+</header>
+
+
+<header class="g-banner post-header post-pattern-circuitBoard bgcolor-default post-no-cover" data-theme="default">
+    <div class="post-wrapper">
+        <div class="post-tags">
+            
+            
+            <a href="http://localhost:4000/tags#js" class="post-tag">js</a>
+            
+            
+        </div>
+        <h1>cookie基本用法</h1>
+        <div class="post-meta">
+            <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">lidonghui</a></></span>
+            <time class="post-meta-item" datetime="14-08-19"><i class="iconfont icon-date"></i>19 Aug 2014</time>
+        </div>
+    </div>
+    
+</header>
+
+<div class="post-content">
+    
+    <h2 class="post-subtitle">cookie的添加、读取方法</h2>
+    
+    <article class="markdown-body">
+        <h3 id="每个-cookie-都是这样的">每个 Cookie 都是这样的：</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;cookie</span><span class="err">名</span><span class="nt">&gt;</span>=<span class="nt">&lt;</span><span class="err">值</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<p>可以通过下面两个函数来设置和获取cookie</p>
+
+<h3 id="设置cookie">设置Cookie</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">setCookie</span><span class="p">(</span><span class="nx">c_name</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">expiredays</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">exdate</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span><span class="err">　　　　</span>
+    <span class="nx">exdate</span><span class="p">.</span><span class="nx">setDate</span><span class="p">(</span><span class="nx">exdate</span><span class="p">.</span><span class="nx">getDate</span><span class="p">()</span> <span class="o">+</span> <span class="nx">expiredays</span><span class="p">);</span><span class="err">　　　　</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span> <span class="o">=</span> <span class="nx">c_name</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">+</span> <span class="nx">escape</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="nx">expiredays</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">?</span> <span class="s2">""</span><span class="p">:</span> <span class="s2">";expires="</span> <span class="o">+</span> <span class="nx">exdate</span><span class="p">.</span><span class="nx">toGMTString</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="获取cookie">获取Cookie</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">getCookie</span><span class="p">(</span><span class="nx">c_name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span><span class="err">　　　　</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//检查这个cookie是否存在，不存在就为 -1</span>
+        <span class="nx">c_start</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">c_name</span> <span class="o">+</span> <span class="s2">"="</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">c_start</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">//获取cookie值的开始位置</span>
+            <span class="nx">c_start</span> <span class="o">=</span> <span class="nx">c_start</span> <span class="o">+</span> <span class="nx">c_name</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="c1">//通过";"号是否存在来判断结束位置</span>
+            <span class="nx">c_end</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">";"</span><span class="p">,</span> <span class="nx">c_start</span><span class="p">);</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="nx">c_end</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+                <span class="nx">c_end</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="c1">//通过substring()得到了值</span>
+            <span class="k">return</span> <span class="nx">unescape</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">c_start</span><span class="p">,</span> <span class="nx">c_end</span><span class="p">))</span><span class="err">　　</span> 
+        <span class="p">}</span><span class="err">　　　　</span>
+    <span class="p">}</span><span class="err">　　　　</span>
+    <span class="k">return</span> <span class="s2">""</span><span class="err">　　</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>示例： 
+设置了一个名为‘aaa’的cookie，值为‘sure’，有效期为1天</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">setCookie</span><span class="p">(</span><span class="s1">'aaa'</span><span class="p">,</span><span class="s1">'sure'</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>在浏览器查看结果：
+<img src="/assets/img/js/01.png" alt="" /></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">getCookie</span><span class="p">(</span><span class="s1">'aaa'</span><span class="p">);</span>		<span class="c1">// "sure"</span>
+</code></pre></div></div>
+
+
+    </article>
+    
+    <div class="social-share-wrapper">
+        <div class="social-share"></div>
+    </div>
+    
+</div>
+
+<section class="author-detail">
+    <section class="post-footer-item author-card">
+        <div class="avatar">
+            <img src="http://localhost:4000/assets/img/user/head.jpg" alt="">
+        </div>
+        <div class="author-name" rel="author">李东辉</div>
+        <div class="bio">
+            <p>前端开发者，热爱技术&设计，简单乐观爱创造</p>
+        </div>
+        
+        <ul class="sns-links">
+            
+            <li>
+                <a href="//zhihu.com/people/li-dong-hui-23/activities" target="_blank">
+                    <i class="iconfont icon-zhihu"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//jianshu.com/users/3c0dfb0e3ffd/timeline" target="_blank">
+                    <i class="iconfont icon-jianshu"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//juejin.im/user/58e6ea3761ff4b006b3e82ab" target="_blank">
+                    <i class="iconfont icon-juejin"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//github.com/lidonghui22" target="_blank">
+                    <i class="iconfont icon-github"></i>
+                </a>
+            </li>
+            
+        </ul>
+        
+    </section>
+    <section class="post-footer-item read-next">
+        
+        <div class="read-next-item">
+            <a href="/js/2015/08/05/for-in.html" class="read-next-link"></a>
+            <section>
+                <span>for in 循环遍历对象和数组</span>
+                <p>用for循环进行遍历时，如果是对象，则 i 代表的是属性，如果是数组，则代表的是“键”； 用这种方法可以实现对对象...</p>
+            </section>
+            
+        </div>
+        
+        
+    </section>
+    
+</section>
+
+<footer class="g-footer">
+    <section>李东辉的个人博客 © 2017</section>
+    <section>Powered by <a href="//jekyllrb.com">Jekyll</a> | <a href="https://github.com/kaeyleo/jekyll-theme-H2O">Theme H2O</a></section>
+</footer>
+
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+    socialShare('.social-share', {
+        sites: ['wechat','weibo','douban','twitter'],
+        wechatQrcodeTitle: "分享到微信朋友圈",
+        wechatQrcodeHelper: '<p>扫码后点击右上角</p><p>将本文分享至朋友圈</p>'
+    });
+</script>
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+/*写入自己的disqus信息*/
+s.src = '';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<script src="/assets/js/prism.js"></script>
+<script src="/assets/js/index.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML基本结构 - 李东辉的个人博客</title>
+    <meta name="author"  content="李东辉">
+    <meta name="description" content="HTML基本结构">
+    <meta name="keywords"  content="html">
+    <!-- Open Graph -->
+    <meta property="og:title" content="HTML基本结构 - 李东辉的个人博客">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:4000/html/2017/04/18/html-basic.html">
+    <meta property="og:description" content="昵称飘零叶，前端开发者/爱运动/梦想当一名厨师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。">
+    <meta property="og:site_name" content="李东辉的个人博客">
+    <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_roc50gemkxpw4s4i.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    <link rel="stylesheet" href="/assets/css/share.min.css">
+    <link rel="stylesheet" href="/assets/css/app.min.css">
+</head>
+<body>
+    <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+<input id="nm-switch" type="hidden" value="true">
+
+<header class="g-header">
+    <!-- <div class="g-logo">
+      <a href="/"></a>
+    </div>
+    <i id="menu-toggle" class="iconfont icon-menu"></i> -->
+    <nav class="g-nav">
+        <ul>
+            
+            <li><a href="/">home</a></li>
+            
+            <li><a href="/tags.html">tags</a></li>
+            
+        </ul>
+    </nav>
+</header>
+
+
+<header class="g-banner post-header post-pattern-circuitBoard bgcolor-default post-no-cover" data-theme="default">
+    <div class="post-wrapper">
+        <div class="post-tags">
+            
+            
+            <a href="http://localhost:4000/tags#html" class="post-tag">html</a>
+            
+            
+        </div>
+        <h1>HTML基本结构</h1>
+        <div class="post-meta">
+            <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">lidonghui</a></></span>
+            <time class="post-meta-item" datetime="17-04-18"><i class="iconfont icon-date"></i>18 Apr 2017</time>
+        </div>
+    </div>
+    
+</header>
+
+<div class="post-content">
+    
+    <article class="markdown-body">
+        <blockquote>
+  <p>最基本的HTML元素，也就是创建文档结构所需的元素。例如：标题、段落、页面分隔、注释等。</p>
+</blockquote>
+
+<h2 id="html的基本结构">HTML的基本结构</h2>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>                              //根控制标记
+	<span class="nt">&lt;head&gt;</span>                          //头控制标记
+		<span class="nt">&lt;title&gt;</span>标题<span class="nt">&lt;/title&gt;</span>         //标题标记
+	<span class="nt">&lt;/head&gt;</span>                         //头控制标记（尾）
+	<span class="nt">&lt;body&gt;</span>
+	                                //网页显示区域
+	<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>                             //根控制标记(尾)
+</code></pre></div></div>
+
+<h4 id="htmlhtml">&lt;html&gt;…&lt;/html&gt;</h4>
+<p>根控制标记
+开头和结尾成对出现，双标签</p>
+
+<h4 id="headhead">&lt;head&gt;…&lt;/head&gt;</h4>
+<p>头控制标记</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. <span class="nt">&lt;title&gt;</span>很单纯的文件标题声明
+2. <span class="nt">&lt;meta&gt;</span>控制标记的动态文件转换声明
+3. <span class="nt">&lt;base&gt;</span>超链接网址基准参考点
+4. Javascript程序
+5. stylesheet 可用来设置排版来的声明
+6. <span class="nt">&lt;link&gt;</span>可引用外部文件，如CSS排版样本
+</code></pre></div></div>
+
+<p>设置浏览器的视窗标题</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;title&gt;</span>…<span class="nt">&lt;/title&gt;</span>
+</code></pre></div></div>
+
+<p>页面可见内容</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;body&gt;</span>…<span class="nt">&lt;/body&gt;</span>
+</code></pre></div></div>
+
+<h2 id="html控制标记的格式">HTML控制标记的格式</h2>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. <span class="nt">&lt;</span><span class="err">标记名称</span><span class="nt">&gt;</span> 单一型,无设置值的 如：<span class="nt">&lt;br&gt;</span>
+2. <span class="nt">&lt;</span><span class="err">标记名称</span> <span class="err">属性="属性值"</span><span class="nt">&gt;</span> 单一型,有设置值的 如：<span class="nt">&lt;hr</span> <span class="na">width=</span><span class="s">"80%"</span><span class="nt">&gt;</span>
+3. <span class="nt">&lt;</span><span class="err">标记名称</span><span class="nt">&gt;</span>…<span class="nt">&lt;/</span><span class="err">标记名称</span><span class="nt">&gt;</span> 对称型,无设置值 如：<span class="nt">&lt;title&gt;</span>…<span class="nt">&lt;/title&gt;</span>
+4. <span class="nt">&lt;</span><span class="err">标记名称</span> <span class="err">属性="属性值"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/</span><span class="err">标记名称</span><span class="nt">&gt;</span>对称型,有设置值 如：<span class="nt">&lt;body</span> <span class="na">bgcolor=</span><span class="s">"red"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/body&gt;</span> <span class="nt">&lt;font</span> <span class="na">size=</span><span class="s">"7"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/font&gt;</span>
+</code></pre></div></div>
+
+<h2 id="最常用的控制标记">最常用的控制标记</h2>
+<p>1.换行</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;br&gt;</span>
+</code></pre></div></div>
+<p>无属性设置</p>
+
+<p>2.段落</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">align=</span><span class="s">"排列方式"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<p>3.水平直线</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>格式：<span class="nt">&lt;hr&gt;</span>
+</code></pre></div></div>
+
+<p>4.背景色与文字设置</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//页面背景,文字颜色
+<span class="nt">&lt;body</span> <span class="na">bgcolor=</span><span class="s">"背景色"</span>  <span class="na">text=</span><span class="s">"文字颜色"</span><span class="nt">&gt;</span>
+//页面边距,行距
+<span class="nt">&lt;body</span> <span class="na">leftmargin=</span><span class="s">"像素"</span> <span class="na">topmargin=</span><span class="s">"像素"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<p>5.标题文字设置</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h1&gt;</span>…<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h2&gt;</span>…<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;h3&gt;</span>…<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;h4&gt;</span>…<span class="nt">&lt;/h4&gt;</span>
+<span class="nt">&lt;h5&gt;</span>…<span class="nt">&lt;/h5&gt;</span>
+<span class="nt">&lt;h6&gt;</span>…<span class="nt">&lt;/h6&gt;</span>
+</code></pre></div></div>
+
+<p>6.特殊字符设置</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;</span>      <span class="nt">lt</span><span class="err">;</span>
+<span class="nt">&gt;</span>      gt;
+<span class="err">&amp;</span>      amp;    
+“      quot;
+</code></pre></div></div>
+
+<p>7.HTML备注</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!--…--&gt;</span>
+</code></pre></div></div>
+
+<p>8.实体字符控制标记</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;b&gt;</span>…<span class="nt">&lt;/b&gt;</span>                	 粗
+<span class="nt">&lt;i&gt;</span>…<span class="nt">&lt;/i&gt;</span>                	 斜
+<span class="nt">&lt;s&gt;</span>…<span class="nt">&lt;/s&gt;</span>                	 删
+<span class="nt">&lt;u&gt;</span>…<span class="nt">&lt;/u&gt;</span>                	 下划
+<span class="nt">&lt;tt&gt;</span>…<span class="nt">&lt;/tt&gt;</span>              	 电报
+<span class="nt">&lt;sub&gt;</span>…<span class="nt">&lt;/sub&gt;</span>        	  	 下标
+<span class="nt">&lt;sup&gt;</span>…<span class="nt">&lt;/sup&gt;</span>            	 上标
+</code></pre></div></div>
+
+<p>9.语意字符控制</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;address&gt;</span>…<span class="nt">&lt;/address&gt;</span>         地址
+<span class="nt">&lt;big&gt;</span>…<span class="nt">&lt;/big&gt;</span>                 大字
+<span class="nt">&lt;del&gt;</span>…<span class="nt">&lt;/del&gt;</span>                 删除
+<span class="nt">&lt;ins&gt;</span>...<span class="nt">&lt;/ins&gt;</span>               修改
+<span class="nt">&lt;samll&gt;</span>…<span class="nt">&lt;/small&gt;</span>             小字
+<span class="nt">&lt;strong&gt;</span>…<span class="nt">&lt;/strong&gt;</span>           加强语气(加粗)
+<span class="nt">&lt;em&gt;</span>...<span class="nt">&lt;/em&gt;</span>                 加强语气(倾斜)
+</code></pre></div></div>
+
+<p>10.格式化
+让书写的文字代码化</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;pre&gt;</span>…<span class="nt">&lt;/pre&gt;</span>
+</code></pre></div></div>
+
+<p>11.引用文本</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;blockquote&gt;</span>...<span class="nt">&lt;/blockquote&gt;</span>
+</code></pre></div></div>
+
+
+    </article>
+    
+    <div class="social-share-wrapper">
+        <div class="social-share"></div>
+    </div>
+    
+</div>
+
+<section class="author-detail">
+    <section class="post-footer-item author-card">
+        <div class="avatar">
+            <img src="http://localhost:4000/assets/img/user/head.jpg" alt="">
+        </div>
+        <div class="author-name" rel="author">李东辉</div>
+        <div class="bio">
+            <p>前端开发者，热爱技术&设计，简单乐观爱创造</p>
+        </div>
+        
+        <ul class="sns-links">
+            
+            <li>
+                <a href="//zhihu.com/people/li-dong-hui-23/activities" target="_blank">
+                    <i class="iconfont icon-zhihu"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//jianshu.com/users/3c0dfb0e3ffd/timeline" target="_blank">
+                    <i class="iconfont icon-jianshu"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//juejin.im/user/58e6ea3761ff4b006b3e82ab" target="_blank">
+                    <i class="iconfont icon-juejin"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//github.com/lidonghui22" target="_blank">
+                    <i class="iconfont icon-github"></i>
+                </a>
+            </li>
+            
+        </ul>
+        
+    </section>
+    <section class="post-footer-item read-next">
+        
+        <div class="read-next-item">
+            <a href="/html/2017/04/18/table-elements.html" class="read-next-link"></a>
+            <section>
+                <span>表格元素</span>
+                <p>表格元素汇总表格的基本构成最少需要三个元素：&lt;table&gt;、&lt;tr&gt;、&lt;td&gt;</p>
+            </section>
+            
+        </div>
+        
+        
+        <div class="read-next-item">
+            <a href="/html/2017/04/18/doc-elements.html" class="read-next-link"></a>
+            <section>
+                <span>文档元素</span>
+                <p>文档元素汇总文档元素没有什么实际作用效果，主要目的是在页面布局是区分各个主题和概念。</p>
+            </section>
+            
+        </div>
+        
+    </section>
+    
+</section>
+
+<footer class="g-footer">
+    <section>李东辉的个人博客 © 2017</section>
+    <section>Powered by <a href="//jekyllrb.com">Jekyll</a> | <a href="https://github.com/kaeyleo/jekyll-theme-H2O">Theme H2O</a></section>
+</footer>
+
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+    socialShare('.social-share', {
+        sites: ['wechat','weibo','douban','twitter'],
+        wechatQrcodeTitle: "分享到微信朋友圈",
+        wechatQrcodeHelper: '<p>扫码后点击右上角</p><p>将本文分享至朋友圈</p>'
+    });
+</script>
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+/*写入自己的disqus信息*/
+s.src = '';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<script src="/assets/js/prism.js"></script>
+<script src="/assets/js/index.min.js"></script>
+</body>
+</html>

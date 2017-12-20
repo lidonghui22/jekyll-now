@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档元素 - 李东辉的个人博客</title>
+    <meta name="author"  content="李东辉">
+    <meta name="description" content="文档元素">
+    <meta name="keywords"  content="html">
+    <!-- Open Graph -->
+    <meta property="og:title" content="文档元素 - 李东辉的个人博客">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:4000/html/2017/04/18/doc-elements.html">
+    <meta property="og:description" content="昵称飘零叶，前端开发者/爱运动/梦想当一名厨师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。">
+    <meta property="og:site_name" content="李东辉的个人博客">
+    <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_roc50gemkxpw4s4i.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    <link rel="stylesheet" href="/assets/css/share.min.css">
+    <link rel="stylesheet" href="/assets/css/app.min.css">
+</head>
+<body>
+    <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+<input id="nm-switch" type="hidden" value="true">
+
+<header class="g-header">
+    <!-- <div class="g-logo">
+      <a href="/"></a>
+    </div>
+    <i id="menu-toggle" class="iconfont icon-menu"></i> -->
+    <nav class="g-nav">
+        <ul>
+            
+            <li><a href="/">home</a></li>
+            
+            <li><a href="/tags.html">tags</a></li>
+            
+        </ul>
+    </nav>
+</header>
+
+
+<header class="g-banner post-header post-pattern-circuitBoard bgcolor-default post-no-cover" data-theme="default">
+    <div class="post-wrapper">
+        <div class="post-tags">
+            
+            
+            <a href="http://localhost:4000/tags#html" class="post-tag">html</a>
+            
+            
+        </div>
+        <h1>文档元素</h1>
+        <div class="post-meta">
+            <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">lidonghui</a></></span>
+            <time class="post-meta-item" datetime="17-04-18"><i class="iconfont icon-date"></i>18 Apr 2017</time>
+        </div>
+    </div>
+    
+</header>
+
+<div class="post-content">
+    
+    <article class="markdown-body">
+        <h2 id="文档元素汇总">文档元素汇总</h2>
+<p>文档元素没有什么实际作用效果，主要目的是在页面布局是区分各个主题和概念。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>元素名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>h1~h6</td>
+      <td>表示标题</td>
+    </tr>
+    <tr>
+      <td>header</td>
+      <td>表示首部</td>
+    </tr>
+    <tr>
+      <td>footer</td>
+      <td>表示尾部</td>
+    </tr>
+    <tr>
+      <td>nav</td>
+      <td>表示有意集中在一起的导航元素</td>
+    </tr>
+    <tr>
+      <td>section</td>
+      <td>表示重要概念或主题</td>
+    </tr>
+    <tr>
+      <td>article</td>
+      <td>表示一段独立的内容</td>
+    </tr>
+    <tr>
+      <td>address</td>
+      <td>表示文档或 article 的联系信息</td>
+    </tr>
+    <tr>
+      <td>aside</td>
+      <td>表示与周边内容少有牵涉的内容</td>
+    </tr>
+    <tr>
+      <td>hgroup</td>
+      <td>将一组标题组织在一起</td>
+    </tr>
+    <tr>
+      <td>details</td>
+      <td>生成一个区域，用户将其展开可以获得更多细节</td>
+    </tr>
+    <tr>
+      <td>summary</td>
+      <td>用在 details 元素中，表示该元素内容的标题或说明</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="文档元素解析">文档元素解析</h2>
+<h4 id="header表示头部">header表示头部</h4>
+<p>解析：header主要设置页面的标头部分</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;header&gt;</span>这里部分一般是页面头部，包括：logo、标题、导航等内容<span class="nt">&lt;/header&gt;</span>
+</code></pre></div></div>
+
+<h4 id="footer表示尾部">footer表示尾部</h4>
+<p>解析：footer主要设置页面的尾部</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;footer&gt;</span>这里部分一般是页面头部，包括：logo、标题、导航等内容<span class="nt">&lt;/footer&gt;</span>
+</code></pre></div></div>
+
+<h4 id="h1h6标题">h1~h6标题</h4>
+<p>解析：h1~h6实际作用就是加粗并改变字体大小，用于各种标题文档</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h1&gt;</span>...<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h2&gt;</span>...<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;h3&gt;</span>...<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;h4&gt;</span>...<span class="nt">&lt;/h4&gt;</span>
+<span class="nt">&lt;h5&gt;</span>...<span class="nt">&lt;/h5&gt;</span>
+<span class="nt">&lt;h6&gt;</span>...<span class="nt">&lt;/h6&gt;</span>
+</code></pre></div></div>
+
+<h4 id="hgroup组合标题">hgroup组合标题</h4>
+<p>解析：hgroup元素的作用就是当多个标题出现，干扰到一对或多个本身需要整合的标题，这时使用此元素包含群组。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;hgroup&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>h1标题部分<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;h4&gt;</span>h4标题部分<span class="nt">&lt;/h4&gt;</span>
+<span class="nt">&lt;/hgroup&gt;</span>
+</code></pre></div></div>
+
+<h4 id="section文档主题">section文档主题</h4>
+<p>解析：section作用是定义一个文档的主题内容。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;section&gt;</span>这里一般是存放文档主题内容<span class="nt">&lt;/section&gt;</span>
+</code></pre></div></div>
+
+<h4 id="nav添加导航">nav添加导航</h4>
+<p>解析：nav元素给文档页添加一个导航</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;nav&gt;</span>这里存放文档的导航<span class="nt">&lt;/nav&gt;</span>
+</code></pre></div></div>
+
+<h4 id="article添加独立成篇的文档">article添加独立成篇的文档</h4>
+<p>解析：article表示独立成篇的文档，里面可以包含头、尾、主题等一系列内容。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;article&gt;</span>
+    <span class="nt">&lt;header&gt;</span>
+        <span class="nt">&lt;nav&gt;&lt;/nav&gt;</span>
+    <span class="nt">&lt;/header&gt;</span>
+    <span class="nt">&lt;section&gt;&lt;/section&gt;</span>
+    <span class="nt">&lt;footer&gt;&lt;/footer&gt;</span>
+<span class="nt">&lt;/article&gt;</span>
+</code></pre></div></div>
+
+<h4 id="aside生成注释栏">aside生成注释栏</h4>
+<p>解析：asside专门为某一段内容进行注释使用。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;aside&gt;</span>这是一个注释<span class="nt">&lt;/aside&gt;</span>
+</code></pre></div></div>
+
+<h4 id="address表示文档或article元素的联系信息">address表示文档或article元素的联系信息</h4>
+<p>解析：如果是在body元素下，表示整个文档的联系信息，如果是在article元素下，表示其下的联系信息</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;address&gt;</span>联系信息<span class="nt">&lt;/address&gt;</span>
+</code></pre></div></div>
+
+<h4 id="details元素生成详情区域summary元素在其内部生成说明标签">details元素生成详情区域,summary元素在其内部生成说明标签</h4>
+<p>解析：大多数浏览器尚未支持，暂略</p>
+
+
+    </article>
+    
+    <div class="social-share-wrapper">
+        <div class="social-share"></div>
+    </div>
+    
+</div>
+
+<section class="author-detail">
+    <section class="post-footer-item author-card">
+        <div class="avatar">
+            <img src="http://localhost:4000/assets/img/user/head.jpg" alt="">
+        </div>
+        <div class="author-name" rel="author">李东辉</div>
+        <div class="bio">
+            <p>前端开发者，热爱技术&设计，简单乐观爱创造</p>
+        </div>
+        
+        <ul class="sns-links">
+            
+            <li>
+                <a href="//zhihu.com/people/li-dong-hui-23/activities" target="_blank">
+                    <i class="iconfont icon-zhihu"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//jianshu.com/users/3c0dfb0e3ffd/timeline" target="_blank">
+                    <i class="iconfont icon-jianshu"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//juejin.im/user/58e6ea3761ff4b006b3e82ab" target="_blank">
+                    <i class="iconfont icon-juejin"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//github.com/lidonghui22" target="_blank">
+                    <i class="iconfont icon-github"></i>
+                </a>
+            </li>
+            
+        </ul>
+        
+    </section>
+    <section class="post-footer-item read-next">
+        
+        <div class="read-next-item">
+            <a href="/html/2017/04/18/html-basic.html" class="read-next-link"></a>
+            <section>
+                <span>HTML基本结构</span>
+                <p>  最基本的HTML元素，也就是创建文档结构所需的元素。例如：标题、段落、页面分隔、注释等。</p>
+            </section>
+            
+        </div>
+        
+        
+        <div class="read-next-item">
+            <a href="/html/2017/04/18/block-elements.html" class="read-next-link"></a>
+            <section>
+                <span>分组元素</span>
+                <p>分组元素汇总</p>
+            </section>
+            
+        </div>
+        
+    </section>
+    
+</section>
+
+<footer class="g-footer">
+    <section>李东辉的个人博客 © 2017</section>
+    <section>Powered by <a href="//jekyllrb.com">Jekyll</a> | <a href="https://github.com/kaeyleo/jekyll-theme-H2O">Theme H2O</a></section>
+</footer>
+
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+    socialShare('.social-share', {
+        sites: ['wechat','weibo','douban','twitter'],
+        wechatQrcodeTitle: "分享到微信朋友圈",
+        wechatQrcodeHelper: '<p>扫码后点击右上角</p><p>将本文分享至朋友圈</p>'
+    });
+</script>
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+/*写入自己的disqus信息*/
+s.src = '';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<script src="/assets/js/prism.js"></script>
+<script src="/assets/js/index.min.js"></script>
+</body>
+</html>

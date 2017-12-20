@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格元素 - 李东辉的个人博客</title>
+    <meta name="author"  content="李东辉">
+    <meta name="description" content="表格元素">
+    <meta name="keywords"  content="html">
+    <!-- Open Graph -->
+    <meta property="og:title" content="表格元素 - 李东辉的个人博客">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:4000/html/2017/04/18/table-elements.html">
+    <meta property="og:description" content="昵称飘零叶，前端开发者/爱运动/梦想当一名厨师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。">
+    <meta property="og:site_name" content="李东辉的个人博客">
+    <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_roc50gemkxpw4s4i.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    <link rel="stylesheet" href="/assets/css/share.min.css">
+    <link rel="stylesheet" href="/assets/css/app.min.css">
+</head>
+<body>
+    <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+<input id="nm-switch" type="hidden" value="true">
+
+<header class="g-header">
+    <!-- <div class="g-logo">
+      <a href="/"></a>
+    </div>
+    <i id="menu-toggle" class="iconfont icon-menu"></i> -->
+    <nav class="g-nav">
+        <ul>
+            
+            <li><a href="/">home</a></li>
+            
+            <li><a href="/tags.html">tags</a></li>
+            
+        </ul>
+    </nav>
+</header>
+
+
+<header class="g-banner post-header post-pattern-circuitBoard bgcolor-default post-no-cover" data-theme="default">
+    <div class="post-wrapper">
+        <div class="post-tags">
+            
+            
+            <a href="http://localhost:4000/tags#html" class="post-tag">html</a>
+            
+            
+        </div>
+        <h1>表格元素</h1>
+        <div class="post-meta">
+            <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">lidonghui</a></></span>
+            <time class="post-meta-item" datetime="17-04-18"><i class="iconfont icon-date"></i>18 Apr 2017</time>
+        </div>
+    </div>
+    
+</header>
+
+<div class="post-content">
+    
+    <article class="markdown-body">
+        <h2 id="表格元素汇总">表格元素汇总</h2>
+<p>表格的基本构成最少需要三个元素：</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;table&gt;</span>、<span class="nt">&lt;tr&gt;</span>、<span class="nt">&lt;td&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>元素名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>table</td>
+      <td>表示表格</td>
+    </tr>
+    <tr>
+      <td>thead</td>
+      <td>表示标题行</td>
+    </tr>
+    <tr>
+      <td>tbody</td>
+      <td>表示表格主体</td>
+    </tr>
+    <tr>
+      <td>tfoot</td>
+      <td>表示表脚</td>
+    </tr>
+    <tr>
+      <td>tr</td>
+      <td>表示一行单元格</td>
+    </tr>
+    <tr>
+      <td>th</td>
+      <td>表示标题行单元格</td>
+    </tr>
+    <tr>
+      <td>td</td>
+      <td>表示单元格</td>
+    </tr>
+    <tr>
+      <td>col</td>
+      <td>表示一列</td>
+    </tr>
+    <tr>
+      <td>colgroup</td>
+      <td>表示一组列</td>
+    </tr>
+    <tr>
+      <td>caption</td>
+      <td>表示表格标题</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="构建表格">构建表格</h2>
+<h4 id="使用trtd的基础表格">使用tr,td的基础表格</h4>
+<p>解析：默认情况下表格是没有边框的，在table元素增加一个border属性，设置为1即可显示边框</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;table</span> <span class="na">border=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>张三<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>男<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>未婚<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>李四<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>女<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>已婚<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</code></pre></div></div>
+
+<h4 id="th为表格增加标题">th为表格增加标题</h4>
+<p>解析：th主要是添加标题行，实际作用就是将内部文字居中且加粗。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;table</span> <span class="na">border=</span><span class="s">"1"</span> <span class="na">style=</span><span class="s">"width：300px;"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;th&gt;</span>姓名<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;th&gt;</span>性别<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;th&gt;</span>婚姻<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>张三<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>男<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>未婚<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>李四<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>女<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>已婚<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</code></pre></div></div>
+
+<h4 id="thead为表格添加表头">thead为表格添加表头</h4>
+<p>解析：thead元素就是限制和规范表格的表头</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;thead&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;th&gt;</span>姓名<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;th&gt;</span>性别<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;th&gt;</span>婚姻<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;/thead&gt;</span>
+</code></pre></div></div>
+
+<h4 id="tfoot为表格添加表脚">tfoot为表格添加表脚</h4>
+<p>解析：tfoot为表格生成表脚，限制在表格的底部</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;tfoot&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">colspan=</span><span class="s">"3"</span><span class="nt">&gt;</span>统计:共两名<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;/tfoot&gt;</span>
+</code></pre></div></div>
+
+<h4 id="tbody为表格添加主体">tbody为表格添加主体</h4>
+<p>解析：tbody主要是包含住表格的主体部分，有助于表格格式的清晰</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;tbody&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>张三<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>男<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>未婚<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>李四<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>女<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>已婚<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;/tbody&gt;</span>
+</code></pre></div></div>
+
+<h4 id="caption-添加表格标题">caption 添加表格标题</h4>
+<p>解析：caption元素给表格添加一个标题</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;caption&gt;</span>这是一个人物表格<span class="nt">&lt;/caption&gt;</span>
+</code></pre></div></div>
+
+<h4 id="col-更方便地设置列">col 更方便地设置列</h4>
+<p>解析：col元素表示单独一列，一个表示一列，如果设置了span则控制多列</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;colgroup&gt;</span>
+    <span class="nt">&lt;col&gt;</span>
+    <span class="nt">&lt;col</span> <span class="na">style=</span><span class="s">"background:red;"</span> <span class="na">span=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/colgroup&gt;</span>
+</code></pre></div></div>
+
+<h4 id="合并单元格数字代表列数">合并单元格，数字代表列数</h4>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;td</span> <span class="na">colspan=</span><span class="s">"2"</span> <span class="na">class=</span><span class="s">"header"</span><span class="nt">&gt;</span>头部<span class="nt">&lt;/td&gt;</span>                
+</code></pre></div></div>
+
+
+    </article>
+    
+    <div class="social-share-wrapper">
+        <div class="social-share"></div>
+    </div>
+    
+</div>
+
+<section class="author-detail">
+    <section class="post-footer-item author-card">
+        <div class="avatar">
+            <img src="http://localhost:4000/assets/img/user/head.jpg" alt="">
+        </div>
+        <div class="author-name" rel="author">李东辉</div>
+        <div class="bio">
+            <p>前端开发者，热爱技术&设计，简单乐观爱创造</p>
+        </div>
+        
+        <ul class="sns-links">
+            
+            <li>
+                <a href="//zhihu.com/people/li-dong-hui-23/activities" target="_blank">
+                    <i class="iconfont icon-zhihu"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//jianshu.com/users/3c0dfb0e3ffd/timeline" target="_blank">
+                    <i class="iconfont icon-jianshu"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//juejin.im/user/58e6ea3761ff4b006b3e82ab" target="_blank">
+                    <i class="iconfont icon-juejin"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//github.com/lidonghui22" target="_blank">
+                    <i class="iconfont icon-github"></i>
+                </a>
+            </li>
+            
+        </ul>
+        
+    </section>
+    <section class="post-footer-item read-next">
+        
+        <div class="read-next-item">
+            <a href="/html/2017/04/18/text-elements.html" class="read-next-link"></a>
+            <section>
+                <span>文本元素</span>
+                <p>文本元素汇总</p>
+            </section>
+            
+        </div>
+        
+        
+        <div class="read-next-item">
+            <a href="/html/2017/04/18/html-basic.html" class="read-next-link"></a>
+            <section>
+                <span>HTML基本结构</span>
+                <p>  最基本的HTML元素，也就是创建文档结构所需的元素。例如：标题、段落、页面分隔、注释等。</p>
+            </section>
+            
+        </div>
+        
+    </section>
+    
+</section>
+
+<footer class="g-footer">
+    <section>李东辉的个人博客 © 2017</section>
+    <section>Powered by <a href="//jekyllrb.com">Jekyll</a> | <a href="https://github.com/kaeyleo/jekyll-theme-H2O">Theme H2O</a></section>
+</footer>
+
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+    socialShare('.social-share', {
+        sites: ['wechat','weibo','douban','twitter'],
+        wechatQrcodeTitle: "分享到微信朋友圈",
+        wechatQrcodeHelper: '<p>扫码后点击右上角</p><p>将本文分享至朋友圈</p>'
+    });
+</script>
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+/*写入自己的disqus信息*/
+s.src = '';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<script src="/assets/js/prism.js"></script>
+<script src="/assets/js/index.min.js"></script>
+</body>
+</html>

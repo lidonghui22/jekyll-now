@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello Jekyll - 李东辉的个人博客</title>
+    <title>for in 循环遍历对象和数组 - 李东辉的个人博客</title>
     <meta name="author"  content="李东辉">
-    <meta name="description" content="Hello Jekyll">
-    <meta name="keywords"  content="aaa">
+    <meta name="description" content="for in 循环遍历对象和数组">
+    <meta name="keywords"  content="js">
     <!-- Open Graph -->
-    <meta property="og:title" content="Hello Jekyll - 李东辉的个人博客">
+    <meta property="og:title" content="for in 循环遍历对象和数组 - 李东辉的个人博客">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://localhost:4000/2017/04/18/hello-jekyll.html">
+    <meta property="og:url" content="http://localhost:4000/js/2015/08/05/for-in.html">
     <meta property="og:description" content="昵称飘零叶，前端开发者/爱运动/梦想当一名厨师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。">
     <meta property="og:site_name" content="李东辉的个人博客">
     <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
@@ -43,49 +43,45 @@
 </header>
 
 
-<header class="g-banner post-header post-pattern-circuitBoard bgcolor-default " data-theme="default">
+<header class="g-banner post-header post-pattern-circuitBoard bgcolor-default post-no-cover" data-theme="default">
     <div class="post-wrapper">
         <div class="post-tags">
             
             
-            <a href="http://localhost:4000/tags#aaa" class="post-tag">aaa</a>
+            <a href="http://localhost:4000/tags#js" class="post-tag">js</a>
             
             
         </div>
-        <h1>Hello Jekyll</h1>
+        <h1>for in 循环遍历对象和数组</h1>
         <div class="post-meta">
-            <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">Jekyll</a></></span>
-            <time class="post-meta-item" datetime="17-04-18"><i class="iconfont icon-date"></i>18 Apr 2017</time>
+            <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">lidonghui</a></></span>
+            <time class="post-meta-item" datetime="15-08-05"><i class="iconfont icon-date"></i>05 Aug 2015</time>
         </div>
     </div>
-    
-    <div class="filter"></div>
-    <div class="post-cover" style="background: url('http://on2171g4d.bkt.clouddn.com/jekyll-banner.png') center no-repeat; background-size: cover;">
     
 </header>
 
 <div class="post-content">
     
     <article class="markdown-body">
-        <blockquote>
-  <p>Transform your plain text into static websites and blogs.</p>
-</blockquote>
+        <p>用for循环进行遍历时，如果是对象，则 i 代表的是属性，如果是数组，则代表的是“键”； 
+用这种方法可以实现对对象和数组的遍历。</p>
 
-<h3 id="welcome">Welcome</h3>
+<p>示例：</p>
 
-<p>This site aims to be a comprehensive guide to Jekyll. We’ll cover topics such as getting your site up and running, creating and managing your content, customizing the way your site works and looks, deploying to various environments, and give you some advice on participating in the future development of Jekyll itself.</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">aaa</span><span class="p">:</span><span class="s1">'a123'</span><span class="p">,</span><span class="na">bbb</span><span class="p">:</span><span class="s1">'b123'</span><span class="p">};</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>                             <span class="c1">// aaa     bbb</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span> <span class="p">[</span> <span class="nx">i</span> <span class="p">]);</span>                     <span class="c1">// a123    b123</span>
+<span class="p">}</span>
 
-<h3 id="so-what-is-jekyll-exactlypermalink">So what is Jekyll, exactly?Permalink</h3>
+<span class="kd">var</span> <span class="nx">obj1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a100'</span> <span class="p">,</span> <span class="s1">'a200'</span> <span class="p">,</span> <span class="s1">'a300'</span><span class="p">];</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">obj1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>                             <span class="c1">// 0    1    2</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj1</span> <span class="p">[</span> <span class="nx">i</span> <span class="p">]);</span>                    <span class="c1">// a123   b123</span>
+<span class="p">}</span>
 
-<p>Jekyll is a simple, blog-aware, static site generator. It takes a template directory containing raw text files in various formats, runs it through a converter (like <a href="https://daringfireball.net/projects/markdown/">Markdown</a>) and our <a href="https://github.com/Shopify/liquid/wiki">Liquid</a> renderer, and spits out a complete, ready-to-publish static website suitable for serving with your favorite web server. Jekyll also happens to be the engine behind GitHub Pages, which means you can use Jekyll to host your project’s page, blog, or website from GitHub’s servers for free.</p>
-
-<h3 id="helpful-hintspermalink">Helpful HintsPermalink</h3>
-
-<p>Throughout this guide there are a number of small-but-handy pieces of information that can make using Jekyll easier, more interesting, and less hazardous. Here’s what to look out for.</p>
-
-<h3 id="video-test">Video Test</h3>
-
-<iframe type="text/html" width="100%" height="385" src="http://www.youtube.com/embed/gfmjMWjn-Xg" frameborder="0"></iframe>
+</code></pre></div></div>
 
     </article>
     
@@ -98,7 +94,7 @@
 <section class="author-detail">
     <section class="post-footer-item author-card">
         <div class="avatar">
-            <img src="https://timgsa.baidu.com/timg?image&quality=80%20&size=b10000_10000&sec=1513596989070&di=f55ab7aca232c7d7f767ab135d4c5022&imgtype=jpg&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F0bd162d9f2d3572c113fb52c8113632763d0c364.jpg" alt="">
+            <img src="http://localhost:4000/assets/img/user/head.jpg" alt="">
         </div>
         <div class="author-name" rel="author">李东辉</div>
         <div class="bio">
@@ -137,14 +133,23 @@
     <section class="post-footer-item read-next">
         
         <div class="read-next-item">
-            <a href="/2017/04/18/new-theme-h2o.html" class="read-next-link"></a>
+            <a href="/html/2017/04/18/a-elements.html" class="read-next-link"></a>
             <section>
-                <span>H2O theme for Jekyll</span>
-                <p>正如我在微博上所说的，使用Jekyll半年以来一直没有令我满意的主题模板，所以开始计划自己写一套好看又好用的主题模...</p>
+                <span>超链接和路径</span>
+                <p>超链接的属性</p>
             </section>
             
         </div>
         
+        
+        <div class="read-next-item">
+            <a href="/js/2014/08/19/cookie.html" class="read-next-link"></a>
+            <section>
+                <span>cookie基本用法</span>
+                <p>每个 Cookie 都是这样的：</p>
+            </section>
+            
+        </div>
         
     </section>
     
@@ -176,7 +181,7 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
 (function() { // DON'T EDIT BELOW THIS LINE
 var d = document, s = d.createElement('script');
 /*写入自己的disqus信息*/
-s.src = 'https://lidonghui.disqus.com/embed.js';
+s.src = '';
 s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
