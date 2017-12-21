@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>文档元素 - 李东辉的个人博客</title>
+    <title>音频和视频 - 李东辉的个人博客</title>
     <meta name="author"  content="李东辉">
-    <meta name="description" content="文档元素">
+    <meta name="description" content="音频和视频">
     <meta name="keywords"  content="html">
     <!-- Open Graph -->
-    <meta property="og:title" content="文档元素 - 李东辉的个人博客">
+    <meta property="og:title" content="音频和视频 - 李东辉的个人博客">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://localhost:4000/html/2017/04/18/doc-elements.html">
+    <meta property="og:url" content="http://localhost:4000/html/2017/04/18/video-audio.html">
     <meta property="og:description" content="昵称飘零叶，前端开发者/爱运动/梦想当一名厨师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。">
     <meta property="og:site_name" content="李东辉的个人博客">
     <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
@@ -52,7 +52,7 @@
             
             
         </div>
-        <h1>文档元素</h1>
+        <h1>音频和视频</h1>
         <div class="post-meta">
             <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">lidonghui</a></></span>
             <time class="post-meta-item" datetime="17-04-18"><i class="iconfont icon-date"></i>18 Apr 2017</time>
@@ -64,126 +64,107 @@
 <div class="post-content">
     
     <article class="markdown-body">
-        <h2 id="文档元素汇总">文档元素汇总</h2>
-<p>文档元素没有什么实际作用效果，主要目的是在页面布局是区分各个主题和概念。</p>
+        <h2 id="video视频元素">video视频元素</h2>
 
 <table>
   <thead>
     <tr>
-      <th>元素名称</th>
+      <th>属性名称</th>
       <th>说明</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>h1~h6</td>
-      <td>表示标题</td>
+      <td>src</td>
+      <td>视频资源的 URL</td>
     </tr>
     <tr>
-      <td>header</td>
-      <td>表示首部</td>
+      <td>width</td>
+      <td>视频宽度</td>
     </tr>
     <tr>
-      <td>footer</td>
-      <td>表示尾部</td>
+      <td>height</td>
+      <td>视频高度</td>
     </tr>
     <tr>
-      <td>nav</td>
-      <td>表示有意集中在一起的导航元素</td>
+      <td>autoplay</td>
+      <td>设置后，表示立刻开始播放视频</td>
     </tr>
     <tr>
-      <td>section</td>
-      <td>表示重要概念或主题</td>
+      <td>preload</td>
+      <td>设置后，表示预先载入视频</td>
     </tr>
     <tr>
-      <td>article</td>
-      <td>表示一段独立的内容</td>
+      <td>controls</td>
+      <td>设置后，表示显示播放控件</td>
     </tr>
     <tr>
-      <td>address</td>
-      <td>表示文档或 article 的联系信息</td>
+      <td>loop</td>
+      <td>设置后，表示反复播放视频</td>
     </tr>
     <tr>
-      <td>aside</td>
-      <td>表示与周边内容少有牵涉的内容</td>
+      <td>muted</td>
+      <td>设置后，表示视频处于静音状态</td>
     </tr>
     <tr>
-      <td>hgroup</td>
-      <td>将一组标题组织在一起</td>
-    </tr>
-    <tr>
-      <td>details</td>
-      <td>生成一个区域，用户将其展开可以获得更多细节</td>
-    </tr>
-    <tr>
-      <td>summary</td>
-      <td>用在 details 元素中，表示该元素内容的标题或说明</td>
+      <td>poster</td>
+      <td>指定视频数据载入时显示的图片</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="文档元素解析">文档元素解析</h2>
-<h4 id="header表示头部">header表示头部</h4>
-<p>解析：header主要设置页面的标头部分</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;header&gt;</span>这里部分一般是页面头部，包括：logo、标题、导航等内容<span class="nt">&lt;/header&gt;</span>
+<h4 id="嵌入一个webm格式视频">嵌入一个webm格式视频</h4>
+<p>解析：video插入视频，主流格式为：webm、mp4、ogg等，src表示路径url、width宽，height高</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;video</span> <span class="na">src=</span><span class="s">"test.webm"</span> <span class="na">width=</span><span class="s">"800"</span> <span class="na">height=</span><span class="s">"600"</span><span class="nt">&gt;&lt;/video&gt;</span>
 </code></pre></div></div>
 
-<h4 id="footer表示尾部">footer表示尾部</h4>
-<p>解析：footer主要设置页面的尾部</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;footer&gt;</span>这里部分一般是页面头部，包括：logo、标题、导航等内容<span class="nt">&lt;/footer&gt;</span>
+<h4 id="附加属性">附加属性</h4>
+<p>解析：autoplay表示自动播放，controls表示显示播放控件，loop表示循环播放，muted表示静音</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;video</span> <span class="na">src=</span><span class="s">"test.webm"</span> <span class="na">width=</span><span class="s">"800"</span> <span class="na">height=</span><span class="s">"600"</span> <span class="na">autoplay</span> <span class="na">controls</span> <span class="na">loop</span> <span class="na">muted</span><span class="nt">&gt;&lt;/video&gt;</span>
 </code></pre></div></div>
 
-<h4 id="h1h6标题">h1~h6标题</h4>
-<p>解析：h1~h6实际作用就是加粗并改变字体大小，用于各种标题文档</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h1&gt;</span>...<span class="nt">&lt;/h1&gt;</span>
-<span class="nt">&lt;h2&gt;</span>...<span class="nt">&lt;/h2&gt;</span>
-<span class="nt">&lt;h3&gt;</span>...<span class="nt">&lt;/h3&gt;</span>
-<span class="nt">&lt;h4&gt;</span>...<span class="nt">&lt;/h4&gt;</span>
-<span class="nt">&lt;h5&gt;</span>...<span class="nt">&lt;/h5&gt;</span>
-<span class="nt">&lt;h6&gt;</span>...<span class="nt">&lt;/h6&gt;</span>
+<h4 id="预加载设置">预加载设置</h4>
+<p>解析：preload有三个值：none表示不加载，metadata表示播放前值加载第一帧画面信息，auto表示请求浏览器尽快下载整个视频</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;video</span> <span class="na">src=</span><span class="s">"test.webm"</span> <span class="na">width=</span><span class="s">"800"</span> <span class="na">height=</span><span class="s">"600"</span> <span class="na">controls</span> <span class="na">preload=</span><span class="s">"none"</span><span class="nt">&gt;&lt;/video&gt;</span>
 </code></pre></div></div>
 
-<h4 id="hgroup组合标题">hgroup组合标题</h4>
-<p>解析：hgroup元素的作用就是当多个标题出现，干扰到一对或多个本身需要整合的标题，这时使用此元素包含群组。</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;hgroup&gt;</span>
-    <span class="nt">&lt;h1&gt;</span>h1标题部分<span class="nt">&lt;/h1&gt;</span>
-    <span class="nt">&lt;h4&gt;</span>h4标题部分<span class="nt">&lt;/h4&gt;</span>
-<span class="nt">&lt;/hgroup&gt;</span>
+<h4 id="使用预览图">使用预览图</h4>
+<p>解析：poster表示视频的预览图</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;video</span> <span class="na">src=</span><span class="s">"test.webm"</span> <span class="na">width=</span><span class="s">"800"</span> <span class="na">height=</span><span class="s">"600"</span> <span class="na">controls</span> <span class="na">poster=</span><span class="s">"img.png"</span><span class="nt">&gt;&lt;/video&gt;</span>
 </code></pre></div></div>
 
-<h4 id="section文档主题">section文档主题</h4>
-<p>解析：section作用是定义一个文档的主题内容。</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;section&gt;</span>这里一般是存放文档主题内容<span class="nt">&lt;/section&gt;</span>
+<h4 id="兼容多个浏览器">兼容多个浏览器</h4>
+<p>解析：通过<source />元素引入多种格式的视频，让各浏览器保持兼容</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;video</span> <span class="na">width=</span><span class="s">"800"</span> <span class="na">height=</span><span class="s">"600"</span> <span class="na">controls</span> <span class="na">poster=</span><span class="s">"img.png"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"test.webm"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"test.mp4"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"test.ogg"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;object&gt;</span>这里引入了flash播放器实现IE9以下<span class="nt">&lt;/object&gt;</span>
+<span class="nt">&lt;/video&gt;</span>
 </code></pre></div></div>
 
-<h4 id="nav添加导航">nav添加导航</h4>
-<p>解析：nav元素给文档页添加一个导航</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;nav&gt;</span>这里存放文档的导航<span class="nt">&lt;/nav&gt;</span>
+<h2 id="audio音频元素">audio音频元素</h2>
+<p>video的属性值，audio都可以用，比如loop
+属性名称 | 说明
+—|—
+src | 视频资源的 URL
+autoplay | 设置后，表示立刻开始播放音频
+preload | 设置后，表示预先载入音频
+controls | 设置后，表示显示播放控件</p>
+
+<h4 id="嵌入一个音频">嵌入一个音频</h4>
+<p>解析：和视频一样</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;audio</span> <span class="na">src=</span><span class="s">"test.mp3"</span> <span class="na">controls</span> <span class="na">autoplay</span><span class="nt">&gt;&lt;/audio&gt;</span>
 </code></pre></div></div>
 
-<h4 id="article添加独立成篇的文档">article添加独立成篇的文档</h4>
-<p>解析：article表示独立成篇的文档，里面可以包含头、尾、主题等一系列内容。</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;article&gt;</span>
-    <span class="nt">&lt;header&gt;</span>
-        <span class="nt">&lt;nav&gt;&lt;/nav&gt;</span>
-    <span class="nt">&lt;/header&gt;</span>
-    <span class="nt">&lt;section&gt;&lt;/section&gt;</span>
-    <span class="nt">&lt;footer&gt;&lt;/footer&gt;</span>
-<span class="nt">&lt;/article&gt;</span>
+<h4 id="兼容多个浏览器-1">兼容多个浏览器</h4>
+<p>解析：和视频一样</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;audio</span> <span class="na">controls</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"test.mp3"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"test.m4a"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"test.wav"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/audio&gt;</span>
 </code></pre></div></div>
-
-<h4 id="aside生成注释栏">aside生成注释栏</h4>
-<p>解析：asside专门为某一段内容进行注释使用。</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;aside&gt;</span>这是一个注释<span class="nt">&lt;/aside&gt;</span>
-</code></pre></div></div>
-
-<h4 id="address表示文档或article元素的联系信息">address表示文档或article元素的联系信息</h4>
-<p>解析：如果是在body元素下，表示整个文档的联系信息，如果是在article元素下，表示其下的联系信息</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;address&gt;</span>联系信息<span class="nt">&lt;/address&gt;</span>
-</code></pre></div></div>
-
-<h4 id="details元素生成详情区域summary元素在其内部生成说明标签">details元素生成详情区域,summary元素在其内部生成说明标签</h4>
-<p>解析：大多数浏览器尚未支持，暂略</p>
 
 
     </article>
@@ -235,21 +216,12 @@
     </section>
     <section class="post-footer-item read-next">
         
-        <div class="read-next-item">
-            <a href="/html/2017/04/18/form-elements.html" class="read-next-link"></a>
-            <section>
-                <span>表单元素</span>
-                <p>表单元素汇总</p>
-            </section>
-            
-        </div>
-        
         
         <div class="read-next-item">
-            <a href="/html/2017/04/18/block-elements.html" class="read-next-link"></a>
+            <a href="/html/2017/04/18/text-elements.html" class="read-next-link"></a>
             <section>
-                <span>分组元素</span>
-                <p>分组元素汇总</p>
+                <span>文本元素</span>
+                <p>文本元素汇总</p>
             </section>
             
         </div>

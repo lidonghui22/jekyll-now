@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>文本元素 - 李东辉的个人博客</title>
+    <title>localStorage本地存储 - 李东辉的个人博客</title>
     <meta name="author"  content="李东辉">
-    <meta name="description" content="文本元素">
+    <meta name="description" content="localStorage本地存储">
     <meta name="keywords"  content="html">
     <!-- Open Graph -->
-    <meta property="og:title" content="文本元素 - 李东辉的个人博客">
+    <meta property="og:title" content="localStorage本地存储 - 李东辉的个人博客">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://localhost:4000/html/2017/04/18/text-elements.html">
+    <meta property="og:url" content="http://localhost:4000/html/2017/04/18/localStorage.html">
     <meta property="og:description" content="昵称飘零叶，前端开发者/爱运动/梦想当一名厨师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。">
     <meta property="og:site_name" content="李东辉的个人博客">
     <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
@@ -52,7 +52,7 @@
             
             
         </div>
-        <h1>文本元素</h1>
+        <h1>localStorage本地存储</h1>
         <div class="post-meta">
             <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">lidonghui</a></></span>
             <time class="post-meta-item" datetime="17-04-18"><i class="iconfont icon-date"></i>18 Apr 2017</time>
@@ -64,155 +64,21 @@
 <div class="post-content">
     
     <article class="markdown-body">
-        <h2 id="文本元素汇总">文本元素汇总</h2>
+        <h2 id="localstorage方法">localStorage方法</h2>
+<p>localStorage方法存储的数据没有时间限制</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>元素名称</th>
-      <th>说明</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>a</td>
-      <td>生成超链接</td>
-    </tr>
-    <tr>
-      <td>br</td>
-      <td>强制换行</td>
-    </tr>
-    <tr>
-      <td>wbr</td>
-      <td>可安全换行</td>
-    </tr>
-    <tr>
-      <td>b</td>
-      <td>标记一段文字但不强调</td>
-    </tr>
-    <tr>
-      <td>strong</td>
-      <td>表示重要</td>
-    </tr>
-    <tr>
-      <td>i</td>
-      <td>表示外文或科学术语</td>
-    </tr>
-    <tr>
-      <td>em</td>
-      <td>表示强调</td>
-    </tr>
-    <tr>
-      <td>code</td>
-      <td>表示计算机代码</td>
-    </tr>
-    <tr>
-      <td>var</td>
-      <td>表示程序输出</td>
-    </tr>
-    <tr>
-      <td>samp</td>
-      <td>表示变量</td>
-    </tr>
-    <tr>
-      <td>kdb</td>
-      <td>表示用户输入</td>
-    </tr>
-    <tr>
-      <td>abbr</td>
-      <td>表示缩写</td>
-    </tr>
-    <tr>
-      <td>cite</td>
-      <td>表示其他作品的标题</td>
-    </tr>
-    <tr>
-      <td>del</td>
-      <td>表示被删除的文字</td>
-    </tr>
-    <tr>
-      <td>s</td>
-      <td>表示文字已不再确认</td>
-    </tr>
-    <tr>
-      <td>dfn</td>
-      <td>表示术语定义</td>
-    </tr>
-    <tr>
-      <td>mark</td>
-      <td>表示与另一段上下文有关的内容</td>
-    </tr>
-    <tr>
-      <td>q</td>
-      <td>表示引自他处的内容</td>
-    </tr>
-    <tr>
-      <td>rp</td>
-      <td>与 ruby 元素结合使用，标记括号</td>
-    </tr>
-    <tr>
-      <td>rt</td>
-      <td>与 ruby 元素结合使用，标记括号</td>
-    </tr>
-    <tr>
-      <td>ruby</td>
-      <td>表示位于表意文字上方或右方的注音符号</td>
-    </tr>
-    <tr>
-      <td>bdo</td>
-      <td>控制文字的方向</td>
-    </tr>
-    <tr>
-      <td>small</td>
-      <td>表示小号字体内容</td>
-    </tr>
-    <tr>
-      <td>sub</td>
-      <td>表示下标字体</td>
-    </tr>
-    <tr>
-      <td>sup</td>
-      <td>表示上标字体</td>
-    </tr>
-    <tr>
-      <td>time</td>
-      <td>表示时间或日期</td>
-    </tr>
-    <tr>
-      <td>u</td>
-      <td>标记一段文字但不强调</td>
-    </tr>
-    <tr>
-      <td>span</td>
-      <td>通用元素，没有任何语义。一般配合 CSS 修饰。</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="文本元素解析">文本元素解析</h2>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;b&gt;</span>		  表示关键字和产品名称，实际就是加粗        	//<span class="nt">&lt;b&gt;</span> html5 <span class="nt">&lt;/b&gt;</span>
-<span class="nt">&lt;strong&gt;</span>  表示重要文字，实际就是加粗，和<span class="nt">&lt;b&gt;</span>一样       //<span class="nt">&lt;strong&gt;</span> html5 <span class="nt">&lt;/strong&gt;</span>
-<span class="nt">&lt;br&gt;</span>	  强制换行
-<span class="nt">&lt;wbr&gt;</span>	  安全换行（遇到很长的内容，如果非要换行，可做个标记让浏览器知道哪个位置可以换行)		//<span class="nt">&lt;span&gt;</span>youaremylove<span class="nt">&lt;wbr&gt;</span>123456<span class="nt">&lt;/span&gt;</span>
-<span class="nt">&lt;i&gt;</span>		  表示倾斜
-<span class="nt">&lt;em&gt;</span>	  表示强调倾斜，和<span class="nt">&lt;i&gt;</span>一样实际就是倾斜
-<span class="nt">&lt;s&gt;</span>		  删除线
-<span class="nt">&lt;del&gt;</span>	  表示强调删除线，和<span class="nt">&lt;s&gt;</span>一样
-<span class="nt">&lt;u&gt;</span>		  表示给文字加下划线
-<span class="nt">&lt;ins&gt;</span>	  表示给文字加下划线，和<span class="nt">&lt;u&gt;</span>一样
-<span class="nt">&lt;small&gt;</span>	  将文本放小一号
-<span class="nt">&lt;sup&gt;</span>	  上标 ,<span class="nt">&lt;sub&gt;</span>下标
-<span class="nt">&lt;code&gt;</span>	  标示计算机代码片段
-<span class="nt">&lt;abbr&gt;</span>	  没有实际作用，表示一段文本的缩写
-<span class="nt">&lt;dfn&gt;</span>	  倾斜，表示术语
-<span class="nt">&lt;q&gt;</span>		  表示引用，会给包含内容加双引号
-<span class="nt">&lt;cite&gt;</span>	  引用其他作品的标题，实际效果就是加粗
-<span class="nt">&lt;ruby&gt;</span>	  语言元素
-<span class="nt">&lt;bdo&gt;</span>	  设置文字方向，<span class="nt">&lt;bdo</span> <span class="na">dir=</span><span class="s">"rtl"</span><span class="nt">&gt;</span> 内容 <span class="nt">&lt;/bdo&gt;</span>   rtl(文字从右到左)   ltr(文字从左到右)
-<span class="nt">&lt;mark&gt;</span>    突出显示文本，实际作用就是加上一个黄色背景，黑色文字
-<span class="nt">&lt;time&gt;</span>	  表示日期和时间
-<span class="nt">&lt;span&gt;</span>	  表示一般性文本
-</code></pre></div></div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="c1">// 检测浏览器是否支持</span>
+<span class="k">if</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="nx">Storage</span><span class="p">)</span> <span class="o">!==</span> <span class="s2">"undefined"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 写入</span>
+    <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"lidh"</span><span class="p">);</span>
+    <span class="c1">//读取</span>
+   <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s2">"name"</span><span class="p">);</span>
+<span class="p">}</span><span class="k">else</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span> <span class="s2">"抱歉！您的浏览器不支持 Web Storage"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span></code></pre></div></div>
 
 
     </article>
@@ -265,20 +131,20 @@
     <section class="post-footer-item read-next">
         
         <div class="read-next-item">
-            <a href="/html/2017/04/18/video-audio.html" class="read-next-link"></a>
+            <a href="/html/2017/04/18/table-elements.html" class="read-next-link"></a>
             <section>
-                <span>音频和视频</span>
-                <p>video视频元素</p>
+                <span>表格元素</span>
+                <p>表格元素汇总表格的基本构成最少需要三个元素：&lt;table&gt;、&lt;tr&gt;、&lt;td&gt;</p>
             </section>
             
         </div>
         
         
         <div class="read-next-item">
-            <a href="/html/2017/04/18/table-elements.html" class="read-next-link"></a>
+            <a href="/html/2017/04/18/into-elements.html" class="read-next-link"></a>
             <section>
-                <span>表格元素</span>
-                <p>表格元素汇总表格的基本构成最少需要三个元素：&lt;table&gt;、&lt;tr&gt;、&lt;td&gt;</p>
+                <span>嵌入元素</span>
+                <p>嵌入元素汇总</p>
             </section>
             
         </div>

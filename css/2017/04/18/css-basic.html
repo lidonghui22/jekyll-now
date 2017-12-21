@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>for in 循环遍历对象和数组 - 李东辉的个人博客</title>
+    <title>css基础 - 李东辉的个人博客</title>
     <meta name="author"  content="李东辉">
-    <meta name="description" content="for in 循环遍历对象和数组">
-    <meta name="keywords"  content="js">
+    <meta name="description" content="css基础">
+    <meta name="keywords"  content="css">
     <!-- Open Graph -->
-    <meta property="og:title" content="for in 循环遍历对象和数组 - 李东辉的个人博客">
+    <meta property="og:title" content="css基础 - 李东辉的个人博客">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://localhost:4000/js/2015/08/05/for-in.html">
+    <meta property="og:url" content="http://localhost:4000/css/2017/04/18/css-basic.html">
     <meta property="og:description" content="昵称飘零叶，前端开发者/爱运动/梦想当一名厨师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。">
     <meta property="og:site_name" content="李东辉的个人博客">
     <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
@@ -48,14 +48,14 @@
         <div class="post-tags">
             
             
-            <a href="http://localhost:4000/tags#js" class="post-tag">js</a>
+            <a href="http://localhost:4000/tags#css" class="post-tag">css</a>
             
             
         </div>
-        <h1>for in 循环遍历对象和数组</h1>
+        <h1>css基础</h1>
         <div class="post-meta">
             <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">lidonghui</a></></span>
-            <time class="post-meta-item" datetime="15-08-05"><i class="iconfont icon-date"></i>05 Aug 2015</time>
+            <time class="post-meta-item" datetime="17-04-18"><i class="iconfont icon-date"></i>18 Apr 2017</time>
         </div>
     </div>
     
@@ -64,24 +64,51 @@
 <div class="post-content">
     
     <article class="markdown-body">
-        <p>用for循环进行遍历时，如果是对象，则 i 代表的是属性，如果是数组，则代表的是“键”； 
-用这种方法可以实现对对象和数组的遍历。</p>
-
-<p>示例：</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">aaa</span><span class="p">:</span><span class="s1">'a123'</span><span class="p">,</span><span class="na">bbb</span><span class="p">:</span><span class="s1">'b123'</span><span class="p">};</span>
-<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>                             <span class="c1">// aaa     bbb</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span> <span class="p">[</span> <span class="nx">i</span> <span class="p">]);</span>                     <span class="c1">// a123    b123</span>
-<span class="p">}</span>
-
-<span class="kd">var</span> <span class="nx">obj1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a100'</span> <span class="p">,</span> <span class="s1">'a200'</span> <span class="p">,</span> <span class="s1">'a300'</span><span class="p">];</span>
-<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">obj1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>                             <span class="c1">// 0    1    2</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj1</span> <span class="p">[</span> <span class="nx">i</span> <span class="p">]);</span>                    <span class="c1">// a123   b123</span>
-<span class="p">}</span>
-
+        <h2 id="使用css">使用css</h2>
+<p>解析：css样式由一条或多条以分号隔开的样式声明组成，每条声明包含一个键值对</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">style=</span><span class="s">"color:red;font-size:50px;"</span><span class="nt">&gt;</span>这是一段文字<span class="nt">&lt;/p&gt;</span>
 </code></pre></div></div>
+
+<h2 id="使用方式">使用方式</h2>
+<h4 id="元素内嵌样式">元素内嵌样式</h4>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">style=</span><span class="s">"color:red;font-size:50px;"</span><span class="nt">&gt;</span>这是一段文字<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<h4 id="文档内嵌样式">文档内嵌样式</h4>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;style </span><span class="na">type=</span><span class="s">"text/css"</span><span class="nt">&gt;</span>
+<span class="nt">p</span><span class="p">{</span>
+<span class="nl">color</span><span class="p">:</span><span class="no">blue</span><span class="p">;</span>
+<span class="nl">font-size</span><span class="p">:</span><span class="m">16px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+</code></pre></div></div>
+
+<h4 id="外部引入样式">外部引入样式</h4>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"style.css"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<h2 id="层叠和继承">层叠和继承</h2>
+<h4 id="样式层叠同一个元素通过不同的方式设置样式产生样式的重叠">样式层叠：同一个元素通过不同的方式设置样式产生样式的重叠</h4>
+<p>优先级（从低到高）：</p>
+<ol>
+  <li>浏览器自带样式</li>
+  <li>外部引入样式</li>
+  <li>文档内嵌样式</li>
+  <li>元素内嵌样式
+    <h5 id="如果要强制设置样式的优先级为最高使用important">如果要强制设置样式的优先级为最高，使用！important</h5>
+    <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">color</span> <span class="o">:</span> <span class="nt">green</span>	<span class="o">!</span><span class="nt">important</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h4 id="样式继承某一个子元素得到它父元素的样式">样式继承：某一个子元素得到它父元素的样式</h4>
+<p>注意：样式继承只适用于元素的外观（文字、颜色、字体等），而元素在页面上的布局样式不会被继承。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- b元素继承了p元素的样式 --&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">style=</span><span class="s">"color:red"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;b&gt;</span>html5<span class="nt">&lt;/b&gt;</span>
+<span class="nt">&lt;/p&gt;</span>                                                    
+</code></pre></div></div>
+
 
     </article>
     
@@ -133,20 +160,20 @@
     <section class="post-footer-item read-next">
         
         <div class="read-next-item">
-            <a href="/css/2017/04/18/css-basic.html" class="read-next-link"></a>
+            <a href="/css/2017/04/18/css-text.html" class="read-next-link"></a>
             <section>
-                <span>css基础</span>
-                <p>使用css解析：css样式由一条或多条以分号隔开的样式声明组成，每条声明包含一个键值对&lt;p style="c...</p>
+                <span>文本样式</span>
+                <p>文本样式css文本样式有三种：文本装饰、英文大小写转换、文本阴影text-decoration</p>
             </section>
             
         </div>
         
         
         <div class="read-next-item">
-            <a href="/js/2014/08/19/cookie.html" class="read-next-link"></a>
+            <a href="/js/2015/08/05/for-in.html" class="read-next-link"></a>
             <section>
-                <span>cookie基本用法</span>
-                <p>每个 Cookie 都是这样的：</p>
+                <span>for in 循环遍历对象和数组</span>
+                <p>用for循环进行遍历时，如果是对象，则 i 代表的是属性，如果是数组，则代表的是“键”； 用这种方法可以实现对对象...</p>
             </section>
             
         </div>

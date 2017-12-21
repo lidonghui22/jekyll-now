@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本样式 - 李东辉的个人博客</title>
+    <meta name="author"  content="李东辉">
+    <meta name="description" content="文本样式">
+    <meta name="keywords"  content="css">
+    <!-- Open Graph -->
+    <meta property="og:title" content="文本样式 - 李东辉的个人博客">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:4000/css/2017/04/18/css-text.html">
+    <meta property="og:description" content="昵称飘零叶，前端开发者/爱运动/梦想当一名厨师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。">
+    <meta property="og:site_name" content="李东辉的个人博客">
+    <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_roc50gemkxpw4s4i.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    <link rel="stylesheet" href="/assets/css/share.min.css">
+    <link rel="stylesheet" href="/assets/css/app.min.css">
+</head>
+<body>
+    <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+<input id="nm-switch" type="hidden" value="true">
+
+<header class="g-header">
+    <!-- <div class="g-logo">
+      <a href="/"></a>
+    </div>
+    <i id="menu-toggle" class="iconfont icon-menu"></i> -->
+    <nav class="g-nav">
+        <ul>
+            
+            <li><a href="/">home</a></li>
+            
+            <li><a href="/tags.html">tags</a></li>
+            
+        </ul>
+    </nav>
+</header>
+
+
+<header class="g-banner post-header post-pattern-circuitBoard bgcolor-default post-no-cover" data-theme="default">
+    <div class="post-wrapper">
+        <div class="post-tags">
+            
+            
+            <a href="http://localhost:4000/tags#css" class="post-tag">css</a>
+            
+            
+        </div>
+        <h1>文本样式</h1>
+        <div class="post-meta">
+            <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">lidonghui</a></></span>
+            <time class="post-meta-item" datetime="17-04-18"><i class="iconfont icon-date"></i>18 Apr 2017</time>
+        </div>
+    </div>
+    
+</header>
+
+<div class="post-content">
+    
+    <article class="markdown-body">
+        <h2 id="文本样式">文本样式</h2>
+<p>css文本样式有三种：<strong>文本装饰</strong>、<strong>英文大小写转换</strong>、<strong>文本阴影</strong></p>
+<h4 id="text-decoration">text-decoration</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>none</td>
+      <td>取消下划线</td>
+    </tr>
+    <tr>
+      <td>underline</td>
+      <td>出现下划线</td>
+    </tr>
+    <tr>
+      <td>overline</td>
+      <td>在文本头部增加一条上划线</td>
+    </tr>
+    <tr>
+      <td>line-through</td>
+      <td>在文本中部增加一条删除线</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span><span class="p">{</span>
+	<span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">underline</span><span class="p">;</span>		 <span class="err">//让文本的底部出现一条下划线</span>
+<span class="p">}</span>                                                       
+<span class="nt">p</span><span class="p">{</span>
+	<span class="nl">text-decoration</span><span class="p">:</span><span class="nb">none</span><span class="p">;</span>			 <span class="err">//取消下划线</span>
+<span class="p">}</span>   
+</code></pre></div></div>
+
+<h4 id="text-transform">text-transform</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span><span class="p">{</span>
+	<span class="nl">text-transform</span><span class="p">:</span> <span class="nb">uppercase</span><span class="p">;</span>		<span class="err">//英文转换成为大写字母</span>
+<span class="p">}</span>  
+</code></pre></div></div>
+
+<h4 id="text-shadow">text-shadow</h4>
+<p>给文本添加阴影：水平偏移，垂直偏移，阴影模糊度（可选），阴影颜色（可选）</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span><span class="p">{</span>
+	<span class="nl">text-shadow</span><span class="p">:</span><span class="m">5px</span> <span class="m">5px</span> <span class="m">3px</span> <span class="no">black</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="文本控制">文本控制</h2>
+<h4 id="text-align">text-align</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>left</td>
+      <td>文本左对齐，默认</td>
+    </tr>
+    <tr>
+      <td>right</td>
+      <td>文本右对齐</td>
+    </tr>
+    <tr>
+      <td>center</td>
+      <td>文本居中对齐</td>
+    </tr>
+    <tr>
+      <td>justify</td>
+      <td>内容两端对齐</td>
+    </tr>
+    <tr>
+      <td>start</td>
+      <td>让文本处于开始的边界</td>
+    </tr>
+    <tr>
+      <td>end</td>
+      <td>让文本处于结束的边界</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>start 和 end 属于css3新增的功能，但是IE和Opera 尚未支持</li>
+</ul>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span><span class="p">{</span>
+	<span class="nl">text-align</span><span class="p">:</span><span class="nb">center</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="white-space">white-space</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>normal</td>
+      <td>空白符被压缩，文本自动换行，默认值</td>
+    </tr>
+    <tr>
+      <td>nowrap</td>
+      <td>空白符被压缩，文本不换行</td>
+    </tr>
+    <tr>
+      <td>pre</td>
+      <td>空白符被保留，遇到换行符会换行</td>
+    </tr>
+    <tr>
+      <td>pre-line</td>
+      <td>空白符被压缩，文本在排满或遇换行符换行</td>
+    </tr>
+    <tr>
+      <td>pre-wrap</td>
+      <td>空白符被保留，文本在排满或遇换行符换行</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span><span class="p">{</span>
+	<span class="nl">white-space</span><span class="p">:</span><span class="nb">nowrap</span><span class="p">;</span>		<span class="err">//设置排版方式（默认设置，多个空白符只能压缩成一个）</span>
+<span class="p">}</span>      
+</code></pre></div></div>
+
+<h4 id="letter-spacing">letter-spacing</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>normal</td>
+      <td>设置默认间距</td>
+    </tr>
+    <tr>
+      <td>长度值</td>
+      <td>如：”数字” + px</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span><span class="p">{</span>
+	<span class="nl">letter-spacing</span><span class="p">:</span><span class="m">4px</span><span class="p">;</span>		<span class="err">//设置文本之间的间距</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="word-spacing">word-spacing</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>normal</td>
+      <td>设置默认间距</td>
+    </tr>
+    <tr>
+      <td>长度值</td>
+      <td>如：”数字” + px</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span><span class="p">{</span>
+	<span class="nl">word-spacing</span><span class="p">:</span><span class="m">14px</span><span class="p">;</span>		<span class="err">//设置英文单词之间的间距</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="line-height">line-height</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>normal</td>
+      <td>设置默认间距</td>
+    </tr>
+    <tr>
+      <td>长度值</td>
+      <td>如：”数字” + px</td>
+    </tr>
+    <tr>
+      <td>数值</td>
+      <td>如：1,2,3(1,2,3代表的是100%,200%,300% …)</td>
+    </tr>
+    <tr>
+      <td>%</td>
+      <td>如：200%</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span><span class="p">{</span>
+	<span class="nl">line-height</span><span class="p">:</span><span class="m">200%</span><span class="p">;</span>		<span class="err">//设置段落行高</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="word-wrap">word-wrap</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>normal</td>
+      <td>单词不断开</td>
+    </tr>
+    <tr>
+      <td>break-word</td>
+      <td>单词断开</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span><span class="p">{</span>
+    <span class="nl">word-wrap</span><span class="p">:</span><span class="n">break-word</span><span class="p">;</span> 	<span class="err">//让过长的英文单词断开</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="text-indent">text-indent</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>normal</td>
+      <td>设置默认间距</td>
+    </tr>
+    <tr>
+      <td>长度值</td>
+      <td>如：”数字” + px</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span><span class="p">{</span>
+    <span class="nl">text-indent</span><span class="p">:</span><span class="m">20px</span><span class="p">;</span>		<span class="err">//设置文本首行缩进距离</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="text-overflow">text-overflow</h4>
+<p>text-overflow属性来控制文本的溢出部分，它的作用是对溢出的部分裁剪掉，然后判定是否添加省略号</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>clip</td>
+      <td>默认值，裁剪文本时不添加省略号</td>
+    </tr>
+    <tr>
+      <td>ellipsis</td>
+      <td>裁剪文本时添加”……”号</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span><span class="p">{</span>
+	<span class="nl">width</span><span class="p">:</span><span class="m">160px</span><span class="p">;</span>
+	<span class="nl">white-space</span><span class="p">:</span><span class="nb">nowrap</span><span class="p">;</span>
+	<span class="nl">overflow</span><span class="p">:</span><span class="nb">hidden</span><span class="p">;</span>
+	<span class="nl">text-overflow</span><span class="p">:</span><span class="n">ellipsis</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+    </article>
+    
+    <div class="social-share-wrapper">
+        <div class="social-share"></div>
+    </div>
+    
+</div>
+
+<section class="author-detail">
+    <section class="post-footer-item author-card">
+        <div class="avatar">
+            <img src="http://localhost:4000/assets/img/user/head.jpg" alt="">
+        </div>
+        <div class="author-name" rel="author">李东辉</div>
+        <div class="bio">
+            <p>前端开发者，热爱技术&设计，简单乐观爱创造</p>
+        </div>
+        
+        <ul class="sns-links">
+            
+            <li>
+                <a href="//zhihu.com/people/li-dong-hui-23/activities" target="_blank">
+                    <i class="iconfont icon-zhihu"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//jianshu.com/users/3c0dfb0e3ffd/timeline" target="_blank">
+                    <i class="iconfont icon-jianshu"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//juejin.im/user/58e6ea3761ff4b006b3e82ab" target="_blank">
+                    <i class="iconfont icon-juejin"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//github.com/lidonghui22" target="_blank">
+                    <i class="iconfont icon-github"></i>
+                </a>
+            </li>
+            
+        </ul>
+        
+    </section>
+    <section class="post-footer-item read-next">
+        
+        <div class="read-next-item">
+            <a href="/css/2017/04/18/transform-2d.html" class="read-next-link"></a>
+            <section>
+                <span>css3 2D变形transform</span>
+                <p>  css3提供了元素变形效果，也叫变换，它可以将元素实现旋转、缩放和平移的功能。</p>
+            </section>
+            
+        </div>
+        
+        
+        <div class="read-next-item">
+            <a href="/css/2017/04/18/css-basic.html" class="read-next-link"></a>
+            <section>
+                <span>css基础</span>
+                <p>使用css解析：css样式由一条或多条以分号隔开的样式声明组成，每条声明包含一个键值对&lt;p style="c...</p>
+            </section>
+            
+        </div>
+        
+    </section>
+    
+</section>
+
+<footer class="g-footer">
+    <section>李东辉的个人博客 © 2017</section>
+    <section>Powered by <a href="//jekyllrb.com">Jekyll</a> | <a href="https://github.com/kaeyleo/jekyll-theme-H2O">Theme H2O</a></section>
+</footer>
+
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+    socialShare('.social-share', {
+        sites: ['wechat','weibo','douban','twitter'],
+        wechatQrcodeTitle: "分享到微信朋友圈",
+        wechatQrcodeHelper: '<p>扫码后点击右上角</p><p>将本文分享至朋友圈</p>'
+    });
+</script>
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+/*写入自己的disqus信息*/
+s.src = '';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<script src="/assets/js/prism.js"></script>
+<script src="/assets/js/index.min.js"></script>
+</body>
+</html>

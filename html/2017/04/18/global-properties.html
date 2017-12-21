@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>超链接和路径 - 李东辉的个人博客</title>
+    <title>全局属性 - 李东辉的个人博客</title>
     <meta name="author"  content="李东辉">
-    <meta name="description" content="超链接和路径">
+    <meta name="description" content="全局属性">
     <meta name="keywords"  content="html">
     <!-- Open Graph -->
-    <meta property="og:title" content="超链接和路径 - 李东辉的个人博客">
+    <meta property="og:title" content="全局属性 - 李东辉的个人博客">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://localhost:4000/html/2017/04/18/a-elements.html">
+    <meta property="og:url" content="http://localhost:4000/html/2017/04/18/global-properties.html">
     <meta property="og:description" content="昵称飘零叶，前端开发者/爱运动/梦想当一名厨师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。">
     <meta property="og:site_name" content="李东辉的个人博客">
     <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
@@ -52,7 +52,7 @@
             
             
         </div>
-        <h1>超链接和路径</h1>
+        <h1>全局属性</h1>
         <div class="post-meta">
             <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">lidonghui</a></></span>
             <time class="post-meta-item" datetime="17-04-18"><i class="iconfont icon-date"></i>18 Apr 2017</time>
@@ -64,115 +64,60 @@
 <div class="post-content">
     
     <article class="markdown-body">
-        <h2 id="超链接的属性">超链接的属性</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>属性名称</th>
-      <th>说明</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>href</td>
-      <td>指定<a>元素所指资源的 URL</a></td>
-    </tr>
-    <tr>
-      <td>hreflang</td>
-      <td>指向的链接资源所使用的语言</td>
-    </tr>
-    <tr>
-      <td>media</td>
-      <td>说明所链接资源用于哪种设备</td>
-    </tr>
-    <tr>
-      <td>rel</td>
-      <td>说明文档与所链接资源的关系类型</td>
-    </tr>
-    <tr>
-      <td>target</td>
-      <td>指定用以打开所链接资源的浏览环境</td>
-    </tr>
-    <tr>
-      <td>type</td>
-      <td>说明所链接资源的 MIME 类型（比如 text/html）</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>这些属性之中，只有href和target比较常用</p>
-
-<h3 id="href属性">href属性</h3>
-<p>解析：href是必要属性，否则<a>标签就变成空元素了，
-属性值是http://开头的url，表示跳转到外部网站。</a></p>
-
-<h3 id="target属性">target属性</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>属性名称</th>
-      <th>说明</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>_blank</td>
-      <td>在新窗口或标签页中打开</td>
-    </tr>
-    <tr>
-      <td>_parent</td>
-      <td>在父窗框组(frameset)中打开</td>
-    </tr>
-    <tr>
-      <td>_self</td>
-      <td>在当前窗口打开（默认）</td>
-    </tr>
-    <tr>
-      <td>_top</td>
-      <td>在顶层窗口打开文档</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>解析：常用打开方式</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_blank			//新窗口打开
-_self			//当前窗口打开
+        <h2 id="全局属性">全局属性</h2>
+<h4 id="id属性">id属性</h4>
+<p>解析：一个页面id名称不能出现重复，id是唯一标识，供css和js选择元素时调用</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"abc"</span><span class="nt">&gt;</span>段落<span class="nt">&lt;/p&gt;</span>
 </code></pre></div></div>
 
-<h2 id="相对与绝对路径">相对与绝对路径</h2>
-<p>1.绝对路径：直接从file://磁盘符开始的完整路径
-例：file://d://html5/index.html</p>
-
-<p>2.相对路径：相对于链接页面而言的另一个页面路径
-例：index.htm</p>
-
-<p>3.目录结构语法：
-如果在同一个主目录下，有多个子目录层次，那就需要目录结构语法
-同一个目录：index.html 或者 ./index.html
-在子目录：xxx/index.html
-在孙子目录：xxx/xxx/index.html
-在父目录：../index.html
-在爷爷目录：../../index.html</p>
-
-<p>4.锚点设置
-通过属性id或者name实现定位
-链接</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#1"</span><span class="nt">&gt;</span>第一章<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#2"</span><span class="nt">&gt;</span>第二章<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#3"</span><span class="nt">&gt;</span>第三章<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#4"</span><span class="nt">&gt;</span>第四章<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#5"</span><span class="nt">&gt;</span>第五章<span class="nt">&lt;/a&gt;</span>
+<h4 id="class属性">class属性</h4>
+<p>解析：一个页面class名称可以出现重复，供css和js选择元素时调用</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"abc"</span><span class="nt">&gt;</span>段落1<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"abc"</span><span class="nt">&gt;</span>段落2<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"abc"</span><span class="nt">&gt;</span>段落3<span class="nt">&lt;/p&gt;</span>
 </code></pre></div></div>
 
-<p>锚点</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">name=</span><span class="s">"1"</span><span class="nt">&gt;</span>第一章内容<span class="nt">&lt;/a&gt;</span>        <span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">"1"</span><span class="nt">&gt;</span>第一章内容<span class="nt">&lt;/a&gt;</span> 
-<span class="nt">&lt;a</span> <span class="na">name=</span><span class="s">"2"</span><span class="nt">&gt;</span>第二章内容<span class="nt">&lt;/a&gt;</span>        <span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">"2"</span><span class="nt">&gt;</span>第二章内容<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">name=</span><span class="s">"3"</span><span class="nt">&gt;</span>第三章内容<span class="nt">&lt;/a&gt;</span>        <span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">"3"</span><span class="nt">&gt;</span>第三章内容<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">name=</span><span class="s">"4"</span><span class="nt">&gt;</span>第四章内容<span class="nt">&lt;/a&gt;</span>        <span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">"4"</span><span class="nt">&gt;</span>第四章内容<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">name=</span><span class="s">"5"</span><span class="nt">&gt;</span>第五章内容<span class="nt">&lt;/a&gt;</span>        <span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">"5"</span><span class="nt">&gt;</span>第五章内容<span class="nt">&lt;/a&gt;</span>
+<h4 id="accesskey属性">accesskey属性</h4>
+<p>解析：快捷键，Windows系统下alt+指定键</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"user"</span> <span class="na">accesskey=</span><span class="s">"n"</span><span class="nt">&gt;</span>
 </code></pre></div></div>
+
+<h4 id="contenteditable属性">contenteditable属性</h4>
+<p>解析：让文本变成可编辑状态</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">contenteditable=</span><span class="s">"true"</span><span class="nt">&gt;</span>我可以修改吗<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<h4 id="dir属性">dir属性</h4>
+<p>解析：文字从左到右（ltr）,右到左（rtl）</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">dir=</span><span class="s">"rtl"</span><span class="nt">&gt;</span>文字到右边了<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<h4 id="hidden属性">hidden属性</h4>
+<p>解析：隐藏元素</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">hidden</span><span class="nt">&gt;</span>文字到右边了<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<h4 id="lang属性">lang属性</h4>
+<p>解析：局部设置语言</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>html5<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<h4 id="title属性">title属性</h4>
+<p>解析：标题，增加提示功能</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">title=</span><span class="s">"html5教程"</span><span class="nt">&gt;</span>html5教程<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<h4 id="tabindex属性">tabindex属性</h4>
+<p>解析：表单中按下tab键，实现获取焦点的顺序</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"user"</span> <span class="na">tabindex=</span><span class="s">"2"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"user"</span> <span class="na">tabindex=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<h4 id="style属性">style属性</h4>
+<p>解析：设置元素行内css样式</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">style=</span><span class="s">"color:red;"</span><span class="nt">&gt;</span>css样式<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
 
     </article>
     
@@ -224,20 +169,20 @@ _self			//当前窗口打开
     <section class="post-footer-item read-next">
         
         <div class="read-next-item">
-            <a href="/html/2017/04/18/block-elements.html" class="read-next-link"></a>
+            <a href="/html/2017/04/18/html-basic.html" class="read-next-link"></a>
             <section>
-                <span>分组元素</span>
-                <p>分组元素汇总</p>
+                <span>HTML基本结构</span>
+                <p>  最基本的HTML元素，也就是创建文档结构所需的元素。例如：标题、段落、页面分隔、注释等。</p>
             </section>
             
         </div>
         
         
         <div class="read-next-item">
-            <a href="/css/2017/04/18/transform-2d.html" class="read-next-link"></a>
+            <a href="/html/2017/04/18/form-elements.html" class="read-next-link"></a>
             <section>
-                <span>css3 2D变形transform</span>
-                <p>  css3提供了元素变形效果，也叫变换，它可以将元素实现旋转、缩放和平移的功能。</p>
+                <span>表单元素</span>
+                <p>表单元素汇总</p>
             </section>
             
         </div>

@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单元素 - 李东辉的个人博客</title>
+    <meta name="author"  content="李东辉">
+    <meta name="description" content="表单元素">
+    <meta name="keywords"  content="html">
+    <!-- Open Graph -->
+    <meta property="og:title" content="表单元素 - 李东辉的个人博客">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:4000/html/2017/04/18/form-elements.html">
+    <meta property="og:description" content="昵称飘零叶，前端开发者/爱运动/梦想当一名厨师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。">
+    <meta property="og:site_name" content="李东辉的个人博客">
+    <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_roc50gemkxpw4s4i.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    <link rel="stylesheet" href="/assets/css/share.min.css">
+    <link rel="stylesheet" href="/assets/css/app.min.css">
+</head>
+<body>
+    <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+<input id="nm-switch" type="hidden" value="true">
+
+<header class="g-header">
+    <!-- <div class="g-logo">
+      <a href="/"></a>
+    </div>
+    <i id="menu-toggle" class="iconfont icon-menu"></i> -->
+    <nav class="g-nav">
+        <ul>
+            
+            <li><a href="/">home</a></li>
+            
+            <li><a href="/tags.html">tags</a></li>
+            
+        </ul>
+    </nav>
+</header>
+
+
+<header class="g-banner post-header post-pattern-circuitBoard bgcolor-default post-no-cover" data-theme="default">
+    <div class="post-wrapper">
+        <div class="post-tags">
+            
+            
+            <a href="http://localhost:4000/tags#html" class="post-tag">html</a>
+            
+            
+        </div>
+        <h1>表单元素</h1>
+        <div class="post-meta">
+            <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">lidonghui</a></></span>
+            <time class="post-meta-item" datetime="17-04-18"><i class="iconfont icon-date"></i>18 Apr 2017</time>
+        </div>
+    </div>
+    
+</header>
+
+<div class="post-content">
+    
+    <article class="markdown-body">
+        <h2 id="表单元素汇总">表单元素汇总</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>form</td>
+      <td>表示html表单</td>
+    </tr>
+    <tr>
+      <td>input</td>
+      <td>表示用来收集用户输入数据的控件</td>
+    </tr>
+    <tr>
+      <td>textarea</td>
+      <td>表示可以输入多行文本的控件</td>
+    </tr>
+    <tr>
+      <td>select</td>
+      <td>表示可以用来提供一组固定选项</td>
+    </tr>
+    <tr>
+      <td>option</td>
+      <td>表示提供一个选项</td>
+    </tr>
+    <tr>
+      <td>optgroup</td>
+      <td>表示一组相关的option元素</td>
+    </tr>
+    <tr>
+      <td>button</td>
+      <td>表示用来提交或重置的按钮</td>
+    </tr>
+    <tr>
+      <td>datalist</td>
+      <td>定义一组提供给用户的建议值</td>
+    </tr>
+    <tr>
+      <td>fieldset</td>
+      <td>表示一组表单元素</td>
+    </tr>
+    <tr>
+      <td>legend</td>
+      <td>表示fieldset元素的说明性标签</td>
+    </tr>
+    <tr>
+      <td>label</td>
+      <td>表示表单元素的说明标签</td>
+    </tr>
+    <tr>
+      <td>output</td>
+      <td>表示计算结果</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="表单元素解析">表单元素解析</h2>
+<h4 id="form定义表单">form定义表单</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>元素名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>action</td>
+      <td>表单提交的页面</td>
+    </tr>
+    <tr>
+      <td>method</td>
+      <td>表单的请求方式：GET和POST两种，默认GET</td>
+    </tr>
+    <tr>
+      <td>enctype</td>
+      <td>浏览器对发送给服务器的数据所采用的编码格式</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>设置表单名称，方便程序调用</td>
+    </tr>
+    <tr>
+      <td>target</td>
+      <td>提交时的目标位置：_blank, _parent, _self, _top</td>
+    </tr>
+    <tr>
+      <td>autocomplete</td>
+      <td>设置浏览器记住用户输入的数据，实现自动完成表单，有on和off两种，默认为on</td>
+    </tr>
+    <tr>
+      <td>novalidate</td>
+      <td>设置是否执行客户端数据有效性检查</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>解析：form定义一组表单，method提交方式，action提交到哪个地址，autocomplete=”off”关闭自动提示功能。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">"post"</span> <span class="na">action=</span><span class="s">"http://www.baidu.com"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;button&gt;</span>提交<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+
+<h4 id="input表示用户输入数据">input表示用户输入数据</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>元素名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>autofocus</td>
+      <td>让光标聚焦在某个input元素上，让用户之间输入</td>
+    </tr>
+    <tr>
+      <td>disabled</td>
+      <td>禁用input元素</td>
+    </tr>
+    <tr>
+      <td>autocomplete</td>
+      <td>单独设置input元素的自动完成功能</td>
+    </tr>
+    <tr>
+      <td>form</td>
+      <td>让表单外的元素和指定的表单挂钩提交</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>input元素的类型</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>定义input元素的名称，以便接收值</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>解析：input元素默认会出现一个单行文本框</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"user"</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"user"</span> <span class="na">autofocus</span><span class="nt">&gt;</span>            	//光标默认选中input
+
+<span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"user"</span> <span class="na">disabled</span><span class="nt">&gt;</span>            	//禁用input
+
+<span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"user"</span> <span class="na">autocomplete=</span><span class="s">"off"</span><span class="nt">&gt;</span>		//禁用输入提示
+
+<span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">"get"</span> <span class="na">id=</span><span class="s">"register"</span><span class="nt">&gt;</span>
+...
+<span class="nt">&lt;/form&gt;</span>
+
+<span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"email"</span> <span class="na">form=</span><span class="s">"register"</span><span class="nt">&gt;</span>		//表单外的input进行关联
+</code></pre></div></div>
+
+<h4 id="input中的type">input中的type</h4>
+<p>input元素可以生成一个输入文本框，通过不同的属性值，可以限制输入内容</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>text</td>
+      <td>一个单行文本框，默认值</td>
+    </tr>
+    <tr>
+      <td>password</td>
+      <td>隐藏字符的密码框</td>
+    </tr>
+    <tr>
+      <td>search</td>
+      <td>搜索框，在某些浏览器输入内容时会出现×标记取消</td>
+    </tr>
+    <tr>
+      <td>submit、reset、button</td>
+      <td>生成一个提交、重置、普通按钮</td>
+    </tr>
+    <tr>
+      <td>number、range</td>
+      <td>只能输入数值的框；只能输入在一个数值范围的框</td>
+    </tr>
+    <tr>
+      <td>checkbox、radio</td>
+      <td>复选框，单选框</td>
+    </tr>
+    <tr>
+      <td>image、color</td>
+      <td>生成一个图片按钮；带颜色的按钮</td>
+    </tr>
+    <tr>
+      <td>email、tel、url</td>
+      <td>生成一个检测电子邮件、号码、网址的文本框</td>
+    </tr>
+    <tr>
+      <td>date、month、time、week、datetime、datetime-local</td>
+      <td>获取日期和时间</td>
+    </tr>
+    <tr>
+      <td>hidden</td>
+      <td>生成一个隐藏控件</td>
+    </tr>
+    <tr>
+      <td>file</td>
+      <td>生成一个上传控件</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="type为text时">type为text时</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>list</td>
+      <td>指定为文本框提供建议值的datalist元素，其值为datalist元素的id值</td>
+    </tr>
+    <tr>
+      <td>maxlength</td>
+      <td>设置文本框的最大字符长度</td>
+    </tr>
+    <tr>
+      <td>pattern</td>
+      <td>用于输入验证的正则表达式</td>
+    </tr>
+    <tr>
+      <td>placeholder</td>
+      <td>控件的提示文字</td>
+    </tr>
+    <tr>
+      <td>readonly</td>
+      <td>文本框只读</td>
+    </tr>
+    <tr>
+      <td>disabled</td>
+      <td>文本框禁用</td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td>设置文本框宽度</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>设置文本框初始值</td>
+    </tr>
+    <tr>
+      <td>required</td>
+      <td>表示用户必须输入一个值，否则验证不通过</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">size=</span><span class="s">"50"</span><span class="nt">&gt;</span>            		  //设置文本框长度
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">maxlength=</span><span class="s">"10"</span><span class="nt">&gt;</span>            	  //设置文本框输入字符长度
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">value=</span><span class="s">"初始值"</span><span class="nt">&gt;</span>            	  //设置文本框的初始值
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"请输入提示内容"</span><span class="nt">&gt;</span>   //设置提示内容
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">readonly</span><span class="nt">&gt;</span>            		  //设置内容为只读，可以提交数据
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">disable</span><span class="nt">&gt;</span>            			  //设置为不可用，不能提交数据
+
+<span class="nt">&lt;input</span> <span class="na">list=</span><span class="s">"abc"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;datalist</span> <span class="na">id=</span><span class="s">"abc"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"苹果"</span><span class="nt">&gt;</span>苹果<span class="nt">&lt;/option&gt;</span>            //第一种方法
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"香蕉"</span> <span class="na">label=</span><span class="s">"香蕉"</span><span class="nt">&gt;</span>            //第二种方法
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"西瓜"</span><span class="nt">&gt;</span>                         //第三种方法
+<span class="nt">&lt;/datalist&gt;</span>                                       //鼠标双击文本框时提供建议值
+</code></pre></div></div>
+
+<h5 id="type为password时">type为password时</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>maxlength</td>
+      <td>设置密码框最大字符长度</td>
+    </tr>
+    <tr>
+      <td>pattern</td>
+      <td>对输入进行验证的正则表达式</td>
+    </tr>
+    <tr>
+      <td>placeholder</td>
+      <td>输入密码的提示</td>
+    </tr>
+    <tr>
+      <td>readonly</td>
+      <td>密码框只读</td>
+    </tr>
+    <tr>
+      <td>disabled</td>
+      <td>密码框禁用</td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td>设置密码框宽度</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>设置密码框初始值</td>
+    </tr>
+    <tr>
+      <td>required</td>
+      <td>表示用户必须输入同一个值</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>解析：文本框一致，所有输入的内容都会显示星号。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<h5 id="type为search时">type为search时</h5>
+<p>解析：和文本框一致，除了firefox浏览器，其他浏览器都会显示一个叉来取消搜索内容</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"search"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<h5 id="type为numberrange时">type为number、range时</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>list</td>
+      <td>指定为文本框提供建议值的datalist元素，其值为datalist元素id值</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>设置最小值</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>设置最大值</td>
+    </tr>
+    <tr>
+      <td>readonly</td>
+      <td>设置文本框内容只读</td>
+    </tr>
+    <tr>
+      <td>required</td>
+      <td>表示用户必须输入一个值，否则验证不通过</td>
+    </tr>
+    <tr>
+      <td>step</td>
+      <td>只读上下调节值的步长</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>指定初始值</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>解析：只能在文本框里面输入数字，不同浏览器显示方式不同</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"number"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"range"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"number"</span> <span class="na">step=</span><span class="s">"2"</span> <span class="na">min=</span><span class="s">"10"</span> <span class="na">max=</span><span class="s">"100"</span><span class="nt">&gt;</span>        //范围和步长
+</code></pre></div></div>
+
+<h5 id="type为date时">type为date时</h5>
+<p>解析：文本框可以获取日期和时间的值，但是浏览器支持度不佳，所以还是图鉴使用jQuery等前端库来实现日历功能</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"date"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"month"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"week"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"time"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"datetime"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"datetime-local"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<h5 id="type为color时">type为color时</h5>
+<p>解析：实现文本框获取颜色功能，但IE不支持</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"color"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<h5 id="type为checkboxradio时">type为checkbox、radio时</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>checked</td>
+      <td>设置复选框、单选框是否为选中状态</td>
+    </tr>
+    <tr>
+      <td>required</td>
+      <td>用户必须勾选，否则无法通过验证</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>设置复选框、单选框选中状态时提交的数据，默认是on</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>音乐<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
+体育<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"sex"</span> <span class="na">value=</span><span class="s">"男"</span><span class="nt">&gt;</span>男
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"sex"</span> <span class="na">value=</span><span class="s">"女"</span><span class="nt">&gt;</span>女
+
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">name=</span><span class="s">"music"</span> <span class="na">chexked</span> <span class="na">value=</span><span class="s">"1"</span><span class="nt">&gt;</span>   //默认勾选，值为1
+</code></pre></div></div>
+
+<h5 id="type为submitresetbutton时">type为submit、reset、button时</h5>
+<p>解析：和button元素相同</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"reset"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<h5 id="type为image时">type为image时</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>src</td>
+      <td>指定要显示图像的url</td>
+    </tr>
+    <tr>
+      <td>alt</td>
+      <td>提供图片的文字说明</td>
+    </tr>
+    <tr>
+      <td>width</td>
+      <td>图片的长度</td>
+    </tr>
+    <tr>
+      <td>height</td>
+      <td>图片的高度</td>
+    </tr>
+    <tr>
+      <td>提交额外属性</td>
+      <td>formaction、formenctype、formmethod、formtarget和formnovalidate</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>解析：生成一个图片按钮，点击图片就实现提交功能</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"image"</span> <span class="na">src=</span><span class="s">"img.png"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<h5 id="type为emailtelurl时">type为email、tel、url时</h5>
+<p>解析：email为电子邮件格式，tel为电话格式，url为网址格式</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"email"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"tel"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"url"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<h5 id="type为file时">type为file时</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>accept</td>
+      <td>指定接受的mime类型</td>
+    </tr>
+    <tr>
+      <td>required</td>
+      <td>表明用户必须提供一个值，否则无法通过验证</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>解析：生成一个文件上传控件，用于文件的上传</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"file"</span> <span class="na">accept=</span><span class="s">"image/gif，image/jpeg，image/png"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<h4 id="label添加说明标签">label添加说明标签</h4>
+<p>解析：label可以关联input，让用户体验更好。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"user"</span><span class="nt">&gt;</span>
+用户名：<span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"user"</span> <span class="na">name=</span><span class="s">"user"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/label&gt;</span>
+</code></pre></div></div>
+
+<h4 id="fieldset对表单进行编组">fieldset对表单进行编组</h4>
+<p>解析：fieldset元素可以将表单内容分成各个小模块，比如用户私人信息组，用户公开信息组等</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;fieldset&gt;</span>...<span class="nt">&lt;/fieldset&gt;</span>
+</code></pre></div></div>
+
+<h4 id="legend添加分组说明标签">legend添加分组说明标签</h4>
+<p>解析：legend元素给分组加上一个标题</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;fieldset&gt;</span>
+    <span class="nt">&lt;legend&gt;</span>注册表单<span class="nt">&lt;/legend&gt;</span>
+<span class="nt">&lt;/fieldset&gt;</span>
+</code></pre></div></div>
+
+<h4 id="button添加按钮">button添加按钮</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>submit</td>
+      <td>表示按钮的作用是提交表单，默认</td>
+    </tr>
+    <tr>
+      <td>reset</td>
+      <td>表示按钮的作用是重置表单</td>
+    </tr>
+    <tr>
+      <td>button</td>
+      <td>表示一般性按钮，没有其他作用</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>提交<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"resset"</span><span class="nt">&gt;</span>重置<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button&gt;</span>普通按钮<span class="nt">&lt;/button&gt;</span>
+</code></pre></div></div>
+<p>type为submit时，提供以下属性</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>form</td>
+      <td>指定按钮关联的表单</td>
+    </tr>
+    <tr>
+      <td>formaction</td>
+      <td>覆盖form元素的action属性</td>
+    </tr>
+    <tr>
+      <td>formenctype</td>
+      <td>覆盖form元素的enctype属性</td>
+    </tr>
+    <tr>
+      <td>formmethod</td>
+      <td>覆盖form元素的method属性</td>
+    </tr>
+    <tr>
+      <td>formtarget</td>
+      <td>覆盖form元素的target属性</td>
+    </tr>
+    <tr>
+      <td>formnovalidate</td>
+      <td>覆盖form元素的novalidate属性</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">form=</span><span class="s">"register"</span><span class="nt">&gt;</span>提交<span class="nt">&lt;/button&gt;</span>      //表单外关联提交
+</code></pre></div></div>
+
+<h4 id="select下拉列表">select下拉列表</h4>
+<p>解析：select下拉列表元素至少包含一个option子元素</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"fruit"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1"</span><span class="nt">&gt;</span>苹果<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"2"</span><span class="nt">&gt;</span>橘子<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"3"</span><span class="nt">&gt;</span>香蕉<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+</code></pre></div></div>
+<p>option子元素和optgroup分组元素还包含以下属性</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>设定提交时的名称</td>
+    </tr>
+    <tr>
+      <td>disabled</td>
+      <td>禁用下拉列表</td>
+    </tr>
+    <tr>
+      <td>form</td>
+      <td>将表单外的下拉列表与某个表单挂钩</td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td>设置下拉列表的高度</td>
+    </tr>
+    <tr>
+      <td>multiple</td>
+      <td>设置是否可以多选</td>
+    </tr>
+    <tr>
+      <td>autofocus</td>
+      <td>获取焦点</td>
+    </tr>
+    <tr>
+      <td>required</td>
+      <td>选择验证，设置之后必须选择才能通过</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"fruit"</span> <span class="na">size=</span><span class="s">"30"</span> <span class="na">multiple</span><span class="nt">&gt;</span>        //设置高度并实现多选
+<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"2"</span> <span class="na">selected</span><span class="nt">&gt;</span>橘子<span class="nt">&lt;/option&gt;</span>        //默认选中
+</code></pre></div></div>
+
+<p>使用optgroup进行分组，label为分组名称</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;optgroup</span> <span class="na">label=</span><span class="s">"水果类"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1"</span><span class="nt">&gt;</span>苹果<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"2"</span><span class="nt">&gt;</span>橘子<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"3"</span><span class="nt">&gt;</span>香蕉<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/optgroup&gt;</span>
+<span class="nt">&lt;optgroup</span> <span class="na">label=</span><span class="s">"粗粮类"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"4"</span><span class="nt">&gt;</span>大米<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"5"</span><span class="nt">&gt;</span>小米<span class="nt">&lt;/option&gt;</span>
+	<span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"6"</span><span class="nt">&gt;</span>玉米<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/optgroup&gt;</span>
+</code></pre></div></div>
+
+<h4 id="textarea多行文本框">textarea多行文本框</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>设置提交时的名称</td>
+    </tr>
+    <tr>
+      <td>form</td>
+      <td>将表单外的多行文本框与某个表单挂钩</td>
+    </tr>
+    <tr>
+      <td>readonly</td>
+      <td>设置多行文本框只读</td>
+    </tr>
+    <tr>
+      <td>disabled</td>
+      <td>将多行文本框禁用</td>
+    </tr>
+    <tr>
+      <td>maxlength</td>
+      <td>设置最大可输入的字符长度</td>
+    </tr>
+    <tr>
+      <td>autofocus</td>
+      <td>获取焦点</td>
+    </tr>
+    <tr>
+      <td>placeholder</td>
+      <td>设置输入时的提示信息</td>
+    </tr>
+    <tr>
+      <td>rows</td>
+      <td>设置行数</td>
+    </tr>
+    <tr>
+      <td>cols</td>
+      <td>设置列数</td>
+    </tr>
+    <tr>
+      <td>wrap</td>
+      <td>设置是否插入换行符，有soft和hard两种</td>
+    </tr>
+    <tr>
+      <td>required</td>
+      <td>这是必须输入值，否则无法通过验证</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//设置一个大小可变更的多行文本框
+<span class="nt">&lt;textarea</span> <span class="na">name=</span><span class="s">"content"</span><span class="nt">&gt;</span>请留下您的建议！<span class="nt">&lt;/textarea&gt;</span>
+//设置一个固定行高和列宽的文本框，设置插入换行符   
+<span class="nt">&lt;textarea</span> <span class="na">name=</span><span class="s">"content"</span> <span class="na">cols=</span><span class="s">"30"</span> <span class="na">rows=</span><span class="s">"10"</span> <span class="na">wrap=</span><span class="s">"hard"</span><span class="nt">&gt;&lt;/textarea&gt;</span>        
+</code></pre></div></div>
+
+
+    </article>
+    
+    <div class="social-share-wrapper">
+        <div class="social-share"></div>
+    </div>
+    
+</div>
+
+<section class="author-detail">
+    <section class="post-footer-item author-card">
+        <div class="avatar">
+            <img src="http://localhost:4000/assets/img/user/head.jpg" alt="">
+        </div>
+        <div class="author-name" rel="author">李东辉</div>
+        <div class="bio">
+            <p>前端开发者，热爱技术&设计，简单乐观爱创造</p>
+        </div>
+        
+        <ul class="sns-links">
+            
+            <li>
+                <a href="//zhihu.com/people/li-dong-hui-23/activities" target="_blank">
+                    <i class="iconfont icon-zhihu"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//jianshu.com/users/3c0dfb0e3ffd/timeline" target="_blank">
+                    <i class="iconfont icon-jianshu"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//juejin.im/user/58e6ea3761ff4b006b3e82ab" target="_blank">
+                    <i class="iconfont icon-juejin"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//github.com/lidonghui22" target="_blank">
+                    <i class="iconfont icon-github"></i>
+                </a>
+            </li>
+            
+        </ul>
+        
+    </section>
+    <section class="post-footer-item read-next">
+        
+        <div class="read-next-item">
+            <a href="/html/2017/04/18/global-properties.html" class="read-next-link"></a>
+            <section>
+                <span>全局属性</span>
+                <p>全局属性id属性解析：一个页面id名称不能出现重复，id是唯一标识，供css和js选择元素时调用&lt;p id=...</p>
+            </section>
+            
+        </div>
+        
+        
+        <div class="read-next-item">
+            <a href="/html/2017/04/18/doc-elements.html" class="read-next-link"></a>
+            <section>
+                <span>文档元素</span>
+                <p>文档元素汇总文档元素没有什么实际作用效果，主要目的是在页面布局是区分各个主题和概念。</p>
+            </section>
+            
+        </div>
+        
+    </section>
+    
+</section>
+
+<footer class="g-footer">
+    <section>李东辉的个人博客 © 2017</section>
+    <section>Powered by <a href="//jekyllrb.com">Jekyll</a> | <a href="https://github.com/kaeyleo/jekyll-theme-H2O">Theme H2O</a></section>
+</footer>
+
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+    socialShare('.social-share', {
+        sites: ['wechat','weibo','douban','twitter'],
+        wechatQrcodeTitle: "分享到微信朋友圈",
+        wechatQrcodeHelper: '<p>扫码后点击右上角</p><p>将本文分享至朋友圈</p>'
+    });
+</script>
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+/*写入自己的disqus信息*/
+s.src = '';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<script src="/assets/js/prism.js"></script>
+<script src="/assets/js/index.min.js"></script>
+</body>
+</html>

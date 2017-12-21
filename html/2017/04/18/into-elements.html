@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嵌入元素 - 李东辉的个人博客</title>
+    <meta name="author"  content="李东辉">
+    <meta name="description" content="嵌入元素">
+    <meta name="keywords"  content="html">
+    <!-- Open Graph -->
+    <meta property="og:title" content="嵌入元素 - 李东辉的个人博客">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:4000/html/2017/04/18/into-elements.html">
+    <meta property="og:description" content="昵称飘零叶，前端开发者/爱运动/梦想当一名厨师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。">
+    <meta property="og:site_name" content="李东辉的个人博客">
+    <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_roc50gemkxpw4s4i.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    <link rel="stylesheet" href="/assets/css/share.min.css">
+    <link rel="stylesheet" href="/assets/css/app.min.css">
+</head>
+<body>
+    <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+<input id="nm-switch" type="hidden" value="true">
+
+<header class="g-header">
+    <!-- <div class="g-logo">
+      <a href="/"></a>
+    </div>
+    <i id="menu-toggle" class="iconfont icon-menu"></i> -->
+    <nav class="g-nav">
+        <ul>
+            
+            <li><a href="/">home</a></li>
+            
+            <li><a href="/tags.html">tags</a></li>
+            
+        </ul>
+    </nav>
+</header>
+
+
+<header class="g-banner post-header post-pattern-circuitBoard bgcolor-default post-no-cover" data-theme="default">
+    <div class="post-wrapper">
+        <div class="post-tags">
+            
+            
+            <a href="http://localhost:4000/tags#html" class="post-tag">html</a>
+            
+            
+        </div>
+        <h1>嵌入元素</h1>
+        <div class="post-meta">
+            <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">lidonghui</a></></span>
+            <time class="post-meta-item" datetime="17-04-18"><i class="iconfont icon-date"></i>18 Apr 2017</time>
+        </div>
+    </div>
+    
+</header>
+
+<div class="post-content">
+    
+    <article class="markdown-body">
+        <h2 id="嵌入元素汇总">嵌入元素汇总</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>元素名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>img</td>
+      <td>嵌入图片</td>
+    </tr>
+    <tr>
+      <td>map</td>
+      <td>定义客户端分区响应图</td>
+    </tr>
+    <tr>
+      <td>area</td>
+      <td>表示一个用户客户端分区响应图的区域</td>
+    </tr>
+    <tr>
+      <td>audio</td>
+      <td>表示一个音频资源</td>
+    </tr>
+    <tr>
+      <td>video</td>
+      <td>表示一个视频资源</td>
+    </tr>
+    <tr>
+      <td>iframe</td>
+      <td>嵌入一个文档</td>
+    </tr>
+    <tr>
+      <td>embed</td>
+      <td>用插件在 HTML 中嵌入内容</td>
+    </tr>
+    <tr>
+      <td>canvas</td>
+      <td>生成一个动态的图形画布</td>
+    </tr>
+    <tr>
+      <td>meter</td>
+      <td>嵌入数值在许可值范围背景中的图形表示</td>
+    </tr>
+    <tr>
+      <td>object</td>
+      <td>在 HTML 文档中嵌入内容</td>
+    </tr>
+    <tr>
+      <td>param</td>
+      <td>表示将通过 object 元素传递给插件的参数</td>
+    </tr>
+    <tr>
+      <td>progress</td>
+      <td>嵌入目标进展或任务完成情况的图形表示</td>
+    </tr>
+    <tr>
+      <td>source</td>
+      <td>表示媒体资源</td>
+    </tr>
+    <tr>
+      <td>svg</td>
+      <td>表示结构化矢量内容</td>
+    </tr>
+    <tr>
+      <td>track</td>
+      <td>表示媒体的附加轨道（例如字幕）</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="嵌入元素解析">嵌入元素解析</h2>
+<h4 id="img嵌入图像">img嵌入图像</h4>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img.png"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>src</td>
+      <td>嵌入图像的 URL</td>
+    </tr>
+    <tr>
+      <td>alt</td>
+      <td>当图片不加载时显示的备用内容</td>
+    </tr>
+    <tr>
+      <td>width</td>
+      <td>定义图片的长度（单位是像素）</td>
+    </tr>
+    <tr>
+      <td>height</td>
+      <td>定义图片的高度（单位是像素）</td>
+    </tr>
+    <tr>
+      <td>ismap</td>
+      <td>创建服务器端分区响应图</td>
+    </tr>
+    <tr>
+      <td>usemap</td>
+      <td>关联map元素</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="map创建分区响应图">map创建分区响应图</h4>
+<p>解析：通过图片中的热点进行超链接</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img.png"</span> <span class="na">alt=</span><span class="s">"风景图"</span> <span class="na">width=</span><span class="s">"339"</span> <span class="na">height=</span><span class="s">"229"</span> <span class="na">usemap=</span><span class="s">"#Map"</span><span class="nt">&gt;</span> 
+<span class="nt">&lt;map</span> <span class="na">name=</span><span class="s">"Map"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;area</span> <span class="na">shape=</span><span class="s">"rect"</span> <span class="na">coords=</span><span class="s">"31,28,112,100"</span> <span class="na">href=</span><span class="s">"http://www.baidu.com"</span> <span class="na">target=</span><span class="s">"_blank"</span> <span class="na">alt=</span><span class="s">"方形"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;area</span> <span class="na">shape=</span><span class="s">"circle"</span> <span class="na">coords=</span><span class="s">"187,142,47"</span> <span class="na">href=</span><span class="s">"http://www.google.com"</span> <span class="na">target=</span><span class="s">"_blank"</span> <span class="na">alt=</span><span class="s">"圆形"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;area</span> <span class="na">shape=</span><span class="s">"poly"</span> <span class="na">coords=</span><span class="s">"287,26,240,66,308,112"</span> <span class="na">href=</span><span class="s">"http://www.soso.com"</span> <span class="na">target=</span><span class="s">"_blank"</span> <span class="na">alt=</span><span class="s">"多边形"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/map&gt;</span>
+</code></pre></div></div>
+
+<h4 id="iframe嵌入另一个html页面">iframe嵌入另一个html页面</h4>
+<p>解析：iframe表示内嵌一个html页面，name作用是和上面链接target进行关联，点击哪个链接在iframe中就会显示哪个页面。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"index.html"</span> <span class="na">target=</span><span class="s">"in"</span><span class="nt">&gt;</span>index<span class="nt">&lt;/a&gt;</span> | 
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.baidu.com"</span> <span class="na">target=</span><span class="s">"in"</span><span class="nt">&gt;</span>百度<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;iframe</span> <span class="na">src=</span><span class="s">"http://www.baidu.com"</span> <span class="na">width=</span><span class="s">"600"</span> <span class="na">height=</span><span class="s">"500"</span> <span class="na">name=</span><span class="s">"in"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/iframe&gt;</span>
+</code></pre></div></div>
+
+<h4 id="embed嵌入插件内容">embed嵌入插件内容</h4>
+<p>解析：embed元素是扩展浏览器功能，这里添加了一个土豆网的flash视频，src必填，type表示插入内容的类型，width和height表示显示内容的宽、高</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;embed</span> <span class="na">src=</span><span class="s">"http://www.tudou.com/v.swf"</span> <span class="na">type=</span><span class="s">"application/x-shockwave-flash"</span> <span class="na">width=</span><span class="s">"480"</span> <span class="na">height=</span><span class="s">"400"</span><span class="nt">&gt;&lt;/embed&gt;</span>
+</code></pre></div></div>
+
+<h4 id="object元素">object元素</h4>
+<p>解析：object元素和embed一样，只不过object是html4的标准，而embed是html5标准</p>
+
+<h4 id="progress显示进度">progress显示进度</h4>
+<p>解析：显示进度条，value表示默认显示的值，max表示最大值，一般通过js控制内部的值。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;progress</span> <span class="na">value=</span><span class="s">"30"</span> <span class="na">max=</span><span class="s">"100"</span><span class="nt">&gt;&lt;/progress&gt;</span>
+</code></pre></div></div>
+
+<h4 id="meter显示范围里的值">meter显示范围里的值</h4>
+<p>解析：10~100的范围，低于40是过低，高于80是过高，最佳值为60，目前值为20。
+meter显示某个范围内的值min和max表示范围边界，low表示小于他的值，过低；high表示高于他的值，optimum表示最佳，但是不会出现效果</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;meter</span> <span class="na">value=</span><span class="s">"20"</span> <span class="na">min=</span><span class="s">"10"</span> <span class="na">max=</span><span class="s">"100"</span> <span class="na">low=</span><span class="s">"40"</span> <span class="na">high=</span><span class="s">"80"</span> <span class="na">optimum=</span><span class="s">"60"</span><span class="nt">&gt;&lt;/meter&gt;</span>
+</code></pre></div></div>
+
+
+    </article>
+    
+    <div class="social-share-wrapper">
+        <div class="social-share"></div>
+    </div>
+    
+</div>
+
+<section class="author-detail">
+    <section class="post-footer-item author-card">
+        <div class="avatar">
+            <img src="http://localhost:4000/assets/img/user/head.jpg" alt="">
+        </div>
+        <div class="author-name" rel="author">李东辉</div>
+        <div class="bio">
+            <p>前端开发者，热爱技术&设计，简单乐观爱创造</p>
+        </div>
+        
+        <ul class="sns-links">
+            
+            <li>
+                <a href="//zhihu.com/people/li-dong-hui-23/activities" target="_blank">
+                    <i class="iconfont icon-zhihu"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//jianshu.com/users/3c0dfb0e3ffd/timeline" target="_blank">
+                    <i class="iconfont icon-jianshu"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//juejin.im/user/58e6ea3761ff4b006b3e82ab" target="_blank">
+                    <i class="iconfont icon-juejin"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//github.com/lidonghui22" target="_blank">
+                    <i class="iconfont icon-github"></i>
+                </a>
+            </li>
+            
+        </ul>
+        
+    </section>
+    <section class="post-footer-item read-next">
+        
+        <div class="read-next-item">
+            <a href="/html/2017/04/18/localStorage.html" class="read-next-link"></a>
+            <section>
+                <span>localStorage本地存储</span>
+                <p>localStorage方法localStorage方法存储的数据没有时间限制</p>
+            </section>
+            
+        </div>
+        
+        
+        <div class="read-next-item">
+            <a href="/html/2017/04/18/html-basic.html" class="read-next-link"></a>
+            <section>
+                <span>HTML基本结构</span>
+                <p>  最基本的HTML元素，也就是创建文档结构所需的元素。例如：标题、段落、页面分隔、注释等。</p>
+            </section>
+            
+        </div>
+        
+    </section>
+    
+</section>
+
+<footer class="g-footer">
+    <section>李东辉的个人博客 © 2017</section>
+    <section>Powered by <a href="//jekyllrb.com">Jekyll</a> | <a href="https://github.com/kaeyleo/jekyll-theme-H2O">Theme H2O</a></section>
+</footer>
+
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+    socialShare('.social-share', {
+        sites: ['wechat','weibo','douban','twitter'],
+        wechatQrcodeTitle: "分享到微信朋友圈",
+        wechatQrcodeHelper: '<p>扫码后点击右上角</p><p>将本文分享至朋友圈</p>'
+    });
+</script>
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+/*写入自己的disqus信息*/
+s.src = '';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<script src="/assets/js/prism.js"></script>
+<script src="/assets/js/index.min.js"></script>
+</body>
+</html>
