@@ -124,6 +124,118 @@
   </tbody>
 </table>
 
+<h4 id="平移">平移</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">transform</span><span class="nd">:translate</span><span class="o">(</span><span class="nt">200px</span><span class="o">,</span><span class="nt">200px</span><span class="o">);</span>		<span class="c">/*向水平和垂直方向各移动200px*/</span>
+<span class="nt">transform</span><span class="nd">:translate</span><span class="o">(</span><span class="nt">200px</span><span class="o">,</span><span class="nt">0</span><span class="o">);</span>			<span class="c">/*向水平移动200px*/</span>
+<span class="nt">transform</span><span class="nd">:translate</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span><span class="nt">200px</span><span class="o">);</span>			<span class="c">/*向垂直移动200px*/</span>
+<span class="nt">transform</span><span class="nd">:translateX</span><span class="o">(</span><span class="nt">200px</span><span class="o">);</span>			<span class="c">/*向水平移动200px*/</span>
+<span class="nt">transform</span><span class="nd">:translateY</span><span class="o">(</span><span class="nt">200px</span><span class="o">);</span>			<span class="c">/*向垂直移动200px*/</span>
+</code></pre></div></div>
+<h4 id="缩放">缩放</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">transform</span><span class="nd">:scale</span><span class="o">(</span><span class="nt">1</span><span class="nc">.5</span><span class="o">);</span>					<span class="c">/*水平、垂直方向都放大1.5倍*/</span>
+<span class="nt">transform</span><span class="nd">:scale</span><span class="o">(</span><span class="nt">1</span><span class="nc">.5</span><span class="o">,</span><span class="nt">1</span><span class="nc">.5</span><span class="o">);</span>				<span class="c">/*水平、垂直方向都放大1.5倍*/</span>
+<span class="nt">transform</span><span class="nd">:scale</span><span class="o">(</span><span class="nt">0</span><span class="nc">.5</span><span class="o">);</span>					<span class="c">/*水平、垂直方向都缩小0.5倍*/</span>
+<span class="nt">transform</span><span class="nd">:scale</span><span class="o">(</span><span class="nt">0</span><span class="nc">.5</span><span class="o">,</span><span class="nt">0</span><span class="nc">.5</span><span class="o">);</span>				<span class="c">/*水平、垂直方向都缩小0.5倍*/</span>
+<span class="nt">transform</span><span class="nd">:scaleX</span><span class="o">(</span><span class="nt">1</span><span class="nc">.5</span><span class="o">);</span>					<span class="c">/*水平方向放大1.5倍*/</span>
+<span class="nt">transform</span><span class="nd">:scaleY</span><span class="o">(</span><span class="nt">1</span><span class="nc">.5</span><span class="o">);</span>					<span class="c">/*垂直方向放大1.5倍*/</span>
+</code></pre></div></div>
+<h4 id="旋转">旋转</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">transform</span><span class="nd">:rotate</span><span class="o">(</span><span class="nt">-45deg</span><span class="o">);</span>				<span class="c">/*以中心点旋转-45度，-360度 ~ 360度之间*/</span>
+</code></pre></div></div>
+<h4 id="倾斜">倾斜</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">transform</span><span class="nd">:skew</span><span class="o">(</span><span class="nt">45deg</span><span class="o">,</span><span class="nt">20deg</span><span class="o">);</span>			<span class="c">/*水平倾斜45度，垂直倾斜20度*/</span>
+<span class="nt">transform</span><span class="nd">:skewX</span><span class="o">(</span><span class="nt">45deg</span><span class="o">);</span>					<span class="c">/*水平倾斜45度*/</span>
+<span class="nt">transform</span><span class="nd">:skewY</span><span class="o">(</span><span class="nt">45deg</span><span class="o">);</span>					<span class="c">/*垂直倾斜45度*/</span>
+</code></pre></div></div>
+<p>多个属性值一起写：用空格隔开(平移200px,放大1.5倍，旋转45度，倾斜45度)</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">transform</span> <span class="o">:</span> <span class="nt">translate</span><span class="o">(</span><span class="nt">200px</span><span class="o">)</span> <span class="nt">scale</span><span class="o">(</span><span class="nt">1</span><span class="nc">.5</span><span class="o">)</span> <span class="nt">rotate</span><span class="o">(</span><span class="nt">-45deg</span><span class="o">)</span> <span class="nt">skew</span><span class="o">(</span><span class="nt">45deg</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h2 id="transform-origin">transform-origin</h2>
+<p>transsform-origin属性可以设置变换的起始点，默认情况下使用元素的中心作为起点</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性值</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>百分数值</td>
+      <td>指定元素x轴或y轴的起点</td>
+    </tr>
+    <tr>
+      <td>长度值</td>
+      <td>指定距离</td>
+    </tr>
+    <tr>
+      <td>left、center、right</td>
+      <td>指定 x 轴的位置</td>
+    </tr>
+    <tr>
+      <td>top、center、bottom</td>
+      <td>指定 y 轴的位置</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*默认值，以中心点变形*/</span>
+<span class="nt">transform-origin</span><span class="nd">:center</span> <span class="nt">center</span><span class="o">;</span>
+<span class="nt">transform-origin</span><span class="nd">:50</span><span class="o">%</span> <span class="nt">50</span><span class="o">%;</span>
+
+<span class="c">/*以左上角为基准点变形(左上角坐标位置为0,0)*/</span>
+<span class="nt">transform-origin</span><span class="nd">:left</span> <span class="nt">top</span><span class="o">;</span>
+<span class="nt">transform-origin</span><span class="nd">:0px</span> <span class="nt">0px</span><span class="o">;</span>
+</code></pre></div></div>
+
+<h2 id="浏览器版本">浏览器版本</h2>
+<p>css3中变形效果浏览器版本支持如下</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Opera</th>
+      <th>Firefox</th>
+      <th>Chrome</th>
+      <th>Safari</th>
+      <th>IE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>支持需带前缀</td>
+      <td>11.5 ~ 22</td>
+      <td>3.5 ~ 15</td>
+      <td>4 ~ 35</td>
+      <td>3.1 ~ 8</td>
+      <td>9.0+</td>
+    </tr>
+    <tr>
+      <td>支持不带前缀</td>
+      <td>23+</td>
+      <td>16+</td>
+      <td>26+</td>
+      <td>无</td>
+      <td>10.0+</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>旋转，正数为顺时针旋转，负数为逆时针旋转</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*兼容性设置*/</span>
+<span class="nt">-webkit-transform</span><span class="nd">:rotate</span><span class="o">(</span><span class="nt">45deg</span><span class="o">);</span>
+<span class="nt">-moz-transform</span><span class="nd">:rotate</span><span class="o">(</span><span class="nt">45deg</span><span class="o">);</span>
+<span class="nt">-o-transform</span><span class="nd">:rotate</span><span class="o">(</span><span class="nt">45deg</span><span class="o">);</span>
+<span class="nt">transform</span><span class="nd">:rotate</span><span class="o">(</span><span class="nt">45deg</span><span class="o">);</span>
+
+<span class="nt">-webkit-transform-origin</span><span class="nd">:left</span> <span class="nt">top</span><span class="o">;</span>
+<span class="nt">-moz-transform-origin</span><span class="nd">:left</span> <span class="nt">top</span><span class="o">;</span>
+<span class="nt">-o-transform-origin</span><span class="nd">:left</span> <span class="nt">top</span><span class="o">;</span>
+<span class="nt">transform-origin</span><span class="nd">:left</span> <span class="nt">top</span><span class="o">;</span>
+</code></pre></div></div>
 
     </article>
     

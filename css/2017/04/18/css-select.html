@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css选择器 - 李东辉的个人博客</title>
+    <meta name="author"  content="李东辉">
+    <meta name="description" content="css选择器">
+    <meta name="keywords"  content="css">
+    <!-- Open Graph -->
+    <meta property="og:title" content="css选择器 - 李东辉的个人博客">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:4000/css/2017/04/18/css-select.html">
+    <meta property="og:description" content="昵称飘零叶，前端开发者/爱运动/梦想当一名厨师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。">
+    <meta property="og:site_name" content="李东辉的个人博客">
+    <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_roc50gemkxpw4s4i.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    <link rel="stylesheet" href="/assets/css/share.min.css">
+    <link rel="stylesheet" href="/assets/css/app.min.css">
+</head>
+<body>
+    <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+<input id="nm-switch" type="hidden" value="true">
+
+<header class="g-header">
+    <!-- <div class="g-logo">
+      <a href="/"></a>
+    </div>
+    <i id="menu-toggle" class="iconfont icon-menu"></i> -->
+    <nav class="g-nav">
+        <ul>
+            
+            <li><a href="/">home</a></li>
+            
+            <li><a href="/tags.html">tags</a></li>
+            
+        </ul>
+    </nav>
+</header>
+
+
+<header class="g-banner post-header post-pattern-circuitBoard bgcolor-default post-no-cover" data-theme="default">
+    <div class="post-wrapper">
+        <div class="post-tags">
+            
+            
+            <a href="http://localhost:4000/tags#css" class="post-tag">css</a>
+            
+            
+        </div>
+        <h1>css选择器</h1>
+        <div class="post-meta">
+            <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">lidonghui</a></></span>
+            <time class="post-meta-item" datetime="17-04-18"><i class="iconfont icon-date"></i>18 Apr 2017</time>
+        </div>
+    </div>
+    
+</header>
+
+<div class="post-content">
+    
+    <article class="markdown-body">
+        <h2 id="选择器汇总">选择器汇总</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>选择器</th>
+      <th>名称</th>
+      <th>说明</th>
+      <th>CSS 版本</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>“*”</td>
+      <td>通用选择器</td>
+      <td>选择所有元素</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>元素选择器</td>
+      <td>选择指定类型的元素</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>#id</td>
+      <td>id选择器</td>
+      <td>选择指定id属性的元素</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>.class</td>
+      <td>class选择器</td>
+      <td>选择指定class属性的元素</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>[attr]系列</td>
+      <td>属性选择器</td>
+      <td>选择指定attr属性的元素</td>
+      <td>2 ~ 3</td>
+    </tr>
+    <tr>
+      <td>s1,s2,s3…</td>
+      <td>分组选择器</td>
+      <td>选择多个选择器的元素</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>s1 s2</td>
+      <td>后代选择器</td>
+      <td>选择指定选择器的后代元素</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>s1 &gt; s2</td>
+      <td>子选择器</td>
+      <td>选择指定选择器的子元素</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>s1 + s2</td>
+      <td>相邻兄弟选择器</td>
+      <td>选择指定选择器相邻的元素</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>s1 ~ s2</td>
+      <td>普通兄弟选择器</td>
+      <td>选择指定选择器后面的元素</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>::first-line</td>
+      <td>伪元素选择器</td>
+      <td>选择块级元素文本的首行</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>::first-letter</td>
+      <td>伪元素选择器</td>
+      <td>选择块级元素文本的首字母</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>::before</td>
+      <td>伪元素选择器</td>
+      <td>选择元素之前插入内容</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>::after</td>
+      <td>伪元素选择器</td>
+      <td>选择元素之后插入内容</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="基本选择器">基本选择器</h2>
+<h4 id="通用选择器">通用选择器</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">*</span><span class="p">{</span>
+	<span class="nl">border</span><span class="p">:</span><span class="m">1px</span> <span class="nb">solid</span> <span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="元素选择器">元素选择器</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span><span class="p">{</span>
+    <span class="nl">border</span><span class="p">:</span><span class="m">1px</span> <span class="nb">solid</span> <span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="id选择器">id选择器</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#box</span><span class="p">{</span>
+    <span class="nl">border</span><span class="p">:</span><span class="m">1px</span> <span class="nb">solid</span> <span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="class选择器">class选择器</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.box</span><span class="p">{</span>
+    <span class="nl">border</span><span class="p">:</span><span class="m">1px</span> <span class="nb">solid</span> <span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="属性选择器">属性选择器</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span><span class="err">属性</span><span class="o">]</span><span class="p">{</span>
+    <span class="nl">border</span><span class="p">:</span><span class="m">1px</span> <span class="nb">solid</span> <span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="复合选择器">复合选择器</h2>
+<h4 id="分组选择器">分组选择器</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span><span class="o">,</span><span class="nt">b</span><span class="o">,</span><span class="nt">i</span><span class="o">,</span><span class="nt">span</span><span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="后代选择器">后代选择器</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*p内所有b,不在乎层次深度*/</span>
+<span class="nt">p</span> <span class="nt">b</span> <span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="子选择器">子选择器</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*只能选择父元素向下一级，孙子元素无效*/</span>
+<span class="nt">ul</span> <span class="o">&gt;</span> <span class="nt">li</span> <span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="相邻兄弟选择器">相邻兄弟选择器</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span> <span class="o">+</span> <span class="nt">b</span> <span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="普通兄弟选择器">普通兄弟选择器</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">p</span> <span class="o">~</span> <span class="nt">b</span> <span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="伪类选择器">伪类选择器</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>选择器</th>
+      <th>名称</th>
+      <th>说明</th>
+      <th>CSS 版本</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>:root</td>
+      <td>根元素选择器</td>
+      <td>选择文档中的根元素</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>:first-child</td>
+      <td>子元素选择器</td>
+      <td>选择元素中第一个子元素</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>:last-child</td>
+      <td>子元素选择器</td>
+      <td>选择元素中最后一个子元素</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>:only-child</td>
+      <td>子元素选择器</td>
+      <td>选择元素中唯一子元素</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>:only-of-type</td>
+      <td>子元素选择器</td>
+      <td>选择指定类型的唯一子元素</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>:nth-child(n)</td>
+      <td>子元素选择器</td>
+      <td>选择指定N个子元素</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>:enabled</td>
+      <td>UI选择器</td>
+      <td>选择启用状态的元素</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>:disabled</td>
+      <td>UI选择器</td>
+      <td>选择禁用状态的元素</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>:checked</td>
+      <td>UI选择器</td>
+      <td>选择被选中input勾选元素</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>:default</td>
+      <td>UI选择器</td>
+      <td>选择默认元素</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>:valid</td>
+      <td>UI选择器</td>
+      <td>验证有效选择input元素</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>:invalid</td>
+      <td>UI选择器</td>
+      <td>验证无效选择input元素</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>:required</td>
+      <td>UI选择器</td>
+      <td>有required属性选择元素</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>:optional</td>
+      <td>UI选择器</td>
+      <td>无required属性选择元素</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>:link</td>
+      <td>动态选择器</td>
+      <td>未访问的超链接元素</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>:visited</td>
+      <td>动态选择器</td>
+      <td>已访问的超链接元素</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>:hover</td>
+      <td>动态选择器</td>
+      <td>悬停在超链接上的元素</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>:active</td>
+      <td>动态选择器</td>
+      <td>激活超链接上的元素</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>:foucs</td>
+      <td>动态选择器</td>
+      <td>获取焦点的元素</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>:not</td>
+      <td>其他选择器</td>
+      <td>否定选择的元素</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>:empty</td>
+      <td>其他选择器</td>
+      <td>选择没有任何内容的元素</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>:lang</td>
+      <td>其他选择器</td>
+      <td>选取包含lang属性的元素</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>:target</td>
+      <td>其他选择器</td>
+      <td>选取URL片段标识指向元素</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="子元素选择器">子元素选择器</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*选择第一个子元素*/</span>
+<span class="nt">ul</span> <span class="o">&gt;</span> <span class="nt">li</span><span class="nd">:first-child</span> <span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/*选择最后一个子元素*/</span>
+<span class="nt">ul</span> <span class="o">&gt;</span> <span class="nt">li</span><span class="nd">:last-child</span> <span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/*选择只有一个子元素的那个子元素*/</span>
+<span class="nt">ul</span> <span class="o">&gt;</span> <span class="nt">li</span><span class="nd">:only-child</span> <span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/*选择所有div下，只有一个子元素为p的对象*/</span>
+<span class="nt">div</span> <span class="o">&gt;</span> <span class="nt">p</span><span class="nd">:only-of-type</span> <span class="p">{</span>
+	<span class="nl">color</span> <span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="nth-childn系列">:nth-child(n)系列</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*选择ul的第二个li元素*/</span>
+<span class="nt">ul</span> <span class="o">&gt;</span> <span class="nt">li</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">2</span><span class="o">)</span> <span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/*选择ul倒数第二个li元素*/</span>
+<span class="nt">ul</span> <span class="o">&gt;</span> <span class="nt">li</span><span class="nd">:nth-last-child</span><span class="o">(</span><span class="nt">2</span><span class="o">)</span> <span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/*选择div元素的第二个p元素（div元素下只有一个p元素的情况不会被选中）*/</span>
+<span class="nt">div</span> <span class="o">&gt;</span> <span class="nt">p</span><span class="nd">:nth-of-type</span><span class="o">(</span><span class="nt">2</span><span class="o">)</span> <span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/*选择div元素的倒数第二个p元素（div元素下只有一个p元素的情况不会被选中）*/</span>
+<span class="nt">div</span> <span class="o">&gt;</span> <span class="nt">p</span><span class="nd">:nth-last-of-type</span><span class="o">(</span><span class="nt">2</span><span class="o">)</span> <span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="enabled">:enabled</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*选择启用状态的元素*/</span>
+<span class="nd">:enabled</span> <span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="disabled">:disabled</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*选择禁用状态的元素*/</span>
+<span class="nd">:disabled</span> <span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="checked">:checked</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*选择勾选的元素*/</span>
+<span class="nd">:checked</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="default">:default</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*选择被默认勾选的元素*/</span>
+<span class="nd">:default</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="valid和invalid">:valid和invalid</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*输入验证合法与不合法时选择的元素*/</span>
+<span class="c">/*合法*/</span>
+<span class="nt">input</span><span class="nd">:vilid</span> <span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span><span class="no">green</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c">/*不合法*/</span>                        
+<span class="nt">input</span><span class="nd">:invalid</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>                                
+</code></pre></div></div>
+
+<h4 id="required和optional">:required和:optional</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*根据是否具有required属性选择元素*/</span>
+<span class="c">/*必填*/</span>
+<span class="nt">input</span><span class="nd">:required</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">green</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c">/*选填*/</span>
+<span class="nt">input</span><span class="nd">:optional</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">green</span><span class="p">;</span>
+<span class="p">}</span>  
+</code></pre></div></div>
+
+<h4 id="link和visited">:link和visited</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*未访问过的链接*/</span>
+<span class="nt">a</span><span class="nd">:link</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c">/*已经访问过的链接*/</span>           
+<span class="nt">a</span><span class="nd">:visited</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">orange</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="hover">:hover</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*鼠标悬停在a链接上显示绿色*/</span>
+<span class="nt">a</span><span class="nd">:hover</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">green</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="active">:active</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*鼠标按下超链接时显示绿色*/</span>
+<span class="nt">a</span><span class="nd">:active</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">green</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="focus">:focus</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*获取焦点时*/</span>
+<span class="nt">input</span><span class="nd">:focus</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="not">:not</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*否定选择器，反选*/</span>
+<span class="nt">a</span><span class="nd">:not</span><span class="o">([</span><span class="nt">href</span><span class="o">*=</span><span class="s1">"baidu"</span><span class="o">])</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="empty">:empty</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*匹配没有任何内容的元素*/</span>
+<span class="nd">:empty</span> <span class="p">{</span>
+    <span class="nl">display</span><span class="p">:</span><span class="nb">none</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="lang">:lang</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*选择包含lang属性，属性值前缀为en的元素*/</span>
+<span class="nd">:lang</span><span class="o">(</span><span class="nt">en</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="target">:target</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*定位到锚点是，选择此元素*/</span>
+<span class="nd">:target</span><span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+    </article>
+    
+    <div class="social-share-wrapper">
+        <div class="social-share"></div>
+    </div>
+    
+</div>
+
+<section class="author-detail">
+    <section class="post-footer-item author-card">
+        <div class="avatar">
+            <img src="http://localhost:4000/assets/img/user/head.jpg" alt="">
+        </div>
+        <div class="author-name" rel="author">李东辉</div>
+        <div class="bio">
+            <p>前端开发者，热爱技术&设计，简单乐观爱创造</p>
+        </div>
+        
+        <ul class="sns-links">
+            
+            <li>
+                <a href="//zhihu.com/people/li-dong-hui-23/activities" target="_blank">
+                    <i class="iconfont icon-zhihu"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//jianshu.com/users/3c0dfb0e3ffd/timeline" target="_blank">
+                    <i class="iconfont icon-jianshu"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//juejin.im/user/58e6ea3761ff4b006b3e82ab" target="_blank">
+                    <i class="iconfont icon-juejin"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//github.com/lidonghui22" target="_blank">
+                    <i class="iconfont icon-github"></i>
+                </a>
+            </li>
+            
+        </ul>
+        
+    </section>
+    <section class="post-footer-item read-next">
+        
+        <div class="read-next-item">
+            <a href="/css/2017/04/18/css-text.html" class="read-next-link"></a>
+            <section>
+                <span>文本样式</span>
+                <p>文本样式css文本样式有三种：文本装饰、英文大小写转换、文本阴影text-decoration</p>
+            </section>
+            
+        </div>
+        
+        
+        <div class="read-next-item">
+            <a href="/css/2017/04/18/css-box-model.html" class="read-next-link"></a>
+            <section>
+                <span>css盒子模型</span>
+                <p>  CSS 盒模型中最基础的就是设置一个元素的尺寸大小</p>
+            </section>
+            
+        </div>
+        
+    </section>
+    
+</section>
+
+<footer class="g-footer">
+    <section>李东辉的个人博客 © 2017</section>
+    <section>Powered by <a href="//jekyllrb.com">Jekyll</a> | <a href="https://github.com/kaeyleo/jekyll-theme-H2O">Theme H2O</a></section>
+</footer>
+
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+    socialShare('.social-share', {
+        sites: ['wechat','weibo','douban','twitter'],
+        wechatQrcodeTitle: "分享到微信朋友圈",
+        wechatQrcodeHelper: '<p>扫码后点击右上角</p><p>将本文分享至朋友圈</p>'
+    });
+</script>
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+/*写入自己的disqus信息*/
+s.src = '';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<script src="/assets/js/prism.js"></script>
+<script src="/assets/js/index.min.js"></script>
+</body>
+</html>
