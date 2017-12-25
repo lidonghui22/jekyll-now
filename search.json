@@ -79,9 +79,21 @@
     } ,
   
     {
+      "title"    : "css表格",
+      "tags"     : "css",
+      "url"      : "/css/2017/04/18/css-table.html"
+    } ,
+  
+    {
       "title"    : "css选择器",
       "tags"     : "css",
       "url"      : "/css/2017/04/18/css-select.html"
+    } ,
+  
+    {
+      "title"    : "css列表",
+      "tags"     : "css",
+      "url"      : "/css/2017/04/18/css-list.html"
     } ,
   
     {
@@ -91,15 +103,21 @@
     } ,
   
     {
-      "title"    : "css边框和背景",
+      "title"    : "css边框",
       "tags"     : "css",
-      "url"      : "/css/2017/04/18/css-border-background.html"
+      "url"      : "/css/2017/04/18/css-border.html"
     } ,
   
     {
       "title"    : "css基础",
       "tags"     : "css",
       "url"      : "/css/2017/04/18/css-basic.html"
+    } ,
+  
+    {
+      "title"    : "css背景",
+      "tags"     : "css",
+      "url"      : "/css/2017/04/18/css-background.html"
     } ,
   
     {

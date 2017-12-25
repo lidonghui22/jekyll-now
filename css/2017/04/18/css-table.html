@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css表格 - 李东辉的个人博客</title>
+    <meta name="author"  content="李东辉">
+    <meta name="description" content="css表格">
+    <meta name="keywords"  content="css">
+    <!-- Open Graph -->
+    <meta property="og:title" content="css表格 - 李东辉的个人博客">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:5000/css/2017/04/18/css-table.html">
+    <meta property="og:description" content="昵称飘零叶，前端开发者/爱运动/梦想当一名厨师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。">
+    <meta property="og:site_name" content="李东辉的个人博客">
+    <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_roc50gemkxpw4s4i.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    <link rel="stylesheet" href="/assets/css/share.min.css">
+    <link rel="stylesheet" href="/assets/css/app.min.css">
+</head>
+<body>
+    <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+<input id="nm-switch" type="hidden" value="true">
+
+<header class="g-header">
+    <!-- <div class="g-logo">
+      <a href="/"></a>
+    </div>
+    <i id="menu-toggle" class="iconfont icon-menu"></i> -->
+    <nav class="g-nav">
+        <ul>
+            
+            <li><a href="/">home</a></li>
+            
+            <li><a href="/tags.html">tags</a></li>
+            
+        </ul>
+    </nav>
+</header>
+
+
+<header class="g-banner post-header post-pattern-circuitBoard bgcolor-default post-no-cover" data-theme="default">
+    <div class="post-wrapper">
+        <div class="post-tags">
+            
+            
+            <a href="http://localhost:5000/tags#css" class="post-tag">css</a>
+            
+            
+        </div>
+        <h1>css表格</h1>
+        <div class="post-meta">
+            <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:5000" target="_blank" rel="author">lidonghui</a></></span>
+            <time class="post-meta-item" datetime="17-04-18"><i class="iconfont icon-date"></i>18 Apr 2017</time>
+        </div>
+    </div>
+    
+</header>
+
+<div class="post-content">
+    
+    <article class="markdown-body">
+        <h2 id="表格属性">表格属性</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>值</th>
+      <th>说明</th>
+      <th>CSS 版本</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>border-collapse</td>
+      <td>边框样式</td>
+      <td>相邻单元格的边框样式</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>border-spacing</td>
+      <td>长度值</td>
+      <td>相邻单元格边框的间距</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>caption-side</td>
+      <td>位置名称</td>
+      <td>表格标题的位置</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>empty-cells</td>
+      <td>显示值</td>
+      <td>空单元格是否显示边框</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>table-layout</td>
+      <td>布局样式</td>
+      <td>指定表格的布局样式</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="border-collapse">border-collapse</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+      <th>CSS 版本</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>separate</td>
+      <td>默认值,单元格边框独立</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>collapse</td>
+      <td>单元格相邻边框被合并</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*单元格相邻的边框被合并*/</span>
+<span class="nt">table</span> <span class="p">{</span>
+    <span class="nl">border-collapse</span><span class="p">:</span><span class="nb">collapse</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="border-spacing">border-spacing</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+      <th>CSS 版本</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>长度值</td>
+      <td>0表示间距,其他使用CSS长度值</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*表格单元格边框不合并的情况下才有效,因为要设置边框间距,不能合并*/</span>
+<span class="nt">table</span> <span class="p">{</span>
+    <span class="nl">border-spacing</span><span class="p">:</span><span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="caption-side">caption-side</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+      <th>CSS 版本</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>top</td>
+      <td>默认值,标题在上方</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>bottom</td>
+      <td>标题在下方</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*设置表格标题在下方*/</span>
+<span class="nt">table</span> <span class="p">{</span>
+    <span class="nl">caption-side</span><span class="p">:</span><span class="nb">bottom</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="empty-cells">empty-cells</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+      <th>CSS 版本</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>show</td>
+      <td>默认值,显示边框</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>hide</td>
+      <td>不显示边框</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*单元格内容为空时，隐藏边框*/</span>
+<span class="nt">table</span> <span class="p">{</span>
+    <span class="nl">empty-cells</span><span class="p">:</span><span class="nb">hide</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="table-layout">table-layout</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+      <th>CSS 版本</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>auto</td>
+      <td>默认值,内容过长时,拉伸整个单元格</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>fixed</td>
+      <td>内容过长时,不拉伸整个单元格</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*内容过长后，不会拉伸整个单元格*/</span>
+<span class="nt">table</span> <span class="p">{</span>
+    <span class="nl">table-layout</span><span class="p">:</span> <span class="nb">fixed</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="其他功能">其他功能</h2>
+<p>在table中td单元格，可以使用text-align属性水平对齐，但是垂直对齐就无法操作了，
+css提供vertical-align属性用于垂直对齐</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+      <th>CSS 版本</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>baseline</td>
+      <td>内容对象与基线对齐</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>top</td>
+      <td>内容对象与顶端对齐</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>middle</td>
+      <td>内容对象与中部对齐</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>bottom</td>
+      <td>内容对象与底部对齐</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*单元格内容对象与底部对齐*/</span>
+<span class="nt">table</span> <span class="nt">tr</span> <span class="nt">td</span> <span class="p">{</span>
+    <span class="nl">vertical-align</span><span class="p">:</span><span class="nb">bottom</span><span class="p">;</span>
+<span class="p">}</span> 
+</code></pre></div></div>
+
+<h4 id="设置上标和下标">设置上标和下标</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+      <th>CSS 版本</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>sub</td>
+      <td>垂直对齐文本的下标</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>super</td>
+      <td>垂直对齐文本的上标</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*设置文本的下标*/</span>
+<span class="nt">b</span><span class="p">{</span>
+    <span class="nl">vertical-align</span><span class="p">:</span><span class="n">sub</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+      <th>CSS 版本</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>长度值</td>
+      <td>设置上下的偏移量,可以是负值</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>百分比</td>
+      <td>同上</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*负值往下,正值往上;如果默认在基线上面,用负数;默认在基线下面,用正数*/</span>
+<span class="nt">div</span> <span class="nt">span</span> <span class="p">{</span>
+    <span class="nl">vertical-align</span><span class="p">:</span><span class="m">-200px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>*不能直接在块级元素中设置样式，必须要在内联元素设置vertical-align才有效果。</p>
+
+    </article>
+    
+    <div class="social-share-wrapper">
+        <div class="social-share"></div>
+    </div>
+    
+</div>
+
+<section class="author-detail">
+    <section class="post-footer-item author-card">
+        <div class="avatar">
+            <img src="http://localhost:5000/assets/img/user/head.jpg" alt="">
+        </div>
+        <div class="author-name" rel="author">李东辉</div>
+        <div class="bio">
+            <p>前端开发者，热爱技术&设计，简单乐观爱创造</p>
+        </div>
+        
+        <ul class="sns-links">
+            
+            <li>
+                <a href="//zhihu.com/people/li-dong-hui-23/activities" target="_blank">
+                    <i class="iconfont icon-zhihu"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//jianshu.com/users/3c0dfb0e3ffd/timeline" target="_blank">
+                    <i class="iconfont icon-jianshu"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//juejin.im/user/58e6ea3761ff4b006b3e82ab" target="_blank">
+                    <i class="iconfont icon-juejin"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//github.com/lidonghui22" target="_blank">
+                    <i class="iconfont icon-github"></i>
+                </a>
+            </li>
+            
+        </ul>
+        
+    </section>
+    <section class="post-footer-item read-next">
+        
+        <div class="read-next-item">
+            <a href="/css/2017/04/18/css-text.html" class="read-next-link"></a>
+            <section>
+                <span>文本样式</span>
+                <p>文本样式css文本样式有三种：文本装饰、英文大小写转换、文本阴影text-decoration</p>
+            </section>
+            
+        </div>
+        
+        
+        <div class="read-next-item">
+            <a href="/css/2017/04/18/css-select.html" class="read-next-link"></a>
+            <section>
+                <span>css选择器</span>
+                <p>选择器汇总</p>
+            </section>
+            
+        </div>
+        
+    </section>
+    
+</section>
+
+<footer class="g-footer">
+    <section>李东辉的个人博客 © 2017</section>
+    <section>Powered by <a href="//jekyllrb.com">Jekyll</a> | <a href="https://github.com/kaeyleo/jekyll-theme-H2O">Theme H2O</a></section>
+</footer>
+
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+    socialShare('.social-share', {
+        sites: ['wechat','weibo','douban','twitter'],
+        wechatQrcodeTitle: "分享到微信朋友圈",
+        wechatQrcodeHelper: '<p>扫码后点击右上角</p><p>将本文分享至朋友圈</p>'
+    });
+</script>
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+/*写入自己的disqus信息*/
+s.src = '';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<script src="/assets/js/prism.js"></script>
+<script src="/assets/js/index.min.js"></script>
+</body>
+</html>

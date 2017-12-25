@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>css边框和背景 - 李东辉的个人博客</title>
+    <title>css背景 - 李东辉的个人博客</title>
     <meta name="author"  content="李东辉">
-    <meta name="description" content="css边框和背景">
+    <meta name="description" content="css背景">
     <meta name="keywords"  content="css">
     <!-- Open Graph -->
-    <meta property="og:title" content="css边框和背景 - 李东辉的个人博客">
+    <meta property="og:title" content="css背景 - 李东辉的个人博客">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://localhost:4000/css/2017/04/18/css-border-background.html">
+    <meta property="og:url" content="http://localhost:5000/css/2017/04/18/css-background.html">
     <meta property="og:description" content="昵称飘零叶，前端开发者/爱运动/梦想当一名厨师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。">
     <meta property="og:site_name" content="李东辉的个人博客">
     <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
@@ -48,13 +48,13 @@
         <div class="post-tags">
             
             
-            <a href="http://localhost:4000/tags#css" class="post-tag">css</a>
+            <a href="http://localhost:5000/tags#css" class="post-tag">css</a>
             
             
         </div>
-        <h1>css边框和背景</h1>
+        <h1>css背景</h1>
         <div class="post-meta">
-            <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">lidonghui</a></></span>
+            <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:5000" target="_blank" rel="author">lidonghui</a></></span>
             <time class="post-meta-item" datetime="17-04-18"><i class="iconfont icon-date"></i>18 Apr 2017</time>
         </div>
     </div>
@@ -64,192 +64,7 @@
 <div class="post-content">
     
     <article class="markdown-body">
-        <blockquote>
-  <p>css盒子模型的可见性可以用两种方式实现，一是设置边框，二是设置背景</p>
-</blockquote>
-
-<h2 id="声明边框">声明边框</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>属性</th>
-      <th>值</th>
-      <th>说明</th>
-      <th>CSS 版本</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>border-width</td>
-      <td>长度值</td>
-      <td>设置边框的宽度，可选</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>border-style</td>
-      <td>样式名称</td>
-      <td>设置边框的样式，必选</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>border-color</td>
-      <td>颜色值</td>
-      <td>设置边框的颜色，可选</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>这三个属性，是有border-style是必须声明才能出现边框，其他两个属性会出现默认值</p>
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*最简单的边框，默认长度3px，边框颜色为黑色*/</span>
-<span class="nt">div</span> <span class="p">{</span>
-    <span class="py">dorder-style</span><span class="p">:</span><span class="nb">solid</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="c">/*可以简写成border:1px solid #ccc;*/</span>   
-<span class="nt">div</span> <span class="p">{</span>
-    <span class="nl">border-width</span><span class="p">:</span><span class="m">2px</span><span class="p">;</span>
-    <span class="nl">border-style</span><span class="p">:</span><span class="nb">solid</span><span class="p">;</span>
-    <span class="nl">border-color</span><span class="p">:</span><span class="m">#ccc</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h2 id="边框的样式">边框的样式</h2>
-<p>边框的样式分别是边框的宽度，边框线条类型，边框颜色；其中颜色是通用颜色代码，而边框高度和线条类型有边框自己的特点</p>
-
-<p>边框的宽度：一般来说，使用px的频率是最高的</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>值</th>
-      <th>说明</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>长度值</td>
-      <td>CSS 长度值：比如 px、em 等</td>
-    </tr>
-    <tr>
-      <td>百分数</td>
-      <td>直接设置百分数：1、2、3 等</td>
-    </tr>
-    <tr>
-      <td>thin、medium、thick</td>
-      <td>使用长度名称的预设宽度。这三个值的具体意义由浏览器来定义，从小到大依次增大。</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>边框线条类型：一般来说，使用实线的频率是最高的</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>值</th>
-      <th>说明</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>none</td>
-      <td>没有边框</td>
-    </tr>
-    <tr>
-      <td>dashed</td>
-      <td>破折线边框</td>
-    </tr>
-    <tr>
-      <td>dotted</td>
-      <td>圆点线边框</td>
-    </tr>
-    <tr>
-      <td>double</td>
-      <td>双线边框</td>
-    </tr>
-    <tr>
-      <td>groove</td>
-      <td>槽线边框</td>
-    </tr>
-    <tr>
-      <td>inset</td>
-      <td>使元素内容具有内嵌效果的边框</td>
-    </tr>
-    <tr>
-      <td>outset</td>
-      <td>使元素内容具有外凸效果的边框</td>
-    </tr>
-    <tr>
-      <td>ridge</td>
-      <td>脊线边框</td>
-    </tr>
-    <tr>
-      <td>solid</td>
-      <td>实线边框</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="圆角边框">圆角边框</h2>
-<p>css3提供了非常实用的圆角边框设置，使用border-radius属性就可以达到这种效果</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>属性</th>
-      <th>值</th>
-      <th>说明</th>
-      <th>CSS 版本</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>border-radius</td>
-      <td>长度值或百分数</td>
-      <td>四条边角</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>border-top-left-radius</td>
-      <td>长度值或百分数</td>
-      <td>左上边角</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>border-top-right-radius</td>
-      <td>长度值或百分数</td>
-      <td>右上边角</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>border-bottom-left-radius</td>
-      <td>长度值或百分数</td>
-      <td>左下边角</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>border-bottom-right-radius</td>
-      <td>长度值或百分数</td>
-      <td>右下边角</td>
-      <td>3</td>
-    </tr>
-  </tbody>
-</table>
-
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*设置圆角矩形*/</span>
-<span class="nt">div</span> <span class="p">{</span>
-    <span class="nl">border</span><span class="p">:</span><span class="m">1px</span> <span class="nb">solid</span> <span class="no">red</span><span class="p">;</span>
-    <span class="nl">border-radius</span><span class="p">:</span><span class="m">10px</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="c">/*矩形四个角分别设置不同弧度的圆角*/</span>
-<span class="nt">div</span> <span class="p">{</span>
-    <span class="nl">border</span><span class="p">:</span><span class="m">1px</span> <span class="nb">solid</span> <span class="no">red</span><span class="p">;</span>
-    <span class="nl">border-radius</span><span class="p">:</span><span class="m">10px</span> <span class="m">20px</span> <span class="m">30px</span> <span class="m">40px</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h2 id="设置背景">设置背景</h2>
+        <h2 id="设置背景">设置背景</h2>
 <p>css背景设置样式表如下：</p>
 
 <table>
@@ -644,6 +459,13 @@
 <span class="p">}</span>                           
 </code></pre></div></div>
 
+<h4 id="background">background</h4>
+<p>背景图简写顺序如下:
+背景颜色，背景图片，背景图片是否平铺，滚动方式，位置坐标 / 图片尺寸，渲染方式，裁剪方式  （“/”是固定写法，目的是隔开两个属性，这样写才有效）</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">div</span> <span class="p">{</span>
+    <span class="nl">background</span><span class="p">:</span> <span class="no">red</span> <span class="sx">url(loading.png)</span> <span class="nb">no-repeat</span> <span class="nb">scroll</span> <span class="nb">left</span> <span class="p">/</span> <span class="m">100%</span> <span class="n">border-box</span> <span class="n">content-box</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
     </article>
     
@@ -656,7 +478,7 @@
 <section class="author-detail">
     <section class="post-footer-item author-card">
         <div class="avatar">
-            <img src="http://localhost:4000/assets/img/user/head.jpg" alt="">
+            <img src="http://localhost:5000/assets/img/user/head.jpg" alt="">
         </div>
         <div class="author-name" rel="author">李东辉</div>
         <div class="bio">
@@ -695,20 +517,20 @@
     <section class="post-footer-item read-next">
         
         <div class="read-next-item">
-            <a href="/css/2017/04/18/css-box-model.html" class="read-next-link"></a>
+            <a href="/css/2017/04/18/css-basic.html" class="read-next-link"></a>
             <section>
-                <span>css盒子模型</span>
-                <p>  CSS 盒模型中最基础的就是设置一个元素的尺寸大小</p>
+                <span>css基础</span>
+                <p>使用css解析：css样式由一条或多条以分号隔开的样式声明组成，每条声明包含一个键值对&lt;p style="c...</p>
             </section>
             
         </div>
         
         
         <div class="read-next-item">
-            <a href="/css/2017/04/18/css-basic.html" class="read-next-link"></a>
+            <a href="/js/2015/08/05/for-in.html" class="read-next-link"></a>
             <section>
-                <span>css基础</span>
-                <p>使用css解析：css样式由一条或多条以分号隔开的样式声明组成，每条声明包含一个键值对&lt;p style="c...</p>
+                <span>for in 循环遍历对象和数组</span>
+                <p>用for循环进行遍历时，如果是对象，则 i 代表的是属性，如果是数组，则代表的是“键”； 用这种方法可以实现对对象...</p>
             </section>
             
         </div>

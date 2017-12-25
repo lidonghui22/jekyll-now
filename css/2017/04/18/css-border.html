@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>超链接和路径 - 李东辉的个人博客</title>
+    <title>css边框 - 李东辉的个人博客</title>
     <meta name="author"  content="李东辉">
-    <meta name="description" content="超链接和路径">
-    <meta name="keywords"  content="html">
+    <meta name="description" content="css边框">
+    <meta name="keywords"  content="css">
     <!-- Open Graph -->
-    <meta property="og:title" content="超链接和路径 - 李东辉的个人博客">
+    <meta property="og:title" content="css边框 - 李东辉的个人博客">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://localhost:5000/html/2017/04/18/a-elements.html">
+    <meta property="og:url" content="http://localhost:5000/css/2017/04/18/css-border.html">
     <meta property="og:description" content="昵称飘零叶，前端开发者/爱运动/梦想当一名厨师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。">
     <meta property="og:site_name" content="李东辉的个人博客">
     <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
@@ -48,11 +48,11 @@
         <div class="post-tags">
             
             
-            <a href="http://localhost:5000/tags#html" class="post-tag">html</a>
+            <a href="http://localhost:5000/tags#css" class="post-tag">css</a>
             
             
         </div>
-        <h1>超链接和路径</h1>
+        <h1>css边框</h1>
         <div class="post-meta">
             <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:5000" target="_blank" rel="author">lidonghui</a></></span>
             <time class="post-meta-item" datetime="17-04-18"><i class="iconfont icon-date"></i>18 Apr 2017</time>
@@ -64,114 +64,185 @@
 <div class="post-content">
     
     <article class="markdown-body">
-        <h2 id="超链接的属性">超链接的属性</h2>
+        <h2 id="声明边框">声明边框</h2>
 
 <table>
   <thead>
     <tr>
-      <th>属性名称</th>
+      <th>属性</th>
+      <th>值</th>
+      <th>说明</th>
+      <th>CSS 版本</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>border-width</td>
+      <td>长度值</td>
+      <td>设置边框的宽度，可选</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>border-style</td>
+      <td>样式名称</td>
+      <td>设置边框的样式，必选</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>border-color</td>
+      <td>颜色值</td>
+      <td>设置边框的颜色，可选</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>这三个属性，是有border-style是必须声明才能出现边框，其他两个属性会出现默认值</p>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*最简单的边框，默认长度3px，边框颜色为黑色*/</span>
+<span class="nt">div</span> <span class="p">{</span>
+    <span class="py">dorder-style</span><span class="p">:</span><span class="nb">solid</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c">/*可以简写成border:1px solid #ccc;*/</span>   
+<span class="nt">div</span> <span class="p">{</span>
+    <span class="nl">border-width</span><span class="p">:</span><span class="m">2px</span><span class="p">;</span>
+    <span class="nl">border-style</span><span class="p">:</span><span class="nb">solid</span><span class="p">;</span>
+    <span class="nl">border-color</span><span class="p">:</span><span class="m">#ccc</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="边框的样式">边框的样式</h2>
+<p>边框的样式分别是边框的宽度，边框线条类型，边框颜色；其中颜色是通用颜色代码，而边框高度和线条类型有边框自己的特点</p>
+
+<p>边框的宽度：一般来说，使用px的频率是最高的</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
       <th>说明</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>href</td>
-      <td>指定<a>元素所指资源的 URL</a></td>
+      <td>长度值</td>
+      <td>CSS 长度值：比如 px、em 等</td>
     </tr>
     <tr>
-      <td>hreflang</td>
-      <td>指向的链接资源所使用的语言</td>
+      <td>百分数</td>
+      <td>直接设置百分数：1、2、3 等</td>
     </tr>
     <tr>
-      <td>media</td>
-      <td>说明所链接资源用于哪种设备</td>
-    </tr>
-    <tr>
-      <td>rel</td>
-      <td>说明文档与所链接资源的关系类型</td>
-    </tr>
-    <tr>
-      <td>target</td>
-      <td>指定用以打开所链接资源的浏览环境</td>
-    </tr>
-    <tr>
-      <td>type</td>
-      <td>说明所链接资源的 MIME 类型（比如 text/html）</td>
+      <td>thin、medium、thick</td>
+      <td>使用长度名称的预设宽度。这三个值的具体意义由浏览器来定义，从小到大依次增大。</td>
     </tr>
   </tbody>
 </table>
 
-<p>这些属性之中，只有href和target比较常用</p>
-
-<h3 id="href属性">href属性</h3>
-<p>解析：href是必要属性，否则<a>标签就变成空元素了，
-属性值是http://开头的url，表示跳转到外部网站。</a></p>
-
-<h3 id="target属性">target属性</h3>
+<p>边框线条类型：一般来说，使用实线的频率是最高的</p>
 
 <table>
   <thead>
     <tr>
-      <th>属性名称</th>
+      <th>值</th>
       <th>说明</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>_blank</td>
-      <td>在新窗口或标签页中打开</td>
+      <td>none</td>
+      <td>没有边框</td>
     </tr>
     <tr>
-      <td>_parent</td>
-      <td>在父窗框组(frameset)中打开</td>
+      <td>dashed</td>
+      <td>破折线边框</td>
     </tr>
     <tr>
-      <td>_self</td>
-      <td>在当前窗口打开（默认）</td>
+      <td>dotted</td>
+      <td>圆点线边框</td>
     </tr>
     <tr>
-      <td>_top</td>
-      <td>在顶层窗口打开文档</td>
+      <td>double</td>
+      <td>双线边框</td>
+    </tr>
+    <tr>
+      <td>groove</td>
+      <td>槽线边框</td>
+    </tr>
+    <tr>
+      <td>inset</td>
+      <td>使元素内容具有内嵌效果的边框</td>
+    </tr>
+    <tr>
+      <td>outset</td>
+      <td>使元素内容具有外凸效果的边框</td>
+    </tr>
+    <tr>
+      <td>ridge</td>
+      <td>脊线边框</td>
+    </tr>
+    <tr>
+      <td>solid</td>
+      <td>实线边框</td>
     </tr>
   </tbody>
 </table>
 
-<p>解析：常用打开方式</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_blank			//新窗口打开
-_self			//当前窗口打开
-</code></pre></div></div>
+<h2 id="圆角边框">圆角边框</h2>
+<p>css3提供了非常实用的圆角边框设置，使用border-radius属性就可以达到这种效果</p>
 
-<h2 id="相对与绝对路径">相对与绝对路径</h2>
-<p>1.绝对路径：直接从file://磁盘符开始的完整路径
-例：file://d://html5/index.html</p>
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>值</th>
+      <th>说明</th>
+      <th>CSS 版本</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>border-radius</td>
+      <td>长度值或百分数</td>
+      <td>四条边角</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>border-top-left-radius</td>
+      <td>长度值或百分数</td>
+      <td>左上边角</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>border-top-right-radius</td>
+      <td>长度值或百分数</td>
+      <td>右上边角</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>border-bottom-left-radius</td>
+      <td>长度值或百分数</td>
+      <td>左下边角</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>border-bottom-right-radius</td>
+      <td>长度值或百分数</td>
+      <td>右下边角</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>2.相对路径：相对于链接页面而言的另一个页面路径
-例：index.htm</p>
-
-<p>3.目录结构语法：
-如果在同一个主目录下，有多个子目录层次，那就需要目录结构语法
-同一个目录：index.html 或者 ./index.html
-在子目录：xxx/index.html
-在孙子目录：xxx/xxx/index.html
-在父目录：../index.html
-在爷爷目录：../../index.html</p>
-
-<p>4.锚点设置
-通过属性id或者name实现定位
-链接</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#1"</span><span class="nt">&gt;</span>第一章<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#2"</span><span class="nt">&gt;</span>第二章<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#3"</span><span class="nt">&gt;</span>第三章<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#4"</span><span class="nt">&gt;</span>第四章<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#5"</span><span class="nt">&gt;</span>第五章<span class="nt">&lt;/a&gt;</span>
-</code></pre></div></div>
-
-<p>锚点</p>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">name=</span><span class="s">"1"</span><span class="nt">&gt;</span>第一章内容<span class="nt">&lt;/a&gt;</span>        <span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">"1"</span><span class="nt">&gt;</span>第一章内容<span class="nt">&lt;/a&gt;</span> 
-<span class="nt">&lt;a</span> <span class="na">name=</span><span class="s">"2"</span><span class="nt">&gt;</span>第二章内容<span class="nt">&lt;/a&gt;</span>        <span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">"2"</span><span class="nt">&gt;</span>第二章内容<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">name=</span><span class="s">"3"</span><span class="nt">&gt;</span>第三章内容<span class="nt">&lt;/a&gt;</span>        <span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">"3"</span><span class="nt">&gt;</span>第三章内容<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">name=</span><span class="s">"4"</span><span class="nt">&gt;</span>第四章内容<span class="nt">&lt;/a&gt;</span>        <span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">"4"</span><span class="nt">&gt;</span>第四章内容<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">name=</span><span class="s">"5"</span><span class="nt">&gt;</span>第五章内容<span class="nt">&lt;/a&gt;</span>        <span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">"5"</span><span class="nt">&gt;</span>第五章内容<span class="nt">&lt;/a&gt;</span>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*设置圆角矩形*/</span>
+<span class="nt">div</span> <span class="p">{</span>
+    <span class="nl">border</span><span class="p">:</span><span class="m">1px</span> <span class="nb">solid</span> <span class="no">red</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span><span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c">/*矩形四个角分别设置不同弧度的圆角*/</span>
+<span class="nt">div</span> <span class="p">{</span>
+    <span class="nl">border</span><span class="p">:</span><span class="m">1px</span> <span class="nb">solid</span> <span class="no">red</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span><span class="m">10px</span> <span class="m">20px</span> <span class="m">30px</span> <span class="m">40px</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
     </article>
@@ -224,20 +295,20 @@ _self			//当前窗口打开
     <section class="post-footer-item read-next">
         
         <div class="read-next-item">
-            <a href="/html/2017/04/18/block-elements.html" class="read-next-link"></a>
+            <a href="/css/2017/04/18/css-box-model.html" class="read-next-link"></a>
             <section>
-                <span>分组元素</span>
-                <p>分组元素汇总</p>
+                <span>css盒子模型</span>
+                <p>  CSS 盒模型中最基础的就是设置一个元素的尺寸大小</p>
             </section>
             
         </div>
         
         
         <div class="read-next-item">
-            <a href="/css/2017/04/18/transform-2d.html" class="read-next-link"></a>
+            <a href="/css/2017/04/18/css-basic.html" class="read-next-link"></a>
             <section>
-                <span>css3 2D变形transform</span>
-                <p>  css3提供了元素变形效果，也叫变换，它可以将元素实现旋转、缩放和平移的功能。</p>
+                <span>css基础</span>
+                <p>使用css解析：css样式由一条或多条以分号隔开的样式声明组成，每条声明包含一个键值对&lt;p style="c...</p>
             </section>
             
         </div>

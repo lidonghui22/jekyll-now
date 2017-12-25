@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>for in 循环遍历对象和数组 - 李东辉的个人博客</title>
+    <title>css列表 - 李东辉的个人博客</title>
     <meta name="author"  content="李东辉">
-    <meta name="description" content="for in 循环遍历对象和数组">
-    <meta name="keywords"  content="js">
+    <meta name="description" content="css列表">
+    <meta name="keywords"  content="css">
     <!-- Open Graph -->
-    <meta property="og:title" content="for in 循环遍历对象和数组 - 李东辉的个人博客">
+    <meta property="og:title" content="css列表 - 李东辉的个人博客">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://localhost:5000/js/2015/08/05/for-in.html">
+    <meta property="og:url" content="http://localhost:5000/css/2017/04/18/css-list.html">
     <meta property="og:description" content="昵称飘零叶，前端开发者/爱运动/梦想当一名厨师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。">
     <meta property="og:site_name" content="李东辉的个人博客">
     <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
@@ -48,14 +48,14 @@
         <div class="post-tags">
             
             
-            <a href="http://localhost:5000/tags#js" class="post-tag">js</a>
+            <a href="http://localhost:5000/tags#css" class="post-tag">css</a>
             
             
         </div>
-        <h1>for in 循环遍历对象和数组</h1>
+        <h1>css列表</h1>
         <div class="post-meta">
             <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:5000" target="_blank" rel="author">lidonghui</a></></span>
-            <time class="post-meta-item" datetime="15-08-05"><i class="iconfont icon-date"></i>05 Aug 2015</time>
+            <time class="post-meta-item" datetime="17-04-18"><i class="iconfont icon-date"></i>18 Apr 2017</time>
         </div>
     </div>
     
@@ -64,24 +64,177 @@
 <div class="post-content">
     
     <article class="markdown-body">
-        <p>用for循环进行遍历时，如果是对象，则 i 代表的是属性，如果是数组，则代表的是“键”； 
-用这种方法可以实现对对象和数组的遍历。</p>
+        <h2 id="列表属性">列表属性</h2>
 
-<p>示例：</p>
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>值</th>
+      <th>说明</th>
+      <th>CSS 版本</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>list-style-type</td>
+      <td>类型值</td>
+      <td>列表中的标记类型</td>
+      <td>1/2</td>
+    </tr>
+    <tr>
+      <td>list-style-image</td>
+      <td>none 或url</td>
+      <td>图像作为列表标记</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>list-style-position</td>
+      <td>位置值</td>
+      <td>排列的相对位置</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>list-style</td>
+      <td>简写属性</td>
+      <td>列表的简写形式</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">aaa</span><span class="p">:</span><span class="s1">'a123'</span><span class="p">,</span><span class="na">bbb</span><span class="p">:</span><span class="s1">'b123'</span><span class="p">};</span>
-<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>                             <span class="c1">// aaa     bbb</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span> <span class="p">[</span> <span class="nx">i</span> <span class="p">]);</span>                     <span class="c1">// a123    b123</span>
+<h4 id="list-style-type">list-style-type</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+      <th>CSS 版本</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>none</td>
+      <td>没有标记</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>disc</td>
+      <td>实心圆</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>circle</td>
+      <td>空心圆</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>square</td>
+      <td>实心方块</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>decimal</td>
+      <td>阿拉伯数字</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>lower-roman</td>
+      <td>小写罗马数字</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>upper-roman</td>
+      <td>大写罗马数字</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>lower-alpha</td>
+      <td>小写英文字母</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>upper-roman</td>
+      <td>大写英文字母</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*设置列表前缀标记类型为实心方块*/</span>
+<span class="nt">ul</span> <span class="p">{</span>
+    <span class="nl">list-style-type</span><span class="p">:</span><span class="nb">square</span><span class="p">;</span>
 <span class="p">}</span>
-
-<span class="kd">var</span> <span class="nx">obj1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a100'</span> <span class="p">,</span> <span class="s1">'a200'</span> <span class="p">,</span> <span class="s1">'a300'</span><span class="p">];</span>
-<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">obj1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>                             <span class="c1">// 0    1    2</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj1</span> <span class="p">[</span> <span class="nx">i</span> <span class="p">]);</span>                    <span class="c1">// a123   b123</span>
-<span class="p">}</span>
-
 </code></pre></div></div>
+
+<h4 id="list-style-position">list-style-position</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+      <th>CSS 版本</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>outside</td>
+      <td>默认值,标记位于内容框外部</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>inside</td>
+      <td>标记位于内容框内部</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*设置标记位于内容框内部*/</span>
+<span class="nt">ul</span><span class="p">{</span>
+    <span class="nl">width</span><span class="p">:</span><span class="m">120px</span><span class="p">;</span>
+    <span class="nl">list-style-position</span><span class="p">:</span><span class="nb">inside</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="list-style-image">list-style-image</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>值</th>
+      <th>说明</th>
+      <th>CSS 版本</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>none</td>
+      <td>不使用图像</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>url</td>
+      <td>通过url使用图像</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/*使用图片作为前缀的标记*/</span>
+<span class="nt">ul</span> <span class="p">{</span>
+    <span class="nl">list-style-image</span><span class="p">:</span><span class="sx">url(abc.png)</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="list-style简写">list-style简写</h4>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">ul</span> <span class="p">{</span>
+	<span class="nl">list-style</span><span class="p">:</span> <span class="nb">disc</span> <span class="nb">inside</span> <span class="sx">url(bullet.png)</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
 
     </article>
     
@@ -133,20 +286,20 @@
     <section class="post-footer-item read-next">
         
         <div class="read-next-item">
-            <a href="/css/2017/04/18/css-background.html" class="read-next-link"></a>
+            <a href="/css/2017/04/18/css-select.html" class="read-next-link"></a>
             <section>
-                <span>css背景</span>
-                <p>设置背景css背景设置样式表如下：</p>
+                <span>css选择器</span>
+                <p>选择器汇总</p>
             </section>
             
         </div>
         
         
         <div class="read-next-item">
-            <a href="/js/2014/08/19/cookie.html" class="read-next-link"></a>
+            <a href="/css/2017/04/18/css-box-model.html" class="read-next-link"></a>
             <section>
-                <span>cookie基本用法</span>
-                <p>每个 Cookie 都是这样的：</p>
+                <span>css盒子模型</span>
+                <p>  CSS 盒模型中最基础的就是设置一个元素的尺寸大小</p>
             </section>
             
         </div>
