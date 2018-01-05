@@ -1,6 +1,12 @@
 [
   
     {
+      "title"    : "百度地图定位，获取用户位置信息",
+      "tags"     : "mobile",
+      "url"      : "/mobile/2017/12/29/baidu-map-position.html"
+    } ,
+  
+    {
       "title"    : "音频和视频",
       "tags"     : "html",
       "url"      : "/html/2017/04/18/video-audio.html"

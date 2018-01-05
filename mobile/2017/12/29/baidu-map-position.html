@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百度地图定位，获取用户位置信息 - 李东辉的个人博客</title>
+    <meta name="author"  content="李东辉">
+    <meta name="description" content="百度地图定位，获取用户位置信息">
+    <meta name="keywords"  content="mobile">
+    <!-- Open Graph -->
+    <meta property="og:title" content="百度地图定位，获取用户位置信息 - 李东辉的个人博客">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:5000/mobile/2017/12/29/baidu-map-position.html">
+    <meta property="og:description" content="昵称飘零叶，前端开发者/爱运动/梦想当一名厨师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。">
+    <meta property="og:site_name" content="李东辉的个人博客">
+    <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_roc50gemkxpw4s4i.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    <link rel="stylesheet" href="/assets/css/share.min.css">
+    <link rel="stylesheet" href="/assets/css/app.min.css">
+</head>
+<body>
+    <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+<input id="nm-switch" type="hidden" value="true">
+
+<header class="g-header">
+    <!-- <div class="g-logo">
+      <a href="/"></a>
+    </div>
+    <i id="menu-toggle" class="iconfont icon-menu"></i> -->
+    <nav class="g-nav">
+        <ul>
+            
+            <li><a href="/">home</a></li>
+            
+            <li><a href="/tags.html">tags</a></li>
+            
+        </ul>
+    </nav>
+</header>
+
+
+<header class="g-banner post-header post-pattern-circuitBoard bgcolor-default post-no-cover" data-theme="default">
+    <div class="post-wrapper">
+        <div class="post-tags">
+            
+            
+            <a href="http://localhost:5000/tags#mobile" class="post-tag">mobile</a>
+            
+            
+        </div>
+        <h1>百度地图定位，获取用户位置信息</h1>
+        <div class="post-meta">
+            <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:5000" target="_blank" rel="author">lidonghui</a></></span>
+            <time class="post-meta-item" datetime="17-12-29"><i class="iconfont icon-date"></i>29 Dec 2017</time>
+        </div>
+    </div>
+    
+</header>
+
+<div class="post-content">
+    
+    <article class="markdown-body">
+        <h2 id="前言">前言</h2>
+<p>在使用百度地图定位的项目中，一开始使用的是ip定位，但获取的ip往往是服务器而不是用户的，误差比较大，这样就会造成定位很不准确，所以在移动端的项目中决定使用gps定位。</p>
+<h2 id="逻辑">逻辑</h2>
+<p>由于获取位置信息必须经过用户授权，而这种授权在微信浏览器中每次刷新页面都会弹窗（其他浏览器只会授权一次），所以想到的解决方案就是用cookie存储位置信息，在授权的时效内不再进行定位操作，具体流程如下：
+先获取用户gps坐标，然后将此位置信息转换成百度坐标，最终通过百度api将用户的位置信息解析出来并存放到cookie中，每次加载页面进行调用。</p>
+
+<h2 id="百度地图js引入">百度地图js引入</h2>
+<p>解析：ak是私有的，需要自己在百度地图开放平台中进行申请。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://api.map.baidu.com/api?v=2.0&amp;ak=自己的ak"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<h2 id="页面js">页面js</h2>
+<p>解析：ajaxGetList方法通过获取cookie中用户位置信息，异步请求接口来加载页面数据，此处调用的是外部方法，可以跳过。</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">option</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">enableHighAccuracy</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>    	  <span class="c1">//设置提示定位的准确度</span>
+        <span class="na">maximumAge</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>                     <span class="c1">//禁用缓存</span>
+    <span class="p">},</span>
+    <span class="nx">lat</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span>                             <span class="c1">//纬度</span>
+    <span class="nx">lon</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span>                             <span class="c1">//经度</span>
+    <span class="nx">loc_city</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span>                        <span class="c1">//城市</span>
+    <span class="nx">cookie_time</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span>                     <span class="c1">//存储用户位置信息的cookie时效为30分钟</span>
+    <span class="nx">loc_obj</span> <span class="o">=</span> <span class="p">{};</span>                         <span class="c1">//用户位置信息对象</span>
+
+    <span class="nx">getUserLoc</span><span class="p">(</span><span class="nx">loc_obj</span><span class="p">);</span>
+
+    <span class="cm">/*用户位置信息不为空时，禁止再次授权定位*/</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">city</span> <span class="o">||</span> <span class="o">!</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">lat</span> <span class="o">||</span> <span class="o">!</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">lon</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="nb">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">){</span>
+            <span class="nb">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">(</span><span class="nx">showPosition</span><span class="p">,</span><span class="nx">showError</span><span class="p">,</span><span class="nx">option</span><span class="p">);</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="nx">ajaxGetList</span><span class="p">(</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">city</span><span class="p">,</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">lat</span><span class="p">,</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">lon</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nx">ajaxGetList</span><span class="p">(</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">city</span><span class="p">,</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">lat</span><span class="p">,</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">lon</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+
+    <span class="cm">/*获取用户GPS经纬度，并转换成百度坐标*/</span>
+    <span class="kd">function</span> <span class="nx">showPosition</span><span class="p">(</span><span class="nx">position</span><span class="p">){</span>
+        <span class="nx">lat</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span><span class="p">;</span>     <span class="c1">//获取纬度</span>
+        <span class="nx">lon</span> <span class="o">=</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span><span class="p">;</span>    <span class="c1">//获取经度</span>
+        <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+            <span class="kd">var</span> <span class="nx">convertor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BMap</span><span class="p">.</span><span class="nx">Convertor</span><span class="p">();</span>
+            <span class="kd">var</span> <span class="nx">pointArr</span> <span class="o">=</span> <span class="p">[];</span>
+            <span class="nx">gpsPoint</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BMap</span><span class="p">.</span><span class="nx">Point</span><span class="p">(</span><span class="nx">lon</span><span class="p">,</span><span class="nx">lat</span><span class="p">);</span>
+            <span class="nx">pointArr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">gpsPoint</span><span class="p">);</span>
+            <span class="nx">convertor</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="nx">pointArr</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">translateCallback</span><span class="p">);</span>
+        <span class="p">},</span> <span class="mi">100</span><span class="p">);</span> 
+    <span class="p">}</span>
+
+    <span class="cm">/*定位失败的回调*/</span>
+    <span class="kd">function</span> <span class="nx">showError</span><span class="p">(</span><span class="nx">error</span><span class="p">){</span>
+        <span class="k">switch</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">code</span><span class="p">){</span>
+            <span class="k">case</span> <span class="nx">error</span><span class="p">.</span><span class="na">PERMISSION_DENIED</span><span class="p">:</span>           <span class="c1">//用户禁止定位</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"您拒绝了地理定位服务"</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="nx">error</span><span class="p">.</span><span class="na">POSITION_UNAVAILABLE</span><span class="p">:</span>        <span class="c1">//无法获取位置</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"无法获取您的地理位置"</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="nx">error</span><span class="p">.</span><span class="na">TIMEOUT</span><span class="p">:</span>                     <span class="c1">//请求超时</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"超时"</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nx">ajaxGetList</span><span class="p">(</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">city</span><span class="p">,</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">lat</span><span class="p">,</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">lon</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*坐标转换完之后的回调函数*/</span>
+    <span class="kd">function</span> <span class="nx">translateCallback</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">lon</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">points</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">lng</span><span class="p">;</span>
+            <span class="nx">lat</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">points</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">lat</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nx">getCity</span><span class="p">(</span><span class="nx">lon</span><span class="p">,</span><span class="nx">lat</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*获取用户所在城市*/</span>
+    <span class="kd">function</span> <span class="nx">getCity</span><span class="p">(</span><span class="nx">lon</span><span class="p">,</span><span class="nx">lat</span><span class="p">){</span>
+        <span class="kd">var</span> <span class="nx">pt</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BMap</span><span class="p">.</span><span class="nx">Point</span><span class="p">(</span><span class="nx">lon</span><span class="p">,</span><span class="nx">lat</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">geoc</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BMap</span><span class="p">.</span><span class="nx">Geocoder</span><span class="p">();</span>
+        <span class="nx">geoc</span><span class="p">.</span><span class="nx">getLocation</span><span class="p">(</span><span class="nx">pt</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">rs</span><span class="p">){</span>
+            <span class="nx">loc_city</span> <span class="o">=</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">addressComponents</span><span class="p">.</span><span class="nx">city</span><span class="p">;</span>
+            <span class="nx">setUserLoc</span><span class="p">(</span><span class="nx">lat</span><span class="p">,</span><span class="nx">lon</span><span class="p">,</span><span class="nx">loc_city</span><span class="p">);</span>
+        <span class="p">})</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*获取cookie*/</span>
+    <span class="kd">function</span> <span class="nx">getCookie</span><span class="p">(</span><span class="nx">c_name</span><span class="p">){</span>
+        <span class="kd">var</span> <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">length</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">){</span>
+            <span class="nx">c_start</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">c_name</span> <span class="o">+</span> <span class="s2">"="</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">c_start</span><span class="o">!=-</span><span class="mi">1</span><span class="p">){</span> 
+                <span class="nx">c_start</span><span class="o">=</span><span class="nx">c_start</span> <span class="o">+</span> <span class="nx">c_name</span><span class="p">.</span><span class="nx">length</span><span class="o">+</span><span class="mi">1</span>
+                <span class="nx">c_end</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">";"</span><span class="p">,</span><span class="nx">c_start</span><span class="p">)</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">c_end</span><span class="o">==-</span><span class="mi">1</span><span class="p">)</span> <span class="nx">c_end</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">length</span><span class="err">　　</span>
+                <span class="k">return</span> <span class="nx">unescape</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">c_start</span><span class="p">,</span><span class="nx">c_end</span><span class="p">))</span>
+            <span class="p">}</span> 
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="s2">""</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*设置cookie*/</span>
+    <span class="kd">function</span> <span class="nx">setCookie</span><span class="p">(</span><span class="nx">c_name</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">expiretimes</span><span class="p">){</span>
+        <span class="kd">var</span> <span class="nx">exp</span><span class="o">=</span><span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+        <span class="nx">exp</span><span class="p">.</span><span class="nx">setTime</span><span class="p">(</span><span class="nx">exp</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">+</span> <span class="nx">expiretimes</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="o">=</span><span class="nx">c_name</span><span class="o">+</span> <span class="s2">"="</span> <span class="o">+</span> <span class="nx">escape</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="nx">expiretimes</span><span class="o">==</span><span class="kc">null</span><span class="p">)</span> <span class="p">?</span> <span class="s2">""</span> <span class="p">:</span> <span class="s2">";expires="</span><span class="o">+</span><span class="nx">exp</span><span class="p">.</span><span class="nx">toGMTString</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*将用户位置和城市存储到cookie中*/</span>
+    <span class="kd">function</span> <span class="nx">setUserLoc</span><span class="p">(</span><span class="nx">lat</span><span class="p">,</span><span class="nx">lon</span><span class="p">,</span><span class="nx">city</span><span class="p">){</span>
+        <span class="nx">setCookie</span><span class="p">(</span><span class="s1">'user_lat'</span><span class="p">,</span><span class="nx">lat</span><span class="p">,</span><span class="nx">cookie_time</span><span class="p">);</span>
+        <span class="nx">setCookie</span><span class="p">(</span><span class="s1">'user_lon'</span><span class="p">,</span><span class="nx">lon</span><span class="p">,</span><span class="nx">cookie_time</span><span class="p">);</span>
+        <span class="nx">setCookie</span><span class="p">(</span><span class="s1">'user_city'</span><span class="p">,</span><span class="nx">city</span><span class="p">,</span><span class="nx">cookie_time</span><span class="p">);</span>
+        <span class="c1">//用户位置信息对象</span>
+        <span class="nx">getUserLoc</span><span class="p">(</span><span class="nx">loc_obj</span><span class="p">);</span>
+        <span class="nx">ajaxGetList</span><span class="p">(</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">city</span><span class="p">,</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">lat</span><span class="p">,</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">lon</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*获取用户位置信息*/</span>
+    <span class="kd">function</span> <span class="nx">getUserLoc</span><span class="p">(</span><span class="nx">obj</span><span class="p">){</span>
+        <span class="nx">obj</span><span class="p">.</span><span class="nx">lat</span> <span class="o">=</span> <span class="nx">getCookie</span><span class="p">(</span><span class="s1">'user_lat'</span><span class="p">);</span>
+        <span class="nx">obj</span><span class="p">.</span><span class="nx">lon</span> <span class="o">=</span> <span class="nx">getCookie</span><span class="p">(</span><span class="s1">'user_lon'</span><span class="p">);</span>
+        <span class="nx">obj</span><span class="p">.</span><span class="nx">city</span> <span class="o">=</span> <span class="nx">getCookie</span><span class="p">(</span><span class="s1">'user_city'</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">obj</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">})</span>
+</code></pre></div></div>
+
+<h2 id="后言">后言</h2>
+<p>这种定位方式在安卓测试是没有问题的，但是在ios版本10+上就悲剧了，直接不弹出定位授权的弹窗，几经调试和查阅文档最终发现在iOS 10中，苹果对webkit定位权限进行了修改，所有定位请求的页面必须是https协议的。如果是非https网页，在http协议下通过html5原生定位接口会返回错误，也就是无法正常定位到用户的具体位置，而已经支持https的网站则不会受影响。</p>
+
+<h2 id="解决方案">解决方案</h2>
+<p>1.将网站的http设置成https
+2.通过调用百度接口定位，放弃html5的原生定位方法</p>
+
+<h2 id="使用方法二">使用方法二</h2>
+
+<h4 id="百度地图js引入-1">百度地图js引入</h4>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://api.map.baidu.com/api?v=2.0&amp;ak=自己的ak"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+<h4 id="页面js-1">页面js</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">lat</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span>                       <span class="c1">//纬度</span>
+        <span class="nx">lon</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span>                       <span class="c1">//经度</span>
+        <span class="nx">loc_city</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span>                  <span class="c1">//城市</span>
+        <span class="nx">cookie_time</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span>               <span class="c1">//存储用户位置信息的cookie时效为30分钟</span>
+        <span class="nx">loc_obj</span> <span class="o">=</span> <span class="p">{};</span>                   <span class="c1">//用户位置信息对象</span>
+
+    <span class="nx">getUserLoc</span><span class="p">(</span><span class="nx">loc_obj</span><span class="p">);</span>
+    <span class="cm">/*用户位置信息不为空时，禁止再次授权定位*/</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">city</span> <span class="o">||</span> <span class="o">!</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">lat</span> <span class="o">||</span> <span class="o">!</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">lon</span><span class="p">){</span>
+        <span class="kd">var</span> <span class="nx">geolocation</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BMap</span><span class="p">.</span><span class="nx">Geolocation</span><span class="p">();</span>
+        <span class="nx">geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">getStatus</span><span class="p">()</span> <span class="o">==</span> <span class="nx">BMAP_STATUS_SUCCESS</span><span class="p">){</span>   
+                <span class="kd">var</span> <span class="nx">currentLat</span> <span class="o">=</span> <span class="nx">r</span><span class="p">.</span><span class="nx">point</span><span class="p">.</span><span class="nx">lat</span><span class="p">;</span>    
+                <span class="kd">var</span> <span class="nx">currentLon</span> <span class="o">=</span> <span class="nx">r</span><span class="p">.</span><span class="nx">point</span><span class="p">.</span><span class="nx">lng</span><span class="p">;</span>     
+                <span class="kd">var</span> <span class="nx">pt</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BMap</span><span class="p">.</span><span class="nx">Point</span><span class="p">(</span><span class="nx">currentLon</span><span class="p">,</span> <span class="nx">currentLat</span><span class="p">);</span>    
+                <span class="kd">var</span> <span class="nx">geoc</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BMap</span><span class="p">.</span><span class="nx">Geocoder</span><span class="p">();</span>    
+                <span class="nx">geoc</span><span class="p">.</span><span class="nx">getLocation</span><span class="p">(</span><span class="nx">pt</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">rs</span><span class="p">)</span> <span class="p">{</span>    
+                    <span class="kd">var</span> <span class="nx">addComp</span> <span class="o">=</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">addressComponents</span><span class="p">;</span>
+                    <span class="nx">lat</span> <span class="o">=</span> <span class="nx">currentLat</span><span class="p">;</span>
+                    <span class="nx">lon</span> <span class="o">=</span> <span class="nx">currentLon</span><span class="p">;</span>
+                    <span class="nx">loc_city</span> <span class="o">=</span> <span class="nx">addComp</span><span class="p">.</span><span class="nx">city</span><span class="p">;</span>
+                    <span class="nx">setUserLoc</span><span class="p">(</span><span class="nx">lat</span><span class="p">,</span><span class="nx">lon</span><span class="p">,</span><span class="nx">loc_city</span><span class="p">);</span>
+                    <span class="nx">ajaxGetList</span><span class="p">(</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">city</span><span class="p">,</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">lat</span><span class="p">,</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">lon</span><span class="p">);</span>
+                <span class="p">});</span>
+            <span class="p">}</span>
+        <span class="p">})</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+       <span class="nx">ajaxGetList</span><span class="p">(</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">city</span><span class="p">,</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">lat</span><span class="p">,</span><span class="nx">loc_obj</span><span class="p">.</span><span class="nx">lon</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*获取cookie*/</span>
+    <span class="kd">function</span> <span class="nx">getCookie</span><span class="p">(</span><span class="nx">c_name</span><span class="p">){</span>
+        <span class="kd">var</span> <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">length</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">){</span>
+            <span class="nx">c_start</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">c_name</span> <span class="o">+</span> <span class="s2">"="</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">c_start</span><span class="o">!=-</span><span class="mi">1</span><span class="p">){</span> 
+                <span class="nx">c_start</span><span class="o">=</span><span class="nx">c_start</span> <span class="o">+</span> <span class="nx">c_name</span><span class="p">.</span><span class="nx">length</span><span class="o">+</span><span class="mi">1</span>
+                <span class="nx">c_end</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">";"</span><span class="p">,</span><span class="nx">c_start</span><span class="p">)</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">c_end</span><span class="o">==-</span><span class="mi">1</span><span class="p">)</span> <span class="nx">c_end</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">length</span><span class="err">　　</span>
+                <span class="k">return</span> <span class="nx">unescape</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">c_start</span><span class="p">,</span><span class="nx">c_end</span><span class="p">))</span>
+            <span class="p">}</span> 
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="s2">""</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*设置cookie*/</span>
+    <span class="kd">function</span> <span class="nx">setCookie</span><span class="p">(</span><span class="nx">c_name</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">expiretimes</span><span class="p">){</span>
+        <span class="kd">var</span> <span class="nx">exp</span><span class="o">=</span><span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+        <span class="nx">exp</span><span class="p">.</span><span class="nx">setTime</span><span class="p">(</span><span class="nx">exp</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">+</span> <span class="nx">expiretimes</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="o">=</span><span class="nx">c_name</span><span class="o">+</span> <span class="s2">"="</span> <span class="o">+</span> <span class="nx">escape</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="nx">expiretimes</span><span class="o">==</span><span class="kc">null</span><span class="p">)</span> <span class="p">?</span> <span class="s2">""</span> <span class="p">:</span> <span class="s2">";expires="</span><span class="o">+</span><span class="nx">exp</span><span class="p">.</span><span class="nx">toGMTString</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*将用户位置和城市存储到cookie中*/</span>
+    <span class="kd">function</span> <span class="nx">setUserLoc</span><span class="p">(</span><span class="nx">lat</span><span class="p">,</span><span class="nx">lon</span><span class="p">,</span><span class="nx">city</span><span class="p">){</span>
+        <span class="nx">setCookie</span><span class="p">(</span><span class="s1">'user_lat'</span><span class="p">,</span><span class="nx">lat</span><span class="p">,</span><span class="nx">cookie_time</span><span class="p">);</span>
+        <span class="nx">setCookie</span><span class="p">(</span><span class="s1">'user_lon'</span><span class="p">,</span><span class="nx">lon</span><span class="p">,</span><span class="nx">cookie_time</span><span class="p">);</span>
+        <span class="nx">setCookie</span><span class="p">(</span><span class="s1">'user_city'</span><span class="p">,</span><span class="nx">city</span><span class="p">,</span><span class="nx">cookie_time</span><span class="p">);</span>
+        <span class="c1">//更新用户信息cookie</span>
+        <span class="nx">getUserLoc</span><span class="p">(</span><span class="nx">loc_obj</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="cm">/*获取用户位置信息*/</span>
+    <span class="kd">function</span> <span class="nx">getUserLoc</span><span class="p">(</span><span class="nx">obj</span><span class="p">){</span>
+        <span class="nx">obj</span><span class="p">.</span><span class="nx">lat</span> <span class="o">=</span> <span class="nx">getCookie</span><span class="p">(</span><span class="s1">'user_lat'</span><span class="p">);</span>
+        <span class="nx">obj</span><span class="p">.</span><span class="nx">lon</span> <span class="o">=</span> <span class="nx">getCookie</span><span class="p">(</span><span class="s1">'user_lon'</span><span class="p">);</span>
+        <span class="nx">obj</span><span class="p">.</span><span class="nx">city</span> <span class="o">=</span> <span class="nx">getCookie</span><span class="p">(</span><span class="s1">'user_city'</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">obj</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">})</span>
+
+</code></pre></div></div>
+
+    </article>
+    
+    <div class="social-share-wrapper">
+        <div class="social-share"></div>
+    </div>
+    
+</div>
+
+<section class="author-detail">
+    <section class="post-footer-item author-card">
+        <div class="avatar">
+            <img src="http://localhost:5000/assets/img/user/head.jpg" alt="">
+        </div>
+        <div class="author-name" rel="author">李东辉</div>
+        <div class="bio">
+            <p>前端开发者，热爱技术&设计，简单乐观爱创造</p>
+        </div>
+        
+        <ul class="sns-links">
+            
+            <li>
+                <a href="//zhihu.com/people/li-dong-hui-23/activities" target="_blank">
+                    <i class="iconfont icon-zhihu"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//jianshu.com/users/3c0dfb0e3ffd/timeline" target="_blank">
+                    <i class="iconfont icon-jianshu"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//juejin.im/user/58e6ea3761ff4b006b3e82ab" target="_blank">
+                    <i class="iconfont icon-juejin"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="//github.com/lidonghui22" target="_blank">
+                    <i class="iconfont icon-github"></i>
+                </a>
+            </li>
+            
+        </ul>
+        
+    </section>
+    <section class="post-footer-item read-next">
+        
+        
+        <div class="read-next-item">
+            <a href="/html/2017/04/18/video-audio.html" class="read-next-link"></a>
+            <section>
+                <span>音频和视频</span>
+                <p>video视频元素</p>
+            </section>
+            
+        </div>
+        
+    </section>
+    
+</section>
+
+<footer class="g-footer">
+    <section>李东辉的个人博客 © 2018</section>
+    <section>Powered by <a href="//jekyllrb.com">Jekyll</a> | <a href="https://github.com/kaeyleo/jekyll-theme-H2O">Theme H2O</a></section>
+</footer>
+
+<script src="/assets/js/social-share.min.js"></script>
+<script>
+    socialShare('.social-share', {
+        sites: ['wechat','weibo','douban','twitter'],
+        wechatQrcodeTitle: "分享到微信朋友圈",
+        wechatQrcodeHelper: '<p>扫码后点击右上角</p><p>将本文分享至朋友圈</p>'
+    });
+</script>
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+/*写入自己的disqus信息*/
+s.src = '';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<script src="/assets/js/prism.js"></script>
+<script src="/assets/js/index.min.js"></script>
+</body>
+</html>
